@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  <h2>Log in</h2>
+  form(method='POST' action='/user/login')
+    label(for='email') Email:
+    input(type='text' name='email')
+    label(for='password') Password:
+    input(type='text' name='password')
+    button Log in
+
+  <h2>Sign up</h2>
+  form(method='POST' action='/user/signup')
+    label(for="email") Email:
+    input(type="email" name="email") 
+    label(for='password') Password:
+    input(type='text' name='password')
+    button Sign up
+
+  
