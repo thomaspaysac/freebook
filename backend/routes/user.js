@@ -27,20 +27,13 @@ router.post('/login', asyncHandler(async (req, res, next) => {
 );
 
 router.post('/signup', asyncHandler(async (req, res, next) => {
-  const uuid = uuidv4();
   const { data, error } = await supabase.auth.signUp({
     email: req.body.email,
     password: req.body.password,
-    options: {
-      data: {
-        uuid: uuid,
-      }
-    }
   });
   const { DB_error } = await supabase
   .from('users')
   .insert({
-    uuid: uuid,
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     avatar: 'https://picsum.photos/200',
