@@ -1,25 +1,14 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { authContext } from "../App";
 
 export const ProtectedPage = () => {
-  const [isVerified, setIsVerified] = useState(false);
-  const [userInfo, setUserInfo] = useState();
+  const authData = useContext(authContext);
 
-  const verifyToken = async () => {
-    const req = await fetch('http://localhost:3000/protected');
-    if (req.status === 200) {
-      const res = await req.json();
-      setIsVerified(true);
-      setUserInfo(res.email);
-    } else {
-      setIsVerified(false);
-    }
+  const logData = () => {
+    console.log(authData);
   }
 
-  useEffect(() => {
-    verifyToken();
-  }, [])
-
-  if (!isVerified) {
+  if (!authData) {
     return (
       <>
         <h1>Protected Page</h1>
@@ -29,7 +18,8 @@ export const ProtectedPage = () => {
     return (
       <>
         <h1>Welcome !</h1>
-        <div>{userInfo}</div>
+        <div>{authData.email}</div>
+        <button onClick={logData}>Get data</button>
       </>
     )
   }

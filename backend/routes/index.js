@@ -9,19 +9,5 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/protected', asyncHandler(async (req, res, next) => {
-    jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) =>{
-      if (err) {
-        res.sendStatus(403);
-      } else {
-        /*res.json({
-          message: 'Authorized',
-          authData
-        });*/
-        res.status(200).json(authData);
-      }
-    })
-  })
-);
 
 module.exports = router;

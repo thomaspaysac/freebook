@@ -29,7 +29,6 @@ app.use(async (req, res, next) => {
   if (data.session) {
     req.token = data.session.access_token;
   }
-  //req.token = data.session.access_token;
   next();
 });
 
