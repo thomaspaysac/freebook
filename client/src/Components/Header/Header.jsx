@@ -1,3 +1,5 @@
+import { UserContainer } from "./UserContainer";
+
 export const Header = () => {
   const autoLogin = async () => {
     const data = {
@@ -21,6 +23,7 @@ export const Header = () => {
       <nav>
         <button onClick={autoLogin}>Auto login</button>
       </nav>
+      <UserContainer />
     </header>
   )
 }

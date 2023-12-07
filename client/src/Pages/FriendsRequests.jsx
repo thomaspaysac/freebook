@@ -1,8 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import { authContext } from "../App"
+import { FriendsRequestsContainer } from "../Components/Friends/RequestsContainer";
 
 export const FriendsRequestPage = () => {
-  const [requests, setRequests] = useState();
+  const [requests, setRequests] = useState([]);
+  const [invites, setInvites] = useState([]);
   const authData = useContext(authContext);
 
   const fetchRequests = async () => {
@@ -11,7 +13,22 @@ export const FriendsRequestPage = () => {
     }
     const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/pending`);
     const res = await req.json();
-    setRequests(res);
+    sortRequests(res);
+    //setRequests(res);
+  }
+
+  const sortRequests = (requests) => {
+    const tempInvites = [];
+    const tempRequests = [];
+    requests.forEach(req => {
+      if (req.user_ID.uuid === authData.sub) {
+        tempInvites.push(req);
+      } else {
+        tempRequests.push(req);
+      }
+    })
+    setInvites([...tempInvites]);
+    setRequests([...tempRequests]);
   }
 
   useEffect(() => {
@@ -29,7 +46,9 @@ export const FriendsRequestPage = () => {
   return (
     <>
       <div>{authData.sub}</div>
-      <button onClick={() => console.log(requests)}>Get data</button>
+      <button onClick={() => console.log({invites, requests})}>Get data</button>
+      <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
+      <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />
     </>
   )
 }

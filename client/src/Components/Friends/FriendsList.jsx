@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 
 export const FriendsList = ({ user_ID }) => {
   const [friends, setFriends] = useState();
@@ -13,7 +14,7 @@ export const FriendsList = ({ user_ID }) => {
     fetchFriendsList();
   }, [user_ID])
 
-  if (!friends) {
+  if (!friends || !user_ID) {
     return (
       <>
         Friends list loading...
@@ -24,13 +25,28 @@ export const FriendsList = ({ user_ID }) => {
       <ul>
         {
           friends.map((el) => {
-            return (
-              <li key={el.id}>
-                {el.friend_ID.first_name}
-                {el.friend_ID.last_name}
-                <img src={el.friend_ID.avatar} />
+            if (el.user_ID.uuid === user_ID) {
+              return (
+              <li key={el.id} onClick={() => console.log(el.friend_ID)}>
+                <Link to={`/user/${el.friend_ID.id}`}>
+                  {el.friend_ID.first_name}
+                  {el.friend_ID.last_name}
+                  <img src={el.friend_ID.avatar} />
+                </Link>
               </li>
-            )
+              )
+            } else {
+              return (
+              <li key={el.id} onClick={() => console.log(el.user_ID)}>
+                <Link to={`/user/${el.user_ID.id}`}>
+                  {el.user_ID.first_name}
+                  {el.user_ID.last_name}
+                  <img src={el.user_ID.avatar} />
+                </Link>
+              </li>
+              )
+            }
+            
           })
         }
       </ul>

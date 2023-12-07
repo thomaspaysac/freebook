@@ -13,6 +13,7 @@ router.get('/', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
+// POST Login
 router.post('/login', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email: req.body.email,
@@ -20,10 +21,9 @@ router.post('/login', asyncHandler(async (req, res, next) => {
   })
   res.json(data);
   req.token = data.session.access_token;
-  //res.locals.currentUser = req.user;
-  //next();
 }));
 
+// POST Signup
 router.post('/signup', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase.auth.signUp({
     email: req.body.email,
@@ -39,6 +39,7 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
  })
 }));
 
+// GET user session
 router.get('/session', asyncHandler(async (req, res, next) => {
   jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) =>{
     if (err) {
@@ -67,19 +68,35 @@ router.post('/friends/add', asyncHandler(async (req, res, next) => {
 router.get('/friends/:id/pending', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('friends')
-  .select('user_ID(id, first_name, last_name, avatar), friend_ID(id, first_name, last_name, avatar)')
+  .select('id, user_ID(id, uuid, first_name, last_name, avatar), friend_ID(id, uuid, first_name, last_name, avatar)')
   //.eq('friend_ID', req.params.id)
   .or(`user_ID.eq.${req.params.id}, friend_ID.eq.${req.params.id}`)
   .eq('accepted', false)
   res.json(data);
 }));
 
-// GET friends
+// PATCH accept friend request
+router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase
+  .from('friends')
+  .update({ accepted: true })
+  .eq('id', req.params.id)
+}));
+
+// DELETE rejected friend request
+router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase
+  .from('friends')
+  .delete()
+  .eq('id', req.params.id)
+}))
+
+// GET friends list
 router.get('/friends/:id', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('friends')
-  .select('user_ID, friend_ID(id, first_name, last_name, avatar)')
-  .eq('user_ID', req.params.id)
+  .select('user_ID(uuid, id, first_name, last_name, avatar), friend_ID(uuid, id, first_name, last_name, avatar)')
+  .or(`user_ID.eq.${req.params.id}, friend_ID.eq.${req.params.id}`)
   .eq('accepted', true)
   res.json(data);
 }));
