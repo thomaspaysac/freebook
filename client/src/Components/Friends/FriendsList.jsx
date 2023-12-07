@@ -36,10 +36,4 @@ export const FriendsList = ({ user_ID }) => {
       </ul>
     )
   }
-
-  return (
-    <>
-      <button onClick={() => console.log(friends)}>Log friends</button>
-    </>
-  )
 }
