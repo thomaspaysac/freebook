@@ -1,5 +1,12 @@
 import { UserContainer } from "./UserContainer";
 
+const styles = {
+  header: {
+    backgroundColor: '#2C2B5B',
+    color: '#ffffff',
+  }   
+};
+
 export const Header = () => {
   const autoLogin = async () => {
     const data = {
@@ -18,11 +25,9 @@ export const Header = () => {
   }
 
   return (
-    <header>
+    <header style={styles.header}>
       freebook
-      <nav>
-        <button onClick={autoLogin}>Auto login</button>
-      </nav>
+      <button onClick={autoLogin}>Auto login</button>
       <UserContainer />
     </header>
   )

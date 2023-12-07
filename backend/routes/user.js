@@ -13,16 +13,6 @@ router.get('/', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
-// POST Login
-router.post('/login', asyncHandler(async (req, res, next) => {
-  const { data, error } = await supabase.auth.signInWithPassword({
-    email: req.body.email,
-    password: req.body.password,
-  })
-  res.json(data);
-  req.token = data.session.access_token;
-}));
-
 // POST Signup
 router.post('/signup', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase.auth.signUp({
@@ -38,6 +28,22 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
     background: 'https://picsum.photos/1000/300'
  })
 }));
+
+// POST Login
+router.post('/login', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email: req.body.email,
+    password: req.body.password,
+  })
+  res.json(data);
+  req.token = data.session.access_token;
+}));
+
+// GET log out
+router.get('/logout', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase.auth.signOut()
+}))
+
 
 // GET user session
 router.get('/session', asyncHandler(async (req, res, next) => {

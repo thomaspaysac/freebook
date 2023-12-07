@@ -45,8 +45,6 @@ export const FriendsRequestPage = () => {
 
   return (
     <>
-      <div>{authData.sub}</div>
-      <button onClick={() => console.log({invites, requests})}>Get data</button>
       <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
       <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />
     </>
