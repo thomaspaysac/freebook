@@ -11,8 +11,7 @@ router.get('/', asyncHandler(async (req, res, next) => {
   .from('users')
   .select()
   res.json(data);
-})
-);
+}));
 
 router.post('/login', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -23,8 +22,7 @@ router.post('/login', asyncHandler(async (req, res, next) => {
   req.token = data.session.access_token;
   //res.locals.currentUser = req.user;
   //next();
-})
-);
+}));
 
 router.post('/signup', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase.auth.signUp({
@@ -39,8 +37,7 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
     avatar: 'https://picsum.photos/200',
     background: 'https://picsum.photos/1000/300'
  })
-})
-);
+}));
 
 router.get('/session', asyncHandler(async (req, res, next) => {
   jwt.verify(req.token, process.env.JWT_SECRET, (err, authData) =>{
@@ -54,17 +51,34 @@ router.get('/session', asyncHandler(async (req, res, next) => {
       res.status(200).json(authData);
     }
   })
-})
-);
+}));
 
+// POST friend request
+router.post('/friends/add', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase
+  .from('friends')
+  .insert({ 
+    user_ID: req.body.user_ID,
+    friend_ID: req.body.friend_ID,
+   })
+}));
+
+// GET friends
+router.get('/friends/:id', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('friends')
+  .select('user_ID, friend_ID(id, first_name, last_name, avatar)')
+  .eq('user_ID', req.params.id)
+  res.json(data);
+}));
+
+// GET user info
 router.get('/:id', asyncHandler(async (req, res, next) => {
-  console.log(req.params.id);
   const { data, error } = await supabase
   .from('users')
   .select()
   .eq('id', req.params.id)
   res.json(data);
-})
-);
+}));
 
 module.exports = router;

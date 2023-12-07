@@ -24,7 +24,7 @@ export const SignupPage = () => {
         <input type="password" name="password" id="password" />
         <label htmlFor="first_name">First name :</label>
         <input type="text" name="first_name" id="first_name" />
-        <label htmlFor="last_name">First name :</label>
+        <label htmlFor="last_name">Last name :</label>
         <input type="text" name="last_name" id="last_name" />
         <button>Sign up</button>
       </form>
