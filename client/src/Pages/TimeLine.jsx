@@ -10,7 +10,7 @@ export const TimeLinePage = () => {
     if (!authData) {
       return;
     }
-    const req = await fetch('http://localhost:3000/posts', {
+    const req = await fetch('http://localhost:3000/posts/feed', {
       headers : {
         authorization: authData.sub,
       }
@@ -24,15 +24,7 @@ export const TimeLinePage = () => {
     fetchPosts()
   }, [authData]);
 
-  useEffect(() => {
-
-  }, [posts]);
-
   const PostsList = () => {
-    useEffect(() => {
-
-    }, [posts])
-
     if (!posts) {
       return (
         <>
@@ -46,7 +38,7 @@ export const TimeLinePage = () => {
         {
           posts.map(el => {
             return (
-              <TimelinePost post={el} />
+              <TimelinePost key={el.id} post={el} />
             )
           })
         }

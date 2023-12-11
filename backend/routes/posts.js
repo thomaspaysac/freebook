@@ -15,7 +15,7 @@ router.post('/create', asyncHandler(async (req, res, next) => {
 }))
 
 // GET own posts and friends'
-router.get('/', asyncHandler(async (req, res, next) => {
+router.get('/feed', asyncHandler(async (req, res, next) => {
   const user_ID = req.headers.authorization;
   const friends = [req.headers.authorization];
   const { data, error } = await supabase
@@ -41,8 +41,16 @@ router.get('/', asyncHandler(async (req, res, next) => {
   const { data: posts, error: postsError } = await supabase
   .from('posts')
   .select('*, author (first_name, last_name)')
-  .in('author', friends);
+  .in('author', friends)
+  .order('created_at', { ascending: false })
+  .limit(30);
   res.json(posts);
+}));
+
+// PATCH like post
+router.patch('/:id/like', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .rpc('increment', { row_id: req.params.id });
 }))
 
 module.exports = router;
