@@ -25,7 +25,7 @@ export const TimeLinePage = () => {
   }, [authData]);
 
   const PostsList = () => {
-    if (!posts) {
+    if (!posts || !authData) {
       return (
         <>
           Loading...
@@ -38,7 +38,7 @@ export const TimeLinePage = () => {
         {
           posts.map(el => {
             return (
-              <TimelinePost key={el.id} post={el} />
+              <TimelinePost key={el.id} post={el} user_ID={authData.sub} />
             )
           })
         }

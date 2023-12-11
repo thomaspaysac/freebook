@@ -4,7 +4,6 @@ export const HomePage = () => {
   const getUsers = async () => {
     const req = await fetch('http://localhost:3000/user');
     const res =  await req.json();
-    console.log(res);
   }
 
   return (

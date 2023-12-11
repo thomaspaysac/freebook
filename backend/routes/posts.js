@@ -47,10 +47,40 @@ router.get('/feed', asyncHandler(async (req, res, next) => {
   res.json(posts);
 }));
 
-// PATCH like post
+// PATCH like post // EXPERIMENTAL
 router.patch('/:id/like', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .rpc('increment', { row_id: req.params.id });
+  const { data: userData, error: userError } = await supabase
+  .from('users')
+  .select()
+  .eq('uuid', req.headers.authorization);
+  console.log(userData);
+  /*const { error: updateError } = await supabase
+  .from('users')
+  .update({ accepted: true })
+  .eq('id', req.headers.authorization);*/
+}))
+
+// POST like post
+router.post('/:id/like', asyncHandler(async (req, res, next) => {
+  const { data: existingLike, error: likeError } = await supabase
+  .from('likes')
+  .select()
+  .eq('author', req.body.author)
+  .eq('post', req.body.post);
+  if (!existingLike.length) {
+    const { error: likePostError } = await supabase
+    .from('likes')
+    .insert({ 
+      author: req.body.author,
+      post: req.body.post,
+     })
+    const { data, error } = await supabase
+    .rpc('increment', { row_id: req.params.id });
+  } else {
+    res.end();
+  }
 }))
 
 module.exports = router;

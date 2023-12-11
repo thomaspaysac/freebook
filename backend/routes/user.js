@@ -90,9 +90,6 @@ router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
   .eq('id', req.params.id);
 }));
 
-// POST add friend to friends array
-router.post('/friends/add')
-
 // DELETE rejected friend request
 router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
   const { error } = await supabase
