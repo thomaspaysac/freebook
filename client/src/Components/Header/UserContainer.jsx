@@ -24,6 +24,7 @@ export const UserContainer = () => {
     <nav>
       {authData.email}
       <Link to='/friends/requests' style={styles.a}>Friends requests</Link>
+      <Link to='/post/new'>New Post</Link>
       <button onClick={logOut}>Log out</button>
     </nav>
   )

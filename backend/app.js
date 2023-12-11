@@ -9,6 +9,7 @@ const supabase = require('./supabaseConfig')
 
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
+const postsRouter = require('./routes/posts');
 
 const app = express();
 
@@ -34,6 +35,7 @@ app.use(async (req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/user', userRouter);
+app.use('/posts', postsRouter);
 
 
 

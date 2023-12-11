@@ -18,6 +18,8 @@ import { SignupPage } from './Pages/Signup';
 import { ProfilePage } from './Pages/Profile';
 import { ProtectedPage } from './Pages/Protected';
 import { FriendsRequestPage } from './Pages/FriendsRequests';
+import { PostCreatePage } from './Pages/PostCreate';
+import { TimeLinePage } from './Pages/TimeLine';
 
 // Context
 export const authContext = createContext({});
@@ -49,8 +51,10 @@ function App() {
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/signup" element={<SignupPage />} />
           <Route exact path="/protected" element={<ProtectedPage />} />
+          <Route exact path="/timeline" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
           <Route path="/friends/requests" element={<FriendsRequestPage />} />
+          <Route path ="/post/new" element={<PostCreatePage />} />
         </Routes>
       </BrowserRouter>
     </authContext.Provider>
