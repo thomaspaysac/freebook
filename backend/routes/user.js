@@ -83,11 +83,15 @@ router.get('/friends/:id/pending', asyncHandler(async (req, res, next) => {
 
 // PATCH accept friend request
 router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
+  // Accept request
   const { error } = await supabase
   .from('friends')
   .update({ accepted: true })
-  .eq('id', req.params.id)
+  .eq('id', req.params.id);
 }));
+
+// POST add friend to friends array
+router.post('/friends/add')
 
 // DELETE rejected friend request
 router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
