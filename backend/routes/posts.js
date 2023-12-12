@@ -88,7 +88,7 @@ router.get('/:post_id/like/:user', asyncHandler(async (req, res, next) => {
 router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('comments')
-  .select()
+  .select('*, author (id, first_name, last_name)')
   .eq('post', req.params.post_id);
   res.json(data);
 }));

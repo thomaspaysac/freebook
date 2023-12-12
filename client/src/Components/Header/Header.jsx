@@ -1,11 +1,5 @@
+import { Link } from "react-router-dom";
 import { UserContainer } from "./UserContainer";
-
-const styles = {
-  header: {
-    backgroundColor: '#2C2B5B',
-    color: '#ffffff',
-  }   
-};
 
 export const Header = () => {
   const autoLogin = async () => {
@@ -25,8 +19,8 @@ export const Header = () => {
   }
 
   return (
-    <header style={styles.header}>
-      freebook
+    <header>
+      <Link to='/' className="header_logo">freebook</Link>
       <button onClick={autoLogin}>Auto login</button>
       <UserContainer />
     </header>

@@ -1,17 +1,24 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Layout } from "../Components/Layout";
+import { LoginForm } from "../Components/Forms/LoginForm";
+import { SignupModal } from "../Components/Forms/SignupModal";
 
 export const HomePage = () => {
-  const getUsers = async () => {
-    const req = await fetch('http://localhost:3000/user');
-    const res =  await req.json();
-  }
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <>
-      <h1>Welcome</h1>
-      <button onClick={getUsers}>Get users database</button>
-      <Link to='/login'>Login</Link>
-      <Link to='/signup'>Signup</Link>
-    </>
+    <Layout>
+      <div className="content homepage">
+        <div>
+          <h1 className="logo">freebook</h1>
+          <h2>Connect with your friends, <br />Make new ones</h2>
+        </div>
+        <div className="login-container">
+          <LoginForm />
+        </div>
+      </div>
+      <SignupModal open={modalOpen} />
+    </Layout>
   )
 }

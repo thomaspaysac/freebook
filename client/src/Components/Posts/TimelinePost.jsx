@@ -66,7 +66,8 @@ export const TimelinePost = ({ post, user_ID }) => {
       <div>{post.author.first_name} {post.author.last_name}</div>
       <div>{post.text}</div>
       <div>{post.created_at}</div>
-      <div><HeartIcon /> {likesCount} {comments.length} comments</div>
+      <div><HeartIcon /> {likesCount}</div>
+      <div>{comments.length} comments</div>
       <PostComments post_ID={post.id} author={user_ID} comments={comments} />
     </>
   )
