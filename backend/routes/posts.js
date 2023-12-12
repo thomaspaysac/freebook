@@ -47,21 +47,6 @@ router.get('/feed', asyncHandler(async (req, res, next) => {
   res.json(posts);
 }));
 
-// PATCH like post // EXPERIMENTAL
-router.patch('/:id/like', asyncHandler(async (req, res, next) => {
-  const { data, error } = await supabase
-  .rpc('increment', { row_id: req.params.id });
-  const { data: userData, error: userError } = await supabase
-  .from('users')
-  .select()
-  .eq('uuid', req.headers.authorization);
-  console.log(userData);
-  /*const { error: updateError } = await supabase
-  .from('users')
-  .update({ accepted: true })
-  .eq('id', req.headers.authorization);*/
-}));
-
 // POST toggle like and increment/decrement like count
 router.post('/:post_id/like', asyncHandler(async (req, res, next) => {
   const { data: existingLike, error: likeError } = await supabase
@@ -90,14 +75,33 @@ router.post('/:post_id/like', asyncHandler(async (req, res, next) => {
 }));
 
 // GET like status
-router.get('/:id/like/:user', asyncHandler(async (req, res, next) => {
-  console.log(req.params);
+router.get('/:post_id/like/:user', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('likes')
   .select()
   .eq('author', req.params.user)
-  .eq('post', req.params.id);
+  .eq('post', req.params.post_id);
   res.json(data);
+}));
+
+// GET post comments
+router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('comments')
+  .select()
+  .eq('post', req.params.post_id);
+  res.json(data);
+}));
+
+// POST create post comments
+router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase
+  .from('comments')
+  .insert({ 
+    author: req.body.author,
+    post: req.params.post_id,
+    text: req.body.text
+   });
 }));
 
 module.exports = router;

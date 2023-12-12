@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
-import { authContext } from "../../App";
+import { useState, useEffect } from "react";
+import { PostComments } from "./Comments";
 
 export const TimelinePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
-  const authData = useContext(authContext);
+  const [comments, setComments] = useState();
 
   const fetchLike = async () => {
     const req = await fetch(`http://localhost:3000/posts/${post.id}/like/${user_ID}`);
@@ -15,6 +15,12 @@ export const TimelinePost = ({ post, user_ID }) => {
     } else {
       setLiked(true);
     }
+  }
+
+  const fetchComments = async () => {
+    const req = await fetch(`http://localhost:3000/posts/${post.id}/comments`);
+    const res = await req.json();
+    setComments(res);
   }
 
   const toggleLike = async () => {
@@ -40,17 +46,18 @@ export const TimelinePost = ({ post, user_ID }) => {
 
   useEffect(() => {
     fetchLike();
-  }, [liked])
+    fetchComments();
+  }, [])
 
   const HeartIcon = () => {
     if (!liked) {
-      return (<>♡</>)
+      return (<span onClick={toggleLike}>♡</span>)
     } else {
-      return (<>❤</>)
+      return (<span onClick={toggleLike}>❤</span>)
     }
   }
 
-  if (!post || !authData) {
+  if (!post || !user_ID || !comments) {
     return null;
   }
 
@@ -59,7 +66,8 @@ export const TimelinePost = ({ post, user_ID }) => {
       <div>{post.author.first_name} {post.author.last_name}</div>
       <div>{post.text}</div>
       <div>{post.created_at}</div>
-      <div onClick={toggleLike}><HeartIcon /> {likesCount}</div>
+      <div><HeartIcon /> {likesCount} {comments.length} comments</div>
+      <PostComments post_ID={post.id} author={user_ID} comments={comments} />
     </>
   )
 }
