@@ -60,27 +60,44 @@ router.patch('/:id/like', asyncHandler(async (req, res, next) => {
   .from('users')
   .update({ accepted: true })
   .eq('id', req.headers.authorization);*/
-}))
+}));
 
-// POST like post
-router.post('/:id/like', asyncHandler(async (req, res, next) => {
+// POST toggle like and increment/decrement like count
+router.post('/:post_id/like', asyncHandler(async (req, res, next) => {
   const { data: existingLike, error: likeError } = await supabase
   .from('likes')
   .select()
   .eq('author', req.body.author)
-  .eq('post', req.body.post);
+  .eq('post', req.params.post_id);
   if (!existingLike.length) {
     const { error: likePostError } = await supabase
     .from('likes')
     .insert({ 
       author: req.body.author,
-      post: req.body.post,
+      post: req.params.post_id,
      })
-    const { data, error } = await supabase
-    .rpc('increment', { row_id: req.params.id });
+    const { data: increment, error: incrementError } = await supabase
+    .rpc('increment', { row_id: req.params.post_id });
   } else {
-    res.end();
+    const { error } = await supabase
+    .from('likes')
+    .delete()
+    .eq('author', req.body.author)
+    .eq('post', req.params.post_id);
+    const { data: decrement, error: decrementError } = await supabase
+    .rpc('decrement', { row_id: req.params.post_id });
   }
-}))
+}));
+
+// GET like status
+router.get('/:id/like/:user', asyncHandler(async (req, res, next) => {
+  console.log(req.params);
+  const { data, error } = await supabase
+  .from('likes')
+  .select()
+  .eq('author', req.params.user)
+  .eq('post', req.params.id);
+  res.json(data);
+}));
 
 module.exports = router;

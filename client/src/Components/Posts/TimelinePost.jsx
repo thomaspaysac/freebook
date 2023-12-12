@@ -1,30 +1,53 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { authContext } from "../../App";
 
 export const TimelinePost = ({ post, user_ID }) => {
+  const [liked, setLiked] = useState();
+  const [likesCount, setLikesCount] = useState();
   const authData = useContext(authContext);
 
-  /*const likePost = async () => {
-    await fetch(`http://localhost:3000/posts/${post.id}/like`, {
-      method: 'PATCH',
-      headers: {
-        authorization: user_ID,
-      }
-    })
-  }*/
+  const fetchLike = async () => {
+    const req = await fetch(`http://localhost:3000/posts/${post.id}/like/${user_ID}`);
+    const res = await req.json();
+    setLikesCount(post.likes);
+    if (!res.length) {
+      setLiked(false);
+    } else {
+      setLiked(true);
+    }
+  }
 
-  const likePost = async () => {
+  const toggleLike = async () => {
+    if (!liked) {
+      setLiked(true);
+      setLikesCount(likesCount + 1);
+    } else {
+      setLiked(false);
+      setLikesCount(likesCount - 1);
+    }
     const body = {
       author: user_ID,
-      post: post.id
     };
-    await fetch(`http://localhost:3000/posts/${post.id}/like`, {
+    const {req, error} = await fetch(`http://localhost:3000/posts/${post.id}/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
-    })
+    });
+    console.log('hello');
+  }
+
+  useEffect(() => {
+    fetchLike();
+  }, [liked])
+
+  const HeartIcon = () => {
+    if (!liked) {
+      return (<>♡</>)
+    } else {
+      return (<>❤</>)
+    }
   }
 
   if (!post || !authData) {
@@ -36,7 +59,7 @@ export const TimelinePost = ({ post, user_ID }) => {
       <div>{post.author.first_name} {post.author.last_name}</div>
       <div>{post.text}</div>
       <div>{post.created_at}</div>
-      <div onClick={likePost}>❤ {post.likes}</div>
+      <div onClick={toggleLike}><HeartIcon /> {likesCount}</div>
     </>
   )
 }

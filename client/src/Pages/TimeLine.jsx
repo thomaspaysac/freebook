@@ -17,7 +17,6 @@ export const TimeLinePage = () => {
     });
     const res = await req.json();
     setPosts(res);
-    console.log(res)
   }
 
   useEffect(() => {
