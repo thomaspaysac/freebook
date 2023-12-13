@@ -24,6 +24,7 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
   .insert({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
+    email: req.body.email,
     avatar: 'https://picsum.photos/200',
     background: 'https://picsum.photos/1000/300'
  })

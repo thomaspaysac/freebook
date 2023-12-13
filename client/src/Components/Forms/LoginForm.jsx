@@ -19,8 +19,8 @@ export const LoginForm = ({ openSignup }) => {
   return (
     <div className="login-form_container">
       <form onSubmit={login}>
-        <input type="email" name="email" id="email" placeholder="Email" />
-        <input type="password" name="password" id="password" placeholder="Password" />
+        <input type="email" name="email" placeholder="Email" />
+        <input type="password" name="password" placeholder="Password" />
         <button>Log In</button>
       </form>
       <div className="separator"></div>

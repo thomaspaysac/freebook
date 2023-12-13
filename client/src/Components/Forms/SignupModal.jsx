@@ -1,6 +1,22 @@
 import { useState } from "react";
 
 export const SignupModal = ({open, closeSignup}) => {
+  const signup = async (e) => {
+    e.preventDefault();
+    /*const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    const req = await fetch('http://localhost:3000/user/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const res = await req.json();
+    localStorage.setItem('jwt', res.session.access_token);*/
+    document.querySelectorAll('.open').forEach(el =>  el.classList.remove('open'));
+  }
+
   return (
     <>
       <div onClick={closeSignup} className={`backdrop ${open ? 'open' : ''}`}></div>
@@ -13,7 +29,7 @@ export const SignupModal = ({open, closeSignup}) => {
           <div className='close-button' onClick={closeSignup}>🗙</div>
         </div>
         <div className="separator"></div>
-        <form>
+        <form onSubmit={signup}>
           <div className="personal-info">
             <input type="text" name="first_name" id="first_name" placeholder="First name" autoFocus/>
             <input type="text" name="last_name" id="last_name" placeholder="Last name" />

@@ -136,6 +136,8 @@ header {
     padding: 16px 16px 0 16px; }
     .signup-modal .header .close-button {
       font-size: 1.5rem; }
+      .signup-modal .header .close-button:hover, .signup-modal .header .close-button:active {
+        cursor: pointer; }
   .signup-modal form {
     display: flex;
     flex-direction: column;
