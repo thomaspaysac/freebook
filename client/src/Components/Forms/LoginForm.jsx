@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const LoginForm = () => {
+export const LoginForm = ({ openSignup }) => {
   const login = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -24,7 +24,7 @@ export const LoginForm = () => {
         <button>Log In</button>
       </form>
       <div className="separator"></div>
-      <Link to='/signup'>Create new account</Link>
+      <button className="signup-button" onClick={openSignup}>Create new account</button>
     </div>
   )
 }

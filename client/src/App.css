@@ -26,6 +26,20 @@ main {
   margin: 16px 0;
   background-color: rgba(180, 180, 183, 0.3); }
 
+.backdrop {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(231, 231, 233, 0.5);
+  transition: all 250ms; }
+  .backdrop.open {
+    opacity: 1;
+    z-index: 3; }
+
 header {
   background-color: #2C2B5B;
   color: #ffffff;
@@ -81,34 +95,73 @@ header {
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
+      border: none;
       border-radius: 6px;
       padding: 8px;
       transition: background-color 300ms; }
       .login-form_container form button:hover, .login-form_container form button:active {
         cursor: pointer;
         background-color: #100f5d; }
-  .login-form_container a {
+  .login-form_container .signup-button {
     background-color: #679242;
     color: #ffffff;
+    font-size: 1rem;
     font-weight: 700;
     border-radius: 6px;
+    border: none;
     padding: 8px;
     height: 100%;
     text-decoration: none;
     transition: background-color 300ms; }
-    .login-form_container a:hover, .login-form_container a:active {
+    .login-form_container .signup-button:hover, .login-form_container .signup-button:active {
+      cursor: pointer;
       background-color: #417712; }
 
 .signup-modal {
   position: fixed;
+  z-index: -1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: none; }
+  opacity: 0;
+  transition: all 250ms;
+  background-color: #ffffff;
+  border-radius: 6px; }
   .signup-modal.open {
-    display: block; }
+    opacity: 1;
+    z-index: 4; }
+  .signup-modal .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 16px 0 16px; }
+    .signup-modal .header .close-button {
+      font-size: 1.5rem; }
   .signup-modal form {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    padding: 0 16px 16px 16px;
+    gap: 16px; }
+    .signup-modal form .personal-info {
+      display: flex;
+      gap: 16px; }
+    .signup-modal form input {
+      font-size: 1rem;
+      padding: 8px;
+      background-color: #ededf0;
+      border-radius: 6px;
+      border: 1px solid #dddfe2;
+      outline-color: #151375; }
+    .signup-modal form button {
+      background-color: #151375;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 8px;
+      transition: background-color 300ms; }
+      .signup-modal form button:hover, .signup-modal form button:active {
+        cursor: pointer;
+        background-color: #100f5d; }
 
 /*# sourceMappingURL=App.css.map */

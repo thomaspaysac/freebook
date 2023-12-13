@@ -7,6 +7,18 @@ import { SignupModal } from "../Components/Forms/SignupModal";
 export const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
+  const openModal = () => {
+    setModalOpen(true);
+    document.getElementById('first_name').focus()
+  }
+
+  const closeModal = () => {
+    if (modalOpen) {
+      setModalOpen(false);
+    }
+    return;
+  }
+
   return (
     <Layout>
       <div className="content homepage">
@@ -15,10 +27,10 @@ export const HomePage = () => {
           <h2>Connect with your friends, <br />Make new ones</h2>
         </div>
         <div className="login-container">
-          <LoginForm />
+          <LoginForm openSignup={openModal} />
         </div>
       </div>
-      <SignupModal open={modalOpen} />
+      <SignupModal open={modalOpen} closeSignup={closeModal} />
     </Layout>
   )
 }
