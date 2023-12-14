@@ -35,8 +35,10 @@ export const ProfilePage = () => {
         <img className="background-picture" src={profileData.background} />
         <div className="user-info">
           <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
-          <h3>{profileData.first_name} {profileData.last_name}</h3>
-          <button onClick={() => console.log(profileData)}>Log data</button>
+          <div className="user-info_data">
+            <h3>{profileData.first_name} {profileData.last_name}</h3>
+            <button onClick={() => console.log(profileData)}>Log data</button>
+          </div>
         </div>
       </div>
       <div>

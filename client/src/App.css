@@ -197,14 +197,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  position: absolute;
-  /*.profile-picture {
-    position: relative;
-    bottom: 75px;
-    left: -375px;
-    z-index: 1;
-    box-shadow: 0 0 0 6px #ffffff;
-  }*/ }
+  position: absolute; }
   .profile div {
     background-color: #ffffff;
     border-radius: 6px;
@@ -218,16 +211,30 @@ header {
     position: relative;
     top: 0;
     z-index: 0;
-    border-radius: 6px; }
+    border-radius: 6px;
+    width: 66vw; }
+  .profile .profile-picture {
+    /*position: relative;
+    bottom: 75px;
+    left: -375px;
+    z-index: 1;*/
+    box-shadow: 0 0 0 6px #ffffff; }
   .profile .user-info {
     display: flex;
-    align-items: end;
+    align-items: center;
+    gap: 24px;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
-    top: -80px;
-    left: -80px; }
+    top: -50px;
+    left: 40px;
+    width: 66vw;
+    padding-right: 40px; }
     .profile .user-info h3 {
       font-size: 2rem; }
+    .profile .user-info .user-info_data {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
     .profile .user-info div {
       width: auto; }
 
