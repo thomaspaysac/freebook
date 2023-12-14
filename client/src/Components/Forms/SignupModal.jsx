@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export const SignupModal = ({open, closeSignup, closeTest}) => {
+export const SignupModal = ({open, closeSignup}) => {
   const signup = async (e) => {
     e.preventDefault();
-    /*const formData = new FormData(e.target);
+    const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     const req = await fetch('http://localhost:3000/user/signup', {
       method: 'POST',
@@ -13,9 +13,8 @@ export const SignupModal = ({open, closeSignup, closeTest}) => {
       body: JSON.stringify(data),
     });
     const res = await req.json();
-    localStorage.setItem('jwt', res.session.access_token);*/
-    document.getElementById('close-button').click();
-    e.target.reset();
+    localStorage.setItem('jwt', res.session.access_token);
+    //document.getElementById('close-button').click();
   }
 
   return (

@@ -17,7 +17,8 @@ main {
 
 .content {
   padding: 0 16px 12vh 16px;
-  min-height: calc(100vh - 64px); }
+  min-height: calc(100vh - 64px);
+  width: 100%; }
 
 .separator {
   height: 1px;
@@ -41,15 +42,20 @@ main {
     z-index: 3; }
 
 header {
+  width: 100%;
   background-color: #2C2B5B;
   color: #ffffff;
   height: 64px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 16px; }
   header a {
     color: #ffffff;
     text-decoration: none; }
+  header nav {
+    display: flex;
+    gap: 16px; }
 
 .header_logo {
   font-weight: 700;
@@ -64,7 +70,10 @@ header {
     font-size: 3rem;
     font-weight: 700;
     color: #151375;
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    transition: 250ms; }
+    .homepage .logo:hover {
+      text-shadow: 0px 0px 8px rgba(21, 19, 117, 0.33); }
   .homepage h2 {
     position: relative;
     top: -60px;
@@ -181,5 +190,45 @@ header {
       .signup-modal form button:hover, .signup-modal form button:active {
         cursor: pointer;
         background-color: #100f5d; }
+
+.profile {
+  background-color: #ededf0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  /*.profile-picture {
+    position: relative;
+    bottom: 75px;
+    left: -375px;
+    z-index: 1;
+    box-shadow: 0 0 0 6px #ffffff;
+  }*/ }
+  .profile div {
+    background-color: #ffffff;
+    border-radius: 6px;
+    width: 50vw; }
+  .profile .user-info_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .profile .background-picture {
+    position: relative;
+    top: 0;
+    z-index: 0;
+    border-radius: 6px; }
+  .profile .user-info {
+    display: flex;
+    align-items: end;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    top: -80px;
+    left: -80px; }
+    .profile .user-info h3 {
+      font-size: 2rem; }
+    .profile .user-info div {
+      width: auto; }
 
 /*# sourceMappingURL=App.css.map */

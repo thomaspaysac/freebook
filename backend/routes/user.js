@@ -61,6 +61,7 @@ router.get('/session', asyncHandler(async (req, res, next) => {
   })
 }));
 
+
 // POST friend request
 router.post('/friends/add', asyncHandler(async (req, res, next) => {
   const { error } = await supabase
@@ -82,6 +83,7 @@ router.get('/friends/:id/pending', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
+
 // PATCH accept friend request
 router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
   // Accept request
@@ -91,6 +93,7 @@ router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
   .eq('id', req.params.id);
 }));
 
+
 // DELETE rejected friend request
 router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
   const { error } = await supabase
@@ -98,6 +101,7 @@ router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
   .delete()
   .eq('id', req.params.id)
 }))
+
 
 // GET friends list
 router.get('/friends/:id', asyncHandler(async (req, res, next) => {
@@ -109,12 +113,22 @@ router.get('/friends/:id', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
-// GET user info
+
+// GET user info from ID
 router.get('/:id', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('users')
   .select()
   .eq('id', req.params.id)
+  res.json(data);
+}));
+
+// GET user info from uuid
+router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('users')
+  .select()
+  .eq('uuid', req.params.uuid)
   res.json(data);
 }));
 

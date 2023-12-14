@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 // Components
 import { FriendsList } from "../Components/Friends/FriendsList";
 import { AddFriend } from "../Components/Friends/AddFriend";
+import { RoundPicture } from "../Components/Images/RoundPicture";
 
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
@@ -29,16 +30,23 @@ export const ProfilePage = () => {
   }
   
   return (
-    <>
-      <h1>Profile</h1>
-      <button onClick={() => console.log(profileData)}>Log data</button>
-      <div>{profileData.first_name}</div>
-      <div>{profileData.last_name}</div>
-      <AddFriend friend_ID={uuid} />
-      <img src={profileData.avatar} />
-      <img src={profileData.background} />
-      <h3>Friends:</h3>
-      <FriendsList user_ID={uuid} />
-    </>
+    <div className="content profile">
+      <div className="user-info_container">
+        <img className="background-picture" src={profileData.background} />
+        <div className="user-info">
+          <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
+          <h3>{profileData.first_name} {profileData.last_name}</h3>
+          <button onClick={() => console.log(profileData)}>Log data</button>
+        </div>
+      </div>
+      <div>
+        <AddFriend friend_ID={uuid} />
+      </div>
+      <div>
+        <h3>Friends:</h3>
+        <FriendsList user_ID={uuid} />
+      </div>
+      
+    </div>
   )
 }
