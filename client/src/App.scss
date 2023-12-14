@@ -104,6 +104,18 @@ header {
     color: $main;
     margin-bottom: 24px;
   }
+
+  h2 {
+    position: relative;
+    top: -60px;
+    opacity: 0;
+    transition: all 1250ms ease-out;
+
+    &.animated {
+      opacity: 1;
+      top: 0;
+    }
+  }
 }
 
 .login-form_container {
@@ -115,6 +127,18 @@ header {
   align-items: center;
   gap: 6px;
   box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+
+  a {
+    margin-top: 8px;
+    color: $main;
+    font-size: 0.9rem;
+    text-decoration: none;
+
+    &:active,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   form {
     display: flex;
@@ -184,6 +208,7 @@ header {
   transition: all 250ms;
   background-color: #ffffff;
   border-radius: 6px;
+  box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
 
   &.open {
     opacity: 1;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const SignupModal = ({open, closeSignup}) => {
+export const SignupModal = ({open, closeSignup, closeTest}) => {
   const signup = async (e) => {
     e.preventDefault();
     /*const formData = new FormData(e.target);
@@ -14,7 +14,8 @@ export const SignupModal = ({open, closeSignup}) => {
     });
     const res = await req.json();
     localStorage.setItem('jwt', res.session.access_token);*/
-    document.querySelectorAll('.open').forEach(el =>  el.classList.remove('open'));
+    document.getElementById('close-button').click();
+    e.target.reset();
   }
 
   return (
@@ -26,7 +27,7 @@ export const SignupModal = ({open, closeSignup}) => {
             <h2>Sign Up</h2>
             <div>No strings attached</div>
           </div>
-          <div className='close-button' onClick={closeSignup}>🗙</div>
+          <div className='close-button' id='close-button' onClick={closeSignup}>🗙</div>
         </div>
         <div className="separator"></div>
         <form onSubmit={signup}>

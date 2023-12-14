@@ -65,6 +65,14 @@ header {
     font-weight: 700;
     color: #151375;
     margin-bottom: 24px; }
+  .homepage h2 {
+    position: relative;
+    top: -60px;
+    opacity: 0;
+    transition: all 1250ms ease-out; }
+    .homepage h2.animated {
+      opacity: 1;
+      top: 0; }
 
 .login-form_container {
   background-color: #ffffff;
@@ -75,6 +83,13 @@ header {
   align-items: center;
   gap: 6px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+  .login-form_container a {
+    margin-top: 8px;
+    color: #151375;
+    font-size: 0.9rem;
+    text-decoration: none; }
+    .login-form_container a:active, .login-form_container a:hover {
+      text-decoration: underline; }
   .login-form_container form {
     display: flex;
     flex-direction: column;
@@ -126,7 +141,8 @@ header {
   opacity: 0;
   transition: all 250ms;
   background-color: #ffffff;
-  border-radius: 6px; }
+  border-radius: 6px;
+  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
   .signup-modal.open {
     opacity: 1;
     z-index: 4; }
