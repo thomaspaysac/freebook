@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
+import { SquarePicture } from "../Images/SquarePicture";
 
 export const FriendsList = ({ user_ID }) => {
   const [friends, setFriends] = useState();
@@ -22,34 +23,38 @@ export const FriendsList = ({ user_ID }) => {
     )
   } else {
     return (
-      <ul>
+      <div className="friends-list">
         {
           friends.map((el) => {
             if (el.user_ID.uuid === user_ID) {
               return (
-              <li key={el.id} onClick={() => console.log(el.friend_ID)}>
-                <Link to={`/user/${el.friend_ID.id}`}>
-                  {el.friend_ID.first_name}
-                  {el.friend_ID.last_name}
-                  <img src={el.friend_ID.avatar} />
-                </Link>
-              </li>
+              <div key={el.id}  className="friend">
+                <a href={`/user/${el.friend_ID.id}`}>
+                  <SquarePicture 
+                    source={el.friend_ID.avatar}
+                    size={'100px'}
+                    borderRadius={'6px'} />
+                  <div className="name">{el.friend_ID.first_name} {el.friend_ID.last_name}</div>
+                </a>
+              </div>
               )
             } else {
               return (
-              <li key={el.id} onClick={() => console.log(el.user_ID)}>
-                <Link to={`/user/${el.user_ID.id}`}>
-                  {el.user_ID.first_name}
-                  {el.user_ID.last_name}
-                  <img src={el.user_ID.avatar} />
-                </Link>
-              </li>
+              <div key={el.id} className='friend'>
+                <a href={`/user/${el.user_ID.id}`}>
+                  <SquarePicture 
+                    source={el.user_ID.avatar}
+                    size={'100px'}
+                    borderRadius={'6px'} />
+                  <div className="name">{el.user_ID.first_name} {el.user_ID.last_name}</div>
+                </a>
+              </div>
               )
             }
             
           })
         }
-      </ul>
+      </div>
     )
   }
 }

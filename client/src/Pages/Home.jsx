@@ -29,7 +29,7 @@ export const HomePage = () => {
       <div className="content homepage">
         <div>
           <h1 className="logo">freebook</h1>
-          <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br />Make new ones</h2>
+          <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br /><span>Make new ones</span></h2>
         </div>
         <div className="login-container">
           <LoginForm openSignup={openModal} />

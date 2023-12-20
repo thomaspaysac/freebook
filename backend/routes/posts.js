@@ -14,6 +14,16 @@ router.post('/create', asyncHandler(async (req, res, next) => {
    })
 }))
 
+// GET posts from one user
+router.get('/:user', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('posts')
+  .select('*, author (first_name, last_name)')
+  .eq('author', req.params.user)
+  .order('created_at', { ascending: false })
+  res.json(data);
+}))
+
 // GET own posts and friends'
 router.get('/feed', asyncHandler(async (req, res, next) => {
   const user_ID = req.headers.authorization;

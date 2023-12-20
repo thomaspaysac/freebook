@@ -40,7 +40,7 @@ export const UserContainer = () => {
       <Link to='/friends/requests' style={styles.a}>Friends requests</Link>
       <Link to='/post/new'>New Post</Link>
       <Link to='/timeline'>Timeline</Link>
-      <Link to={`/user/${userData.id}`}>My profile</Link>
+      <a href={`/user/${userData.id}`}>My profile</a>
       <button onClick={logOut}>Log out</button>
     </nav>
   )

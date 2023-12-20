@@ -1,4 +1,4 @@
-export const RoundPicture = ({ className, source, radius, alt }) => {
+export const RoundPicture = ({ className = '', source, radius, alt = '' }) => {
   return (
       <img
         className={className} 

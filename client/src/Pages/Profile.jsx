@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { FriendsList } from "../Components/Friends/FriendsList";
 import { AddFriend } from "../Components/Friends/AddFriend";
 import { RoundPicture } from "../Components/Images/RoundPicture";
+import { PostsList } from "../Components/Posts/PostsList";
 
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
@@ -44,9 +45,15 @@ export const ProfilePage = () => {
       <div>
         <AddFriend friend_ID={uuid} />
       </div>
-      <div>
-        <h3>Friends:</h3>
-        <FriendsList user_ID={uuid} />
+      <div className="social-container">
+        <div className="friends_container">
+          <h3>Friends:</h3>
+          <FriendsList user_ID={uuid} />
+        </div>
+        <div className="posts_container">
+          <h3>Posts:</h3>
+          <PostsList user_ID={uuid} />
+        </div>
       </div>
       
     </div>
