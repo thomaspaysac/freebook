@@ -32,7 +32,7 @@ export const FriendsList = ({ user_ID }) => {
                 <a href={`/user/${el.friend_ID.id}`}>
                   <SquarePicture 
                     source={el.friend_ID.avatar}
-                    size={'100px'}
+                    size={'100%'}
                     borderRadius={'6px'} />
                   <div className="name">{el.friend_ID.first_name} {el.friend_ID.last_name}</div>
                 </a>
@@ -44,7 +44,7 @@ export const FriendsList = ({ user_ID }) => {
                 <a href={`/user/${el.user_ID.id}`}>
                   <SquarePicture 
                     source={el.user_ID.avatar}
-                    size={'100px'}
+                    size={'100%'}
                     borderRadius={'6px'} />
                   <div className="name">{el.user_ID.first_name} {el.user_ID.last_name}</div>
                 </a>

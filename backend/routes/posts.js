@@ -14,16 +14,6 @@ router.post('/create', asyncHandler(async (req, res, next) => {
    })
 }))
 
-// GET posts from one user
-router.get('/:user', asyncHandler(async (req, res, next) => {
-  const { data, error } = await supabase
-  .from('posts')
-  .select('*, author (first_name, last_name)')
-  .eq('author', req.params.user)
-  .order('created_at', { ascending: false })
-  res.json(data);
-}))
-
 // GET own posts and friends'
 router.get('/feed', asyncHandler(async (req, res, next) => {
   const user_ID = req.headers.authorization;
@@ -50,7 +40,7 @@ router.get('/feed', asyncHandler(async (req, res, next) => {
   });
   const { data: posts, error: postsError } = await supabase
   .from('posts')
-  .select('*, author (first_name, last_name)')
+  .select('*, author (first_name, last_name, avatar)')
   .in('author', friends)
   .order('created_at', { ascending: false })
   .limit(30);
@@ -113,5 +103,15 @@ router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => 
     text: req.body.text
    });
 }));
+
+// GET posts from one user
+router.get('/:user', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('posts')
+  .select('*, author (first_name, last_name, avatar)')
+  .eq('author', req.params.user)
+  .order('created_at', { ascending: false })
+  res.json(data);
+}))
 
 module.exports = router;

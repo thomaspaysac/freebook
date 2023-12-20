@@ -5,6 +5,10 @@ export const AddFriend = ({ friend_ID }) => {
   const authData = useContext(authContext);
 
   const addFriend = async () => {
+    if (friend_ID === authData.sub) {
+      return;
+    }
+
     const data = {
       user_ID: authData.sub,
       friend_ID 
@@ -16,17 +20,16 @@ export const AddFriend = ({ friend_ID }) => {
       },
       body: JSON.stringify(data),
     })
-    //console.log({user_ID: authData.sub, friend_ID});
   }
 
   useEffect(() => {
   }, [friend_ID])
 
-  if (!friend_ID) {
+  if (!friend_ID || friend_ID === authData.sub) {
     return null
   }
 
   return (
-      <button onClick={addFriend}>Add friend</button>
+      <button className="add-friend-button" onClick={addFriend}><span style={{fontSize: '32px', fontWeight: 400}}>+</span> Add to your friends</button>
   )
 }

@@ -26,9 +26,9 @@ export const TimeLinePage = () => {
   const PostsList = () => {
     if (!posts || !authData) {
       return (
-        <>
+        <div onClick={() => console.log(posts, authData)}>
           Loading...
-        </>
+        </div>
       );
     }
 
@@ -42,7 +42,6 @@ export const TimeLinePage = () => {
           })
         }
       </div>
-      
     )
   }
 

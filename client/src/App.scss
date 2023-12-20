@@ -294,7 +294,7 @@ header {
 
   div {
     border-radius: 6px;
-    width: 50vw;
+    //width: 50vw;
   }
 
   .user-info_container {
@@ -303,6 +303,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   }
 
   .background-picture {
@@ -347,22 +348,54 @@ header {
     }
   }
 
+  .add-friend-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: $main;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 0 8px;
+  }
+
   .social-container {
     display: flex;
     gap: 16px;
     width: calc(100% - 20vw);
 
-    .friends_container,
-    .posts_container {
+    .friends_container {
       background-color: #ffffff;
-      width: 50%;
       padding: 16px;
+      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      height: fit-content;
+
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+      }
+    }
+
+    .friends_container {
+      width: 35%;
+    }
+
+    .posts_container {
+      width: 60%;
+
+      h3 {
+        background-color: #ffffff;
+        border-radius: 6px;
+        padding: 16px;
+        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);  
+      }
     }
 
     .friends-list {
       max-width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fill, 120px);
+      gap: 8px;
 
       .friend {
         width: 100%;
@@ -383,6 +416,33 @@ header {
           font-weight: 700;
           color: #000000;
         }
+      }
+    }
+  }
+}
+
+// MAJOR COMPONENTS
+.profile-post {
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  margin: 16px 0;
+
+  .post-info {
+    display: flex;
+    align-items: center;
+    gap:8px;
+    width: 100%;
+
+    div {
+      div:first-child {
+        font-weight: 700;
+      }
+
+      div:nth-child(2) {
+        font-size: 0.8rem;
       }
     }
   }

@@ -199,14 +199,14 @@ header {
   gap: 16px;
   position: absolute; }
   .profile div {
-    border-radius: 6px;
-    width: 50vw; }
+    border-radius: 6px; }
   .profile .user-info_container {
     background-color: #ffffff;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
   .profile .background-picture {
     position: relative;
     top: 0;
@@ -237,19 +237,41 @@ header {
       width: 100%; }
     .profile .user-info div {
       width: auto; }
+  .profile .add-friend-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #151375;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 0 8px; }
   .profile .social-container {
     display: flex;
     gap: 16px;
     width: calc(100% - 20vw); }
-    .profile .social-container .friends_container,
-    .profile .social-container .posts_container {
+    .profile .social-container .friends_container {
       background-color: #ffffff;
-      width: 50%;
-      padding: 16px; }
+      padding: 16px;
+      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      height: fit-content; }
+      .profile .social-container .friends_container h3 {
+        font-size: 1.3rem;
+        margin-bottom: 16px; }
+    .profile .social-container .friends_container {
+      width: 35%; }
+    .profile .social-container .posts_container {
+      width: 60%; }
+      .profile .social-container .posts_container h3 {
+        background-color: #ffffff;
+        border-radius: 6px;
+        padding: 16px;
+        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
     .profile .social-container .friends-list {
       max-width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fill, 120px); }
+      grid-template-columns: repeat(auto-fill, 120px);
+      gap: 8px; }
       .profile .social-container .friends-list .friend {
         width: 100%;
         justify-self: center;
@@ -262,5 +284,22 @@ header {
           font-size: 0.9rem;
           font-weight: 700;
           color: #000000; }
+
+.profile-post {
+  background-color: #ffffff;
+  width: 100%;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  margin: 16px 0; }
+  .profile-post .post-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%; }
+    .profile-post .post-info div div:first-child {
+      font-weight: 700; }
+    .profile-post .post-info div div:nth-child(2) {
+      font-size: 0.8rem; }
 
 /*# sourceMappingURL=App.css.map */
