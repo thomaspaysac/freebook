@@ -11,6 +11,10 @@ html {
 body {
   height: 100vh; }
 
+::selection {
+  background: #151375;
+  color: #ffffff; }
+
 main {
   min-height: 100%;
   margin: 0; }
@@ -304,7 +308,9 @@ header {
     width: 100%;
     margin-bottom: 16px; }
     .profile-post .post-info div a {
-      font-weight: 700; }
+      font-weight: 700;
+      text-decoration: none;
+      color: #000000; }
     .profile-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
       color: #6c6c6e; }
@@ -313,6 +319,11 @@ header {
     align-items: center;
     justify-content: end;
     gap: 24px; }
+    .profile-post .social-actions_container .likes-count {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 24px; }
   .profile-post .comments-toggle {
     text-align: end;
     font-weight: 700;
@@ -320,21 +331,44 @@ header {
     .profile-post .comments-toggle:hover, .profile-post .comments-toggle:active {
       cursor: pointer; }
 
-.comments_container .comment-single {
-  padding: 8px;
-  background-color: rgba(237, 237, 240, 0.7);
-  margin: 8px 0; }
-.comments_container .comment_author-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px; }
-  .comments_container .comment_author-info div a {
-    font-weight: 700;
-    text-decoration: none;
-    color: #000000; }
-  .comments_container .comment_author-info div div:nth-child(2) {
-    font-size: 0.8rem;
-    color: #6c6c6e; }
+.comments_container {
+  font-size: 0.9rem; }
+  .comments_container .comment-form {
+    margin: 16px 0;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between; }
+    .comments_container .comment-form textarea {
+      font-size: 0.9rem;
+      padding: 8px;
+      border-radius: 6px;
+      width: 90%;
+      background-color: #ededf0;
+      border: none;
+      resize: vertical; }
+    .comments_container .comment-form button {
+      background-color: #151375;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: 700;
+      padding: 8px; }
+      .comments_container .comment-form button:hover, .comments_container .comment-form button:active {
+        cursor: pointer; }
+  .comments_container .comment-single {
+    padding: 8px;
+    background-color: rgba(237, 237, 240, 0.7);
+    margin: 8px 0; }
+  .comments_container .comment_author-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px; }
+    .comments_container .comment_author-info div a {
+      font-weight: 700;
+      text-decoration: none;
+      color: #000000; }
+    .comments_container .comment_author-info div div:nth-child(2) {
+      font-size: 0.8rem;
+      color: #6c6c6e; }
 
 /*# sourceMappingURL=App.css.map */

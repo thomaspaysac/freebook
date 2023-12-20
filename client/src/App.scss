@@ -32,6 +32,11 @@ body {
   height: 100vh;
 }
 
+::selection {
+  background: $main;
+  color: #ffffff;
+}
+
 main {
   //padding: 0 16px;
   min-height: 100%;
@@ -449,6 +454,8 @@ header {
     div {
       a {
         font-weight: 700;
+        text-decoration: none;
+        color: #000000;
       }
 
       div:nth-child(2) {
@@ -463,6 +470,13 @@ header {
     align-items: center;
     justify-content: end;
     gap: 24px;
+
+    .likes-count {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 24px;
+    }
   }
 
   .comments-toggle {
@@ -478,6 +492,38 @@ header {
 }
 
 .comments_container {
+  font-size: 0.9rem;
+
+  .comment-form {
+    margin: 16px 0;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+
+    textarea {
+      font-size: 0.9rem;
+      padding: 8px;
+      border-radius: 6px;
+      width: 90%;
+      background-color: $grey-50;
+      border: none;
+      resize: vertical;
+    }
+
+    button {
+      background-color: $main;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: 700;
+      padding: 8px;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
+    }
+  }
+
   .comment-single {
     padding: 8px;
     background-color: rgba($grey-50, 0.7);

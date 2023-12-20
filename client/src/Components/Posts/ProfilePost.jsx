@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { format } from "date-fns";
 // Components
 import { PostComments } from "./Comments";
 import { RoundPicture } from "../Images/RoundPicture";
@@ -57,7 +58,7 @@ export const ProfilePost = ({ post, user_ID }) => {
 
   const HeartIcon = () => {
     if (!liked) {
-      return (<span className="heart-icon" onClick={toggleLike}>♡</span>)
+      return (<span className="heart-icon" onClick={toggleLike} style={{fontSize: '1.3rem'}}>♡</span>)
     } else {
       return (<span className="heart-icon" onClick={toggleLike}>❤</span>)
     }
@@ -68,7 +69,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   return (
-    <div className="profile-post">
+    <div className="profile-post" onClick={() => console.log(format(new Date(post.created_at), 'MM/dd/yyyy'))}>
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
@@ -78,7 +79,7 @@ export const ProfilePost = ({ post, user_ID }) => {
       </div>
       <div>{post.text}</div>
       <div className="social-actions_container">
-        <div><HeartIcon /> {likesCount}</div>
+        <div className="likes-count"><HeartIcon /> {likesCount}</div>
         <div>{comments.length} comments</div>
       </div>
       <div className="separator"></div>

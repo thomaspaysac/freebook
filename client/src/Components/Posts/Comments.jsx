@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { CommentsList } from "./CommentsList";
+import { authContext } from "../../App";
+// Components
+import { RoundPicture } from "../Images/RoundPicture";
 
 export const PostComments = ({ post_ID, author, comments }) => {
   const [expanded, setExpanded] = useState(false);
+  const authData = useContext(authContext);
 
   const createComment = async (e) => {
     e.preventDefault();
@@ -33,10 +37,10 @@ export const PostComments = ({ post_ID, author, comments }) => {
   return (
     <div className="comments_container">
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
-      <div>New comment:</div>
       <form className="comment-form" onSubmit={createComment}>
-        <textarea name='text' />
-        <button>Submit comment</button>
+        <label htmlFor="text" style={{display:'none'}}>Comment</label> 
+        <textarea name='text' placeholder="Write a comment..." />
+        <button>Send</button>
       </form>
       <CommentsList comments={comments} />
     </div>
