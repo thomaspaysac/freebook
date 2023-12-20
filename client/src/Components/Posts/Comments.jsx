@@ -26,15 +26,15 @@ export const PostComments = ({ post_ID, author, comments }) => {
 
   if (!expanded) {
     return (
-      <div onClick={() => setExpanded(true)}>Load comments...</div>
+      <div className="comments-toggle" onClick={() => setExpanded(true)}>Show comments</div>
     )
   }
 
   return (
-    <div>
-      <div onClick={() => setExpanded(false)}>Hide comments</div>
-      <div onClick={() => console.log(comments)}>New comment:</div>
-      <form onSubmit={createComment}>
+    <div className="comments_container">
+      <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
+      <div>New comment:</div>
+      <form className="comment-form" onSubmit={createComment}>
         <textarea name='text' />
         <button>Submit comment</button>
       </form>

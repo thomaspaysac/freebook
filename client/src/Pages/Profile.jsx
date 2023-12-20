@@ -21,7 +21,6 @@ export const ProfilePage = () => {
     const res = await req.json();
     setProfileData(res[0]);
     setUuid(res[0].uuid);
-    console.log(authData.sub, res[0].uuid);
   }
 
   useEffect(() => {

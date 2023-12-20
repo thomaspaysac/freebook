@@ -41,6 +41,11 @@ main {
     opacity: 1;
     z-index: 3; }
 
+.heart-icon {
+  color: #151375; }
+  .heart-icon:hover, .heart-icon:active {
+    cursor: pointer; }
+
 header {
   width: 100%;
   background-color: #2C2B5B;
@@ -296,10 +301,40 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 100%; }
-    .profile-post .post-info div div:first-child {
+    width: 100%;
+    margin-bottom: 16px; }
+    .profile-post .post-info div a {
       font-weight: 700; }
     .profile-post .post-info div div:nth-child(2) {
-      font-size: 0.8rem; }
+      font-size: 0.8rem;
+      color: #6c6c6e; }
+  .profile-post .social-actions_container {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 24px; }
+  .profile-post .comments-toggle {
+    text-align: end;
+    font-weight: 700;
+    color: #6c6c6e; }
+    .profile-post .comments-toggle:hover, .profile-post .comments-toggle:active {
+      cursor: pointer; }
+
+.comments_container .comment-single {
+  padding: 8px;
+  background-color: rgba(237, 237, 240, 0.7);
+  margin: 8px 0; }
+.comments_container .comment_author-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px; }
+  .comments_container .comment_author-info div a {
+    font-weight: 700;
+    text-decoration: none;
+    color: #000000; }
+  .comments_container .comment_author-info div div:nth-child(2) {
+    font-size: 0.8rem;
+    color: #6c6c6e; }
 
 /*# sourceMappingURL=App.css.map */

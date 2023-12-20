@@ -88,7 +88,7 @@ router.get('/:post_id/like/:user', asyncHandler(async (req, res, next) => {
 router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('comments')
-  .select('*, author (id, first_name, last_name)')
+  .select('*, author (id, first_name, last_name, avatar)')
   .eq('post', req.params.post_id);
   res.json(data);
 }));
@@ -108,7 +108,7 @@ router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => 
 router.get('/:user', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('posts')
-  .select('*, author (first_name, last_name, avatar)')
+  .select('*, author (id, first_name, last_name, avatar)')
   .eq('author', req.params.user)
   .order('created_at', { ascending: false })
   res.json(data);

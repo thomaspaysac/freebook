@@ -57,9 +57,9 @@ export const ProfilePost = ({ post, user_ID }) => {
 
   const HeartIcon = () => {
     if (!liked) {
-      return (<span onClick={toggleLike}>♡</span>)
+      return (<span className="heart-icon" onClick={toggleLike}>♡</span>)
     } else {
-      return (<span onClick={toggleLike}>❤</span>)
+      return (<span className="heart-icon" onClick={toggleLike}>❤</span>)
     }
   }
 
@@ -72,13 +72,16 @@ export const ProfilePost = ({ post, user_ID }) => {
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
-          <div>{post.author.first_name} {post.author.last_name}</div>
-          <div>{post.created_at}</div>
+          <a href={`/user/${post.author.id}`}>{post.author.first_name} {post.author.last_name}</a>
+          <div onClick={() => console.log(post)}>{post.created_at}</div>
         </div>
       </div>
       <div>{post.text}</div>
-      <div><HeartIcon /> {likesCount}</div>
-      <div>{comments.length} comments</div>
+      <div className="social-actions_container">
+        <div><HeartIcon /> {likesCount}</div>
+        <div>{comments.length} comments</div>
+      </div>
+      <div className="separator"></div>
       <PostComments post_ID={post.id} author={user_ID} comments={comments} />
     </div>
   )

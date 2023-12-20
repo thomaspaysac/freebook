@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+// Components
+import { RoundPicture } from "../Images/RoundPicture";
 
 export const CommentsList = ({ comments }) => {
   if (!comments) {
@@ -6,18 +8,23 @@ export const CommentsList = ({ comments }) => {
   }
 
   return (
-    <ul>
+    <div>
       {
         comments.map(el => {
           return (
-            <li key={el.id} onClick={() => console.log(el)}>
-              <div><Link to={`/user/${el.author.id}`}><b>{el.author.first_name} {el.author.last_name}</b></Link></div>
+            <div className="comment-single" key={el.id} onClick={() => console.log(el)}>
+              <div className="comment_author-info">
+                <RoundPicture source={el.author.avatar} radius={"32px"} />
+                <div>
+                  <a href={`/user/${el.author.id}`}>{el.author.first_name} {el.author.last_name}</a>
+                  <div>{el.created_at}</div>
+                </div>
+              </div>
               <div>{el.text}</div>
-              <div>{el.created_at}</div>
-            </li>
+            </div>
           )
         })
       }
-    </ul>
+    </div>
   )
 }
