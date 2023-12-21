@@ -24,6 +24,7 @@ export const NewPostForm = ({ expanded = false }) => {
 
   return (
     <div className="new-post_form">
+      <h3>What's on your mind?</h3>
       <form onSubmit={sendForm}>
         <textarea name="text"></textarea>
         <input type="file" name="file" />

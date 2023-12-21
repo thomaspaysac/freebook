@@ -405,6 +405,10 @@ header {
       .section-header {
         font-size: 1.3rem;
         margin-bottom: 16px;
+
+        h3 {
+          font-size: 1.5rem;
+        }
       }
     }
 
@@ -423,8 +427,12 @@ header {
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
 
+        h3 {
+          font-size: 1.5rem;
+        }
+
         button {
-          background-color: $main-500;
+          background-color: $main-400;
           color: #ffffff;
           border: none;
           border-radius: 6px;
@@ -434,7 +442,7 @@ header {
           &:hover,
           &:active {
             cursor: pointer;
-            background-color: $main-600;
+            background-color: $main-500;
           }
         }
       }
@@ -598,7 +606,24 @@ header {
   margin: 16px 0 32px 0;
   padding: 16px;
 
+  h3 {
+    margin-bottom: 16px;
+  }
+
   form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    textarea {
+      resize: vertical;
+      max-height: 300px;
+      background-color: $grey-50;
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 6px;
+    }
+
     button {
       background-color: $validation-500;
       color: #ffffff;

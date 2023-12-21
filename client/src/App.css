@@ -267,6 +267,8 @@ header {
       .profile .social-container .friends_container .section-header {
         font-size: 1.3rem;
         margin-bottom: 16px; }
+        .profile .social-container .friends_container .section-header h3 {
+          font-size: 1.5rem; }
     .profile .social-container .friends_container {
       width: 35%; }
     .profile .social-container .posts_container {
@@ -278,8 +280,10 @@ header {
         border-radius: 6px;
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+        .profile .social-container .posts_container .section-header h3 {
+          font-size: 1.5rem; }
         .profile .social-container .posts_container .section-header button {
-          background-color: #151375;
+          background-color: #434290;
           color: #ffffff;
           border: none;
           border-radius: 6px;
@@ -287,7 +291,7 @@ header {
           font-size: 1rem; }
           .profile .social-container .posts_container .section-header button:hover, .profile .social-container .posts_container .section-header button:active {
             cursor: pointer;
-            background-color: #100f5d; }
+            background-color: #151375; }
     .profile .social-container .friends-list {
       max-width: 100%;
       display: grid;
@@ -394,15 +398,28 @@ header {
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   margin: 16px 0 32px 0;
   padding: 16px; }
-  .new-post_form form button {
-    background-color: #429244;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    padding: 6px 8px;
-    font-size: 1rem; }
-    .new-post_form form button:hover, .new-post_form form button:active {
-      cursor: pointer;
-      background-color: #347436; }
+  .new-post_form h3 {
+    margin-bottom: 16px; }
+  .new-post_form form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; }
+    .new-post_form form textarea {
+      resize: vertical;
+      max-height: 300px;
+      background-color: #ededf0;
+      padding: 8px;
+      font-size: 1rem;
+      border-radius: 6px; }
+    .new-post_form form button {
+      background-color: #429244;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 1rem; }
+      .new-post_form form button:hover, .new-post_form form button:active {
+        cursor: pointer;
+        background-color: #347436; }
 
 /*# sourceMappingURL=App.css.map */
