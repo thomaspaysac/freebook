@@ -132,4 +132,9 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
+// POST upload picture
+router.post('/avatar', asyncHandler(async (req, res, next) => {
+  console.log(req.file);
+}))
+
 module.exports = router;

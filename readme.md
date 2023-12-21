@@ -20,3 +20,4 @@
   - login / logout
   - submissions (posts / comments)
 - Header's user container
+- Enlever bouton "ajouter ami" après ajout

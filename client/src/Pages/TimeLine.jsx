@@ -1,6 +1,9 @@
 import { useState, useEffect, useContext } from "react"
 import { authContext } from "../App"
+// Components
 import { TimelinePost } from "../Components/Posts/TimelinePost";
+import { Layout } from "../Components/Layout";
+import { NewPostForm } from "../Components/Forms/NewPost";
 
 export const TimeLinePage = () => {
   const [posts, setPosts] = useState();
@@ -33,7 +36,7 @@ export const TimeLinePage = () => {
     }
 
     return (
-      <div>
+      <div className="timeline-posts_container">
         {
           posts.map(el => {
             return (
@@ -46,9 +49,14 @@ export const TimeLinePage = () => {
   }
 
   return (
-    <>
-      <h1>Timeline</h1>
-      <PostsList />
-    </>
+    <Layout>
+      <div className="content timeline-page">
+        <div className="new-post_container">
+          <h3>What's on your mind?</h3>
+          <NewPostForm />
+        </div>
+        <PostsList />
+      </div>
+    </Layout>
   )
 }

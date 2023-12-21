@@ -6,25 +6,16 @@ export const PostCreatePage = () => {
 
   const sendForm = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    formData.append('author', authData.sub);
-    const data = Object.fromEntries(formData.entries());
-    await fetch('http://localhost:3000/posts/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)
-    })
+    //const avatarFile = e.target.files[0];
+    console.log(e.target.files[0]);
   }
 
   return (
     <>
       <h1>Post creation</h1>
       <form onSubmit={sendForm}>
-        <textarea name="text"></textarea>
         <input type="file" name="file" />
-        <button>Publish post</button>
+        <button>Upload file</button>
       </form>
     </>
   )

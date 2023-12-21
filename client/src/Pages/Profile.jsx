@@ -7,11 +7,11 @@ import { AddFriend } from "../Components/Friends/AddFriend";
 import { RoundPicture } from "../Components/Images/RoundPicture";
 import { PostsList } from "../Components/Posts/PostsList";
 import { NewPostForm } from "../Components/Forms/NewPost";
+import { Layout } from "../Components/Layout";
 
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
-  const [showPostForm, setShowPostForm] = useState(false);
   const { id } = useParams();
   const authData = useContext(authContext);
 
@@ -36,34 +36,47 @@ export const ProfilePage = () => {
       </>
     )
   }
+
+  const NewPostContainer = () => {
+    if (uuid === authData.sub) {
+      return (
+        <div className="profile_new-post">
+          <h3>What's on your mind?</h3>
+          <NewPostForm />
+        </div>
+      )
+    }
+
+    return null;
+  }
   
   return (
-    <div className="content profile">
-      <div className="user-info_container">
-        <img className="background-picture" src={profileData.background} />
-        <div className="user-info">
-          <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
-          <div className="user-info_data">
-            <h3>{profileData.first_name} {profileData.last_name}</h3>
-            <AddFriend friend_ID={uuid} />
+    <Layout>
+      <div className="content profile">
+        <div className="user-info_container">
+          <img className="background-picture" src={profileData.background} />
+          <div className="user-info">
+            <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
+            <div className="user-info_data">
+              <h3>{profileData.first_name} {profileData.last_name}</h3>
+              <AddFriend friend_ID={uuid} />
+            </div>
+          </div>
+        </div>
+        <div className="social-container">
+          <div className="friends_container">
+            <div className="section-header"><h3>Friends</h3></div>
+            <FriendsList user_ID={uuid} />
+          </div>
+          <div className="posts_container">          
+            <NewPostContainer />
+            <div className="section-header">
+              <h3>Posts</h3>
+            </div>
+            <PostsList user_ID={uuid} />
           </div>
         </div>
       </div>
-      <div className="social-container">
-        <div className="friends_container">
-          <div className="section-header"><h3>Friends</h3></div>
-          <FriendsList user_ID={uuid} />
-        </div>
-        <div className="posts_container">
-          <div className="section-header">
-            <h3>Posts</h3>
-            <button onClick={() => setShowPostForm(!showPostForm)}>Write a new post</button>
-          </div>
-          <NewPostForm expanded={showPostForm} />
-          <PostsList user_ID={uuid} />
-        </div>
-      </div>
-      
-    </div>
+    </Layout>
   )
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { authContext } from "../../App";
 
-export const NewPostForm = ({ expanded = false }) => {
+export const NewPostForm = () => {
   const authData = useContext(authContext);
 
   const sendForm = async (e) => {
@@ -18,13 +18,8 @@ export const NewPostForm = ({ expanded = false }) => {
     })
   }
 
-  if (!expanded) {
-    return null;
-  }
-
   return (
     <div className="new-post_form">
-      <h3>What's on your mind?</h3>
       <form onSubmit={sendForm}>
         <textarea name="text"></textarea>
         <input type="file" name="file" />

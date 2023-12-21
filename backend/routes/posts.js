@@ -40,7 +40,7 @@ router.get('/feed', asyncHandler(async (req, res, next) => {
   });
   const { data: posts, error: postsError } = await supabase
   .from('posts')
-  .select('*, author (first_name, last_name, avatar)')
+  .select('*, author (id, first_name, last_name, avatar)')
   .in('author', friends)
   .order('created_at', { ascending: false })
   .limit(30);

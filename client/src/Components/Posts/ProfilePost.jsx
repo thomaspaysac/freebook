@@ -32,7 +32,6 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   const convertTimeStamp = () => {
-    //const temp = format(new Date(post.created_at), 'dd MMM yyyy');
     const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ', YYYY'))
     setTimeStamp(temp);
   }
@@ -77,7 +76,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   return (
-    <div className="profile-post" onClick={() => console.log(timeStamp)}>
+    <div className="profile-post">
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
