@@ -1,8 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 // Variables
-$main: #151375;
-$cool-color: #eafdf5;
+$main-100: #d0cfe3;
+$main-200: #a1a0c7;
+$main-300: #7271ac;
+$main-400: #434290;
+$main-500: #151375;
+$main-600: #100f5d;
+$main-700: #0c0b46;
+$main-800: #08072e;
+$main-900: #040317;
+
+$validation-100: #d9e9d9;
+$validation-200: #b3d3b4;
+$validation-300: #8dbd8e;
+$validation-400: #67a769;
+$validation-500: #429244;
+$validation-600: #347436;
+$validation-700: #275728;
+$validation-800: #1a3a1b;
+$validation-900: #0d1d0d;
+
 $grey-50: #ededf0;
 $grey-100: #e7e7e9;
 $grey-200: #dadadd;
@@ -33,7 +51,7 @@ body {
 }
 
 ::selection {
-  background: $main;
+  background: $main-500;
   color: #ffffff;
 }
 
@@ -75,7 +93,7 @@ main {
 }
 
 .heart-icon {
-  color: $main;
+  color: $main-500;
 
   &:hover,
   &:active {
@@ -87,7 +105,7 @@ main {
 // HEADER
 header {
   width: 100%;
-  background-color: #2C2B5B;
+  background-color: $main-500;
   color: #ffffff;
   height: 64px;
   display: flex;
@@ -123,12 +141,12 @@ header {
   .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: $main;
+    color: $main-500;
     margin-bottom: 24px;
     transition: 250ms;
 
     &:hover {
-      text-shadow: 0px 0px 8px rgba($main, 0.33);
+      text-shadow: 0px 0px 8px rgba($main-500, 0.33);
     }
   }
 
@@ -157,7 +175,7 @@ header {
 
   a {
     margin-top: 8px;
-    color: $main;
+    color: $main-500;
     font-size: 0.9rem;
     text-decoration: none;
 
@@ -182,13 +200,13 @@ header {
       outline: none;
 
       &:focus {
-        border: 1px solid $main;
-        box-shadow: 0px 0px 6px 1px rgba($main, 0.5);
+        border: 1px solid $main-500;
+        box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
       }
     }
 
     button {
-      background-color: $main;
+      background-color: $main-500;
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -274,11 +292,11 @@ header {
       background-color: $grey-50;
       border-radius: 6px;
       border: 1px solid #dddfe2;
-      outline-color: $main;
+      outline-color: $main-500;
     }
 
     button {
-      background-color: $main;
+      background-color: $main-500;
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -366,7 +384,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: $main;
+    background-color: $main-500;
     color: #ffffff;
     border-radius: 6px;
     font-weight: 700;
@@ -384,7 +402,7 @@ header {
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       height: fit-content;
 
-      h3 {
+      .section-header {
         font-size: 1.3rem;
         margin-bottom: 16px;
       }
@@ -397,11 +415,28 @@ header {
     .posts_container {
       width: 60%;
 
-      h3 {
+      .section-header {
+        display: flex;
+        justify-content: space-between;
         background-color: #ffffff;
         border-radius: 6px;
         padding: 16px;
-        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);  
+        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+
+        button {
+          background-color: $main-500;
+          color: #ffffff;
+          border: none;
+          border-radius: 6px;
+          padding: 6px 8px;
+          font-size: 1rem;
+
+          &:hover,
+          &:active {
+            cursor: pointer;
+            background-color: $main-600;
+          }
+        }
       }
     }
 
@@ -508,18 +543,23 @@ header {
       background-color: $grey-50;
       border: none;
       resize: vertical;
+      min-height: 2rem;
+      max-height: 300px;
     }
 
     button {
-      background-color: $main;
+      background-color: $validation-500;
       color: #ffffff;
       border-radius: 6px;
+      border: none;
       font-weight: 700;
       padding: 8px;
+      box-shadow: 2px 2px 4px 2px rgba(180, 180, 183, 0.3);
 
       &:hover,
       &:active {
         cursor: pointer;
+        background-color: $validation-600;
       }
     }
   }
@@ -546,6 +586,31 @@ header {
       div:nth-child(2) {
         font-size: 0.8rem;
         color: $grey-700;
+      }
+    }
+  }
+}
+
+.new-post_form {
+  border: 1px solid $main-500;
+  background-color: #ffffff;
+  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  margin: 16px 0 32px 0;
+  padding: 16px;
+
+  form {
+    button {
+      background-color: $validation-500;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-size: 1rem;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background-color: $validation-600;
       }
     }
   }

@@ -6,10 +6,12 @@ import { FriendsList } from "../Components/Friends/FriendsList";
 import { AddFriend } from "../Components/Friends/AddFriend";
 import { RoundPicture } from "../Components/Images/RoundPicture";
 import { PostsList } from "../Components/Posts/PostsList";
+import { NewPostForm } from "../Components/Forms/NewPost";
 
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
+  const [showPostForm, setShowPostForm] = useState(false);
   const { id } = useParams();
   const authData = useContext(authContext);
 
@@ -49,11 +51,15 @@ export const ProfilePage = () => {
       </div>
       <div className="social-container">
         <div className="friends_container">
-          <h3>Friends</h3>
+          <div className="section-header"><h3>Friends</h3></div>
           <FriendsList user_ID={uuid} />
         </div>
         <div className="posts_container">
-          <h3>Posts ADD NEW POST</h3>
+          <div className="section-header">
+            <h3>Posts</h3>
+            <button onClick={() => setShowPostForm(!showPostForm)}>Write a new post</button>
+          </div>
+          <NewPostForm expanded={showPostForm} />
           <PostsList user_ID={uuid} />
         </div>
       </div>

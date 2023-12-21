@@ -8,6 +8,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
   const [comments, setComments] = useState();
+  const [timeStamp, setTimeStamp] = useState();
 
   const fetchLike = async () => {
     setLikesCount(post.likes);
@@ -28,6 +29,12 @@ export const ProfilePost = ({ post, user_ID }) => {
     const req = await fetch(`http://localhost:3000/posts/${post.id}/comments`);
     const res = await req.json();
     setComments(res);
+  }
+
+  const convertTimeStamp = () => {
+    //const temp = format(new Date(post.created_at), 'dd MMM yyyy');
+    const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ', YYYY'))
+    setTimeStamp(temp);
   }
 
   const toggleLike = async () => {
@@ -52,6 +59,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   useEffect(() => {
+    convertTimeStamp();
     fetchLike();
     fetchComments();
   }, [])
@@ -69,12 +77,12 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   return (
-    <div className="profile-post" onClick={() => console.log(format(new Date(post.created_at), 'MM/dd/yyyy'))}>
+    <div className="profile-post" onClick={() => console.log(timeStamp)}>
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
           <a href={`/user/${post.author.id}`}>{post.author.first_name} {post.author.last_name}</a>
-          <div onClick={() => console.log(post)}>{post.created_at}</div>
+          <div onClick={() => console.log(post)}>{timeStamp}</div>
         </div>
       </div>
       <div>{post.text}</div>
