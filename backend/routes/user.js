@@ -147,7 +147,7 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
-// POST upload avatar
+// PATCH change avatar
 router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
   const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
@@ -166,6 +166,28 @@ router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, n
   .from('users')
   .update({ avatar: avatarUrl.publicUrl })
   .eq('uuid', req.body.auth);
-}))
+}));
+
+// PATCH change background picture
+router.patch('/background', upload.single('background'), asyncHandler(async (req, res, next) => {
+  const fileContent = await fs.promises.readFile(req.file.path);
+  const { data, error } = await supabase
+  .storage
+  .from('users/background_pictures')
+  .upload(req.file.filename, fileContent, {
+    cacheControl: '3600',
+    upsert: false,
+    contentType: req.file.mimetype,
+  });
+  const { data: imageUrl } = supabase
+  .storage
+  .from('users/background_pictures')
+  .getPublicUrl(req.file.filename);
+  const { error: userUpdateError } = await supabase
+  .from('users')
+  .update({ background: imageUrl.publicUrl })
+  .eq('uuid', req.body.auth);
+}));
+
 
 module.exports = router;

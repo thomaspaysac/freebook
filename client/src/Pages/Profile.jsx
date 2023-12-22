@@ -8,6 +8,8 @@ import { RoundPicture } from "../Components/Images/RoundPicture";
 import { PostsList } from "../Components/Posts/PostsList";
 import { NewPostForm } from "../Components/Forms/NewPost";
 import { AvatarUpload } from "../Components/Uploads/AvatarUpload";
+import { ProfilePictureContainer } from "../Components/User/ProfilePictureContainer";
+import { BackgroundPictureContainer } from "../Components/User/BackgroundPictureContainer";
 import { Layout } from "../Components/Layout";
 // Assets
 import changeIcon from "../assets/icons/change_arrows.png";
@@ -53,7 +55,7 @@ export const ProfilePage = () => {
     return null;
   }
 
-  const ProfilePictureContainer = () => {
+  /*const ProfilePictureContainer = () => {
     const [hover, setHover] = useState(false);
 
     const changeAvatar = async (e) => {
@@ -88,15 +90,21 @@ export const ProfilePage = () => {
         <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
       )
     }
-  }
+  }*/
   
   return (
     <Layout>
       <div className="content profile">
         <div className="user-info_container">
-          <img className="background-picture" src={profileData.background} />
+          <BackgroundPictureContainer 
+            uuid={uuid}
+            own_uuid={authData.sub}
+            image={profileData.background} />
           <div className="user-info">
-            <ProfilePictureContainer />
+            <ProfilePictureContainer
+              uuid={uuid}
+              own_uuid={authData.sub}
+              avatar={profileData.avatar} />
             <div className="user-info_data">
               <h3>{profileData.first_name} {profileData.last_name}</h3>
               <AddFriend friend_ID={uuid} />

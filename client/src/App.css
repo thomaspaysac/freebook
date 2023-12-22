@@ -216,10 +216,37 @@ header {
     flex-direction: column;
     align-items: center;
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+  .profile .background_container {
+    position: relative;
+    height: 350px;
+    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+    .profile .background_container img {
+      height: 100%;
+      object-fit: cover; }
+  .profile .background-picture_overlay {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: 0.2s; }
+    .profile .background-picture_overlay img {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      height: 20%; }
+    .profile .background-picture_overlay.active {
+      opacity: 1;
+      cursor: pointer; }
   .profile .background-picture {
     position: relative;
     top: 0;
     z-index: 0;
+    height: 100%;
     border-radius: 6px;
     width: 66vw; }
   .profile .profile-picture_overlay {
@@ -228,6 +255,7 @@ header {
     justify-content: center;
     align-items: center;
     position: absolute;
+    z-index: 4;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
@@ -240,10 +268,9 @@ header {
       opacity: 1;
       cursor: pointer; }
   .profile .profile-picture {
+    position: relative;
+    z-index: 3;
     box-shadow: 0 0 0 6px #ffffff; }
-  .profile .profile-picture_own {
-    box-shadow: 0 0 0 6px #ffffff;
-    transition: 0.2s; }
   .profile .user-info {
     display: flex;
     align-items: center;
