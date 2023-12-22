@@ -222,12 +222,28 @@ header {
     z-index: 0;
     border-radius: 6px;
     width: 66vw; }
+  .profile .profile-picture_overlay {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: 0.2s; }
+    .profile .profile-picture_overlay img {
+      height: 40%;
+      width: 40%; }
+    .profile .profile-picture_overlay.active {
+      opacity: 1;
+      cursor: pointer; }
   .profile .profile-picture {
-    /*position: relative;
-    bottom: 75px;
-    left: -375px;
-    z-index: 1;*/
     box-shadow: 0 0 0 6px #ffffff; }
+  .profile .profile-picture_own {
+    box-shadow: 0 0 0 6px #ffffff;
+    transition: 0.2s; }
   .profile .user-info {
     display: flex;
     align-items: center;
@@ -244,8 +260,6 @@ header {
       display: flex;
       justify-content: space-between;
       width: 100%; }
-    .profile .user-info div {
-      width: auto; }
   .profile .add-friend-button {
     display: flex;
     align-items: center;

@@ -9,6 +9,8 @@ import { PostsList } from "../Components/Posts/PostsList";
 import { NewPostForm } from "../Components/Forms/NewPost";
 import { AvatarUpload } from "../Components/Uploads/AvatarUpload";
 import { Layout } from "../Components/Layout";
+// Assets
+import changeIcon from "../assets/icons/change_arrows.png";
 
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
@@ -52,6 +54,8 @@ export const ProfilePage = () => {
   }
 
   const ProfilePictureContainer = () => {
+    const [hover, setHover] = useState(false);
+
     const changeAvatar = async (e) => {
       e.preventDefault();
       const form = document.getElementById('change-avatar_form');
@@ -65,13 +69,18 @@ export const ProfilePage = () => {
 
     if (uuid === authData.sub) {
       return (
-        <div>
-          <form id="change-avatar_form">
-            <label htmlFor="avatar">
-              <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
-            </label>
-            <input type="file" name="avatar" id="avatar" style={{display: "none"}} onChange={changeAvatar} />
-          </form>
+        <div style={{position:'relative'}} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+          <div>
+            <form id="change-avatar_form">
+                <label htmlFor="avatar">
+                  <div className={`profile-picture_overlay ${hover ? 'active' : ''}`}>
+                    <img src={changeIcon} />
+                  </div>
+                </label>
+                <input type="file" name="avatar" id="avatar" style={{display: "none"}} onChange={changeAvatar} />
+            </form>
+          </div>
+          <RoundPicture className="profile-picture_own" source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
         </div>
       )  
     } else {

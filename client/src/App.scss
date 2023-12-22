@@ -326,7 +326,6 @@ header {
 
   div {
     border-radius: 6px;
-    //width: 50vw;
   }
 
   .user-info_container {
@@ -345,13 +344,37 @@ header {
     border-radius: 6px;
     width: 66vw;
   }
+  
+  .profile-picture_overlay {
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    transition: 0.2s;
+
+    img {
+      height: 40%;
+      width: 40%;
+    }
+
+    &.active {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
 
   .profile-picture {
-    /*position: relative;
-    bottom: 75px;
-    left: -375px;
-    z-index: 1;*/
     box-shadow: 0 0 0 6px #ffffff;
+  }
+
+  .profile-picture_own {
+    box-shadow: 0 0 0 6px #ffffff;
+    transition: 0.2s;
   }
 
   .user-info {
@@ -376,7 +399,7 @@ header {
     }
 
     div {
-      width: auto;
+      //width: auto;
     }
   }
 
