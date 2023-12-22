@@ -147,7 +147,7 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
-// POST upload picture
+// POST upload avatar
 router.post('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
   const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
@@ -158,7 +158,14 @@ router.post('/avatar', upload.single('avatar'), asyncHandler(async (req, res, ne
     upsert: false,
     contentType: req.file.mimetype,
   });
-  console.log(error)
+  const { data: avatarUrl } = supabase
+  .storage
+  .from('avatars')
+  .getPublicUrl(req.file.filename);
+  const { error: userUpdateError } = await supabase
+  .from('users')
+  .update({ avatar: avatarUrl.publicUrl })
+  .eq('uuid', req.body.auth);
 }))
 
 module.exports = router;

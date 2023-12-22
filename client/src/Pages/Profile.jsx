@@ -7,6 +7,7 @@ import { AddFriend } from "../Components/Friends/AddFriend";
 import { RoundPicture } from "../Components/Images/RoundPicture";
 import { PostsList } from "../Components/Posts/PostsList";
 import { NewPostForm } from "../Components/Forms/NewPost";
+import { AvatarUpload } from "../Components/Uploads/AvatarUpload";
 import { Layout } from "../Components/Layout";
 
 export const ProfilePage = () => {
@@ -57,6 +58,7 @@ export const ProfilePage = () => {
           <img className="background-picture" src={profileData.background} />
           <div className="user-info">
             <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
+            <AvatarUpload />
             <div className="user-info_data">
               <h3>{profileData.first_name} {profileData.last_name}</h3>
               <AddFriend friend_ID={uuid} />
