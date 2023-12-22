@@ -3,6 +3,7 @@ const router = express.Router();
 const asyncHandler = require("express-async-handler");
 const supabase = require('../supabaseConfig')
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
 const multer = require('multer');
 
 // Multer setup
@@ -12,6 +13,7 @@ const storage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
       cb(null, file.fieldname + '-' + Date.now())
+      //cb(null, file.originalname)
   }
 });
 
@@ -147,12 +149,16 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
 
 // POST upload picture
 router.post('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
-  console.log(req.file);
+  const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
   .storage
   .from('avatars')
-  .upload(req.file.filename, req.file.path);
-  console.log({data, error})
+  .upload(req.file.filename, fileContent, {
+    cacheControl: '3600',
+    upsert: false,
+    contentType: req.file.mimetype,
+  });
+  console.log(error)
 }))
 
 module.exports = router;

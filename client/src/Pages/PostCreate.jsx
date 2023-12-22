@@ -20,6 +20,7 @@ export const PostCreatePage = () => {
         <input type="file" name="avatar" />
         <button>Upload file</button>
       </form>
+      <img src="https://rwnwymmplzlurrocvwaa.supabase.co/storage/v1/object/public/avatars/avatar-1703228517747" />
     </>
   )
 }

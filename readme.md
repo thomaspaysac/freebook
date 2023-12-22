@@ -2,6 +2,7 @@
 - Picture upload
 - Account retrieval
 - Guest account login
+- Groups (optional)
 
 ## Error handling
 - Signup
