@@ -16,7 +16,8 @@ export const AvatarUpload = () => {
 
   return (
     <form onSubmit={sendForm}>
-      <input type="file" name="avatar" />
+      <label htmlFor="avatar">Avatar</label>
+      <input type="file" name="avatar" id="avatar" />
       <button>Upload file</button>
     </form>
   )

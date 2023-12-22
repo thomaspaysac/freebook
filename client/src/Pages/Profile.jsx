@@ -50,6 +50,36 @@ export const ProfilePage = () => {
 
     return null;
   }
+
+  const ProfilePictureContainer = () => {
+    const changeAvatar = async (e) => {
+      e.preventDefault();
+      const form = document.getElementById('change-avatar_form');
+      const formData = new FormData(form);
+      formData.append('auth', authData.sub);
+      await fetch('http://localhost:3000/user/avatar', {
+        method: 'PATCH',
+        body: formData,
+      })
+    }
+
+    if (uuid === authData.sub) {
+      return (
+        <div>
+          <form id="change-avatar_form">
+            <label htmlFor="avatar">
+              <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
+            </label>
+            <input type="file" name="avatar" id="avatar" style={{display: "none"}} onChange={changeAvatar} />
+          </form>
+        </div>
+      )  
+    } else {
+      return (
+        <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
+      )
+    }
+  }
   
   return (
     <Layout>
@@ -57,8 +87,7 @@ export const ProfilePage = () => {
         <div className="user-info_container">
           <img className="background-picture" src={profileData.background} />
           <div className="user-info">
-            <RoundPicture className={'profile-picture'} source={profileData.avatar} radius={'168px'} alt={'Profile picture'} />
-            <AvatarUpload />
+            <ProfilePictureContainer />
             <div className="user-info_data">
               <h3>{profileData.first_name} {profileData.last_name}</h3>
               <AddFriend friend_ID={uuid} />
