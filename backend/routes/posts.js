@@ -1,16 +1,47 @@
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-const supabase = require('../supabaseConfig')
+const supabase = require('../supabaseConfig');
+const fs = require('fs');
+const multer = require('multer');
+
+// Multer setup
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+      cb(null, 'uploads')
+  },
+  filename: (req, file, cb) => {
+      cb(null, file.fieldname + '-' + Date.now())
+  }
+});
+
+const upload = multer({ storage: storage });
 
 // POST create a new post
-router.post('/create', asyncHandler(async (req, res, next) => {
+router.post('/create', upload.single('file'), asyncHandler(async (req, res, next) => {
+  let fileUrl = null;
+  if (req.file) {
+    const fileContent = await fs.promises.readFile(req.file.path);
+    const { data, error } = await supabase
+    .storage
+    .from('posts')
+    .upload(req.file.filename, fileContent, {
+      cacheControl: '3600',
+      upsert: false,
+      contentType: req.file.mimetype,
+    });
+    const { data: imageUrl } = supabase
+    .storage
+    .from('users/background_pictures')
+    .getPublicUrl(req.file.filename);
+    fileUrl = imageUrl.publicUrl;
+  }
   const { error } = await supabase
   .from('posts')
   .insert({ 
     author: req.body.author,
     text: req.body.text,
-    file: null,
+    file: fileUrl,
    })
 }))
 
