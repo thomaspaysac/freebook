@@ -9,7 +9,7 @@ export const AvatarUpload = () => {
     const formData = new FormData(e.target);
     formData.append('auth', authData.sub);
     await fetch('http://localhost:3000/user/avatar', {
-      method: 'POST',
+      method: 'PATCH',
       body: formData,
     })
   } 

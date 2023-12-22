@@ -1,13 +1,21 @@
 export const RoundPicture = ({ className = '', source, radius, alt = '' }) => {
   return (
-      <img
-        className={className} 
-        src={source} 
-        alt={alt}
-        style={{
+      <div className={className}
+      style={{
         height: radius, 
-        width: radius,
-        borderRadius: '50%', 
-        }} />
+        minWidth: radius,
+        borderRadius: '50%',
+      }}>
+        <img
+         src={source} 
+         alt={alt}
+         style={{
+         height: '100%',
+         width: '100%',
+         objectFit:'cover',
+         borderRadius: '50%',
+         }} />
+      </div>
+      
   )
 }

@@ -148,7 +148,7 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
 }));
 
 // POST upload avatar
-router.post('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
+router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
   const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
   .storage
