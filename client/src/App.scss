@@ -728,7 +728,6 @@ header {
 }
 
 .new-post_form {
-
   h3 {
     margin-bottom: 16px;
   }
@@ -744,6 +743,33 @@ header {
 
       img {
         height: 32px;
+
+        &:hover,
+        &:active {
+          cursor: pointer;
+        }
+      }
+    }
+
+    .upload-group {
+      display: flex;
+      flex-direction: column;
+
+      .cancel-upload_button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //background-color: $main-200;
+        height: 24px;
+
+        &:hover,
+        &:active {
+          cursor: pointer;
+        }
+
+        img {
+          height: 100%;
+        }
       }
     }
 

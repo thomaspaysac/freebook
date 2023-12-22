@@ -503,6 +503,20 @@ header {
     gap: 16px; }
     .new-post_form form .input-group img {
       height: 32px; }
+      .new-post_form form .input-group img:hover, .new-post_form form .input-group img:active {
+        cursor: pointer; }
+  .new-post_form form .upload-group {
+    display: flex;
+    flex-direction: column; }
+    .new-post_form form .upload-group .cancel-upload_button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 24px; }
+      .new-post_form form .upload-group .cancel-upload_button:hover, .new-post_form form .upload-group .cancel-upload_button:active {
+        cursor: pointer; }
+      .new-post_form form .upload-group .cancel-upload_button img {
+        height: 100%; }
   .new-post_form form textarea {
     width: 100%;
     resize: vertical;
