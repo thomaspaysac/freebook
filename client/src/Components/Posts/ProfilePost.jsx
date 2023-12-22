@@ -71,12 +71,24 @@ export const ProfilePost = ({ post, user_ID }) => {
     }
   }
 
+  const PostImageContainer = () => {
+    if (!post.file) {
+      return null;
+    }
+
+    return (
+      <div className="post_image">
+        <img src={post.file} alt="" />
+      </div>
+    )
+  }
+
   if (!post || !comments) {
     return null;
   }
 
   return (
-    <div className="profile-post">
+    <div className="profile-post" onClick={() => console.log(post)}>
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
@@ -84,7 +96,10 @@ export const ProfilePost = ({ post, user_ID }) => {
           <div onClick={() => console.log(post)}>{timeStamp}</div>
         </div>
       </div>
-      <div>{post.text}</div>
+      <div className="post-content">
+        <div>{post.text}</div>
+        <PostImageContainer />
+      </div>
       <div className="social-actions_container">
         <div className="likes-count"><HeartIcon /> {likesCount}</div>
         <div>{comments.length} comments</div>

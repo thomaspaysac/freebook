@@ -406,6 +406,25 @@ header {
     .timeline-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
       color: #6c6c6e; }
+  .profile-post .post-content,
+  .timeline-post .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px; }
+    .profile-post .post-content .post_image,
+    .timeline-post .post-content .post_image {
+      display: flex;
+      justify-content: center;
+      height: fit-content;
+      border-top: 1px solid rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 0; }
+      .profile-post .post-content .post_image img,
+      .timeline-post .post-content .post_image img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain; }
   .profile-post .social-actions_container,
   .timeline-post .social-actions_container {
     display: flex;

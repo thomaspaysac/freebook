@@ -32,7 +32,7 @@ router.post('/create', upload.single('file'), asyncHandler(async (req, res, next
     });
     const { data: imageUrl } = supabase
     .storage
-    .from('users/background_pictures')
+    .from('posts')
     .getPublicUrl(req.file.filename);
     fileUrl = imageUrl.publicUrl;
   }

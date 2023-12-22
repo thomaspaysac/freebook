@@ -10,14 +10,9 @@ export const NewPostForm = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     formData.append('author', authData.sub);
-    //const data = Object.fromEntries(formData.entries());
     await fetch('http://localhost:3000/posts/create', {
       method: 'POST',
       body: formData,
-      /*headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data)*/
     })
   }
 

@@ -614,6 +614,28 @@ header {
     }
   }
 
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .post_image {
+      display: flex;
+      justify-content: center;
+      height: fit-content;
+      border-top: 1px solid rgba(0, 0, 0, 0.3);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 0;
+
+      img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+      }
+    }
+  }
+
   .social-actions_container {
     display: flex;
     align-items: center;
