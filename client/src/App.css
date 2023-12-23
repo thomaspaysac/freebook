@@ -9,7 +9,7 @@ html {
   min-height: 100%; }
 
 body {
-  height: 100vh; }
+  height: 100%; }
 
 ::selection {
   background: #151375;
@@ -21,6 +21,7 @@ main {
 
 .content {
   padding: 0 16px 12vh 16px;
+  margin-top: 64px;
   min-height: calc(100vh - 64px);
   width: 100%; }
 
@@ -40,10 +41,10 @@ main {
   height: 100vh;
   width: 100vw;
   background-color: rgba(231, 231, 233, 0.5);
-  transition: all 250ms; }
+  transition: opacity 250ms; }
   .backdrop.open {
     opacity: 1;
-    z-index: 3; }
+    z-index: 6; }
 
 .heart-icon {
   color: #151375; }
@@ -51,6 +52,9 @@ main {
     cursor: pointer; }
 
 header {
+  position: fixed;
+  top: 0;
+  z-index: 5;
   width: 100%;
   background-color: #151375;
   color: #ffffff;
@@ -64,7 +68,10 @@ header {
     text-decoration: none; }
   header nav {
     display: flex;
-    gap: 16px; }
+    gap: 16px;
+    align-items: center; }
+    header nav img {
+      height: 24px; }
     header nav .user-container_profile {
       display: flex;
       align-items: center;
@@ -167,7 +174,7 @@ header {
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
   .signup-modal.open {
     opacity: 1;
-    z-index: 4; }
+    z-index: 7; }
   .signup-modal .header {
     display: flex;
     justify-content: space-between;

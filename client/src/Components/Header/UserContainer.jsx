@@ -3,6 +3,9 @@ import { authContext } from "../../App"
 import { Link, useNavigate } from "react-router-dom";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
+// Assets
+import homeIcon from "../../assets/icons/home.png";
+import friendsIcon from "../../assets/icons/friends.png";
 
 export const UserContainer = () => {
   const [userData, setUserData] = useState(null);
@@ -37,15 +40,16 @@ export const UserContainer = () => {
     <nav>
       {authData.email}
       <button onClick={() => console.log(userData)}>Get authData</button>
-      <Link to='/friends/requests'>Friends requests</Link>
-      <Link to='/post/new'>New Post</Link>
-      <Link to='/timeline'>Timeline</Link>
+      <button onClick={logOut}>Log out</button>
+      <Link to='/timeline'>
+        <img src={homeIcon} alt='' />
+      </Link>
+      <Link to='/friends/requests'>
+        <img src={friendsIcon} alt='' />
+      </Link>
       <Link to={`/user/${userData.id}`} className="user-container_profile">
         <RoundPicture source={userData.avatar} radius={'40px'} />
-        <div>{userData.first_name} {userData.last_name}</div>
       </Link>
-      <a href={`/user/${userData.id}`}>My profile</a>
-      <button onClick={logOut}>Log out</button>
     </nav>
   )
 }
