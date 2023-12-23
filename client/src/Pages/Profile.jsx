@@ -28,7 +28,7 @@ export const ProfilePage = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [authData])
+  }, [authData, id])
 
   if (!profileData) {
     return (

@@ -58,13 +58,17 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px; }
+  padding: 8px 16px; }
   header a {
     color: #ffffff;
     text-decoration: none; }
   header nav {
     display: flex;
     gap: 16px; }
+    header nav .user-container_profile {
+      display: flex;
+      align-items: center;
+      gap: 8px; }
 
 .header_logo {
   font-weight: 700;

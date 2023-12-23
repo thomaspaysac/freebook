@@ -56,7 +56,8 @@ router.post('/login', asyncHandler(async (req, res, next) => {
 
 // GET log out
 router.get('/logout', asyncHandler(async (req, res, next) => {
-  const { error } = await supabase.auth.signOut()
+  const { error } = await supabase.auth.signOut();
+  res.end();
 }))
 
 
