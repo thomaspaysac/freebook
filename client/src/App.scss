@@ -129,7 +129,7 @@ header {
 
 
     img {
-      height: 24px;
+      height: 32px;
     }
 
     .user-container_profile {
@@ -463,6 +463,32 @@ header {
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: $main-600;
+    }
+  }
+
+  .friendship-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 0 8px;
+    font-size: 0.9rem;
+
+    &.accepted {
+      border: 2px solid $validation-500;
+      color: $validation-500;
+    }
+
+    &.pending {
+      background-color: $validation-300;
+    }
   }
 
   .social-container {

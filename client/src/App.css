@@ -71,7 +71,7 @@ header {
     gap: 16px;
     align-items: center; }
     header nav img {
-      height: 24px; }
+      height: 32px; }
     header nav .user-container_profile {
       display: flex;
       align-items: center;
@@ -307,6 +307,23 @@ header {
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px; }
+    .profile .add-friend-button:hover, .profile .add-friend-button:active {
+      cursor: pointer;
+      background-color: #100f5d; }
+  .profile .friendship-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 0 8px;
+    font-size: 0.9rem; }
+    .profile .friendship-status.accepted {
+      border: 2px solid #429244;
+      color: #429244; }
+    .profile .friendship-status.pending {
+      background-color: #8dbd8e; }
   .profile .social-container {
     display: flex;
     gap: 16px;

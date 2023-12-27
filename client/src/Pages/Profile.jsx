@@ -13,6 +13,7 @@ import { Layout } from "../Components/Layout";
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
+  const [friendShip, setFriendShip] = useState();
   const { id } = useParams();
   const authData = useContext(authContext);
 
@@ -26,9 +27,33 @@ export const ProfilePage = () => {
     setUuid(res[0].uuid);
   }
 
+  const fetchFriendStatus = async () => {
+    if (!authData || !uuid) {
+      return;
+    }
+    const req = await fetch('http://localhost:3000/user/friends/check/' + uuid, {
+      headers : {
+        authorization: authData.sub,
+      }
+    });
+    const res = await req.json();
+    if (!res.length) {
+      return
+    }
+    if (res[0].accepted === true) {
+      setFriendShip('friend');
+    } else if (res[0].accepted === false) {
+      setFriendShip('pending');
+    }
+  }
+
   useEffect(() => {
     fetchProfile();
   }, [authData, id])
+
+  useEffect(() => {
+    fetchFriendStatus();
+  }, [authData, uuid])
 
   if (!profileData) {
     return (
@@ -66,7 +91,7 @@ export const ProfilePage = () => {
               avatar={profileData.avatar} />
             <div className="user-info_data">
               <h3>{profileData.first_name} {profileData.last_name}</h3>
-              <AddFriend friend_ID={uuid} />
+              <AddFriend friend_ID={uuid} friendShip={friendShip} />
             </div>
           </div>
         </div>

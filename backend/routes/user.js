@@ -76,6 +76,16 @@ router.get('/session', asyncHandler(async (req, res, next) => {
   })
 }));
 
+// GET check friend status
+router.get('/friends/check/:friend_id', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('friends')
+  .select('accepted')
+  .or(`and(user_ID.eq.${req.headers.authorization},friend_ID.eq.${req.params.friend_id}), and(user_ID.eq.${req.params.friend_id},friend_ID.eq.${req.headers.authorization})`)
+  //.eq('user_ID', req.headers.authorization)
+  //.eq('friend_ID', req.params.friend_id)
+  res.json(data);
+}));
 
 // POST friend request
 router.post('/friends/add', asyncHandler(async (req, res, next) => {
@@ -92,7 +102,6 @@ router.get('/friends/:id/pending', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('friends')
   .select('id, user_ID(id, uuid, first_name, last_name, avatar), friend_ID(id, uuid, first_name, last_name, avatar)')
-  //.eq('friend_ID', req.params.id)
   .or(`user_ID.eq.${req.params.id}, friend_ID.eq.${req.params.id}`)
   .eq('accepted', false)
   res.json(data);

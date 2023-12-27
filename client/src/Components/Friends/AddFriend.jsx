@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { authContext } from "../../App";
 
-export const AddFriend = ({ friend_ID }) => {
+export const AddFriend = ({ friend_ID, friendShip }) => {
   const authData = useContext(authContext);
 
   const addFriend = async () => {
@@ -29,7 +29,21 @@ export const AddFriend = ({ friend_ID }) => {
     return null
   }
 
-  return (
+  if (friendShip === 'pending') {
+    return (
+      <div className="friendship-status pending">
+        Friend request pending...
+      </div>
+    )
+  } else if (friendShip === 'friend') {
+    return (
+      <div className="friendship-status accepted">
+        ✔ Friend
+      </div>
+    )
+  } else {
+    return (
       <button className="add-friend-button" onClick={addFriend}><span style={{fontSize: '32px', fontWeight: 400}}>+</span> Add to your friends</button>
-  )
+    )
+  }
 }

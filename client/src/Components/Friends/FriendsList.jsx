@@ -16,11 +16,7 @@ export const FriendsList = ({ user_ID }) => {
   }, [user_ID])
 
   if (!friends || !user_ID) {
-    return (
-      <>
-        Friends list loading...
-      </>
-    )
+    return null;
   } else {
     return (
       <div className="friends-list">

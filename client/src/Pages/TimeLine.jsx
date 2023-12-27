@@ -55,6 +55,7 @@ export const TimeLinePage = () => {
           <h3>What's on your mind?</h3>
           <NewPostForm />
         </div>
+        <h3>Your feed</h3>
         <PostsList />
       </div>
     </Layout>

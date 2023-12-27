@@ -1,8 +1,8 @@
 ## Features
-- Picture upload
 - Account retrieval
 - Guest account login
 - Groups (optional)
+- DELETE actions (remove post, friend)
 
 ## Error handling
 - Signup
