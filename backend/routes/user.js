@@ -82,8 +82,6 @@ router.get('/friends/check/:friend_id', asyncHandler(async (req, res, next) => {
   .from('friends')
   .select('accepted')
   .or(`and(user_ID.eq.${req.headers.authorization},friend_ID.eq.${req.params.friend_id}), and(user_ID.eq.${req.params.friend_id},friend_ID.eq.${req.headers.authorization})`)
-  //.eq('user_ID', req.headers.authorization)
-  //.eq('friend_ID', req.params.friend_id)
   res.json(data);
 }));
 
