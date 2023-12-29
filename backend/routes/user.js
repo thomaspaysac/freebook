@@ -135,6 +135,22 @@ router.get('/friends/:id', asyncHandler(async (req, res, next) => {
   res.json(data);
 }));
 
+// DELETE friend
+router.delete('/friends/:friend_id/delete', asyncHandler(async (req, res, next) => {
+  // Find friend object
+  const { data: friendObject, error: objectError } = await supabase
+  .from('friends')
+  .select('id')
+  .or(`and(user_ID.eq.${req.headers.authorization},friend_ID.eq.${req.params.friend_id}), and(user_ID.eq.${req.params.friend_id},friend_ID.eq.${req.headers.authorization})`)
+  const objectID = friendObject[0].id;
+  // Delete object
+  const { error } = await supabase
+  .from('friends')
+  .delete()
+  .eq('id', objectID);
+  res.end();
+}));
+
 
 // GET user info from ID
 router.get('/:id', asyncHandler(async (req, res, next) => {

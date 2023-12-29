@@ -23,6 +23,19 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
     })
   }
 
+  const deleteFriend = async () => {
+    if (window.confirm('Delete ?')) {
+      await fetch(`http://localhost:3000/user/friends/${friend_ID}/delete`, {
+        method: 'DELETE',
+        headers : {
+          authorization: authData.sub,
+        }
+      });
+    } else {
+      return;
+    }
+  }
+
   useEffect(() => {
     setFriendStatus(friendShip);
   }, [friendShip])
@@ -42,7 +55,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
     )
   } else if (friendStatus === 'friend') {
     return (
-      <div className="friendship-status accepted">
+      <div className="friendship-status accepted" onClick={deleteFriend}>
         ✔ Friend
       </div>
     )
