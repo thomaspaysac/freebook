@@ -3,6 +3,7 @@ import { authContext } from "../../App";
 
 export const AddFriend = ({ friend_ID, friendShip }) => {
   const [friendStatus, setFriendStatus] = useState();
+  const [toggleDelete, setToggleDelete] = useState(false);
   const authData = useContext(authContext);
 
   const addFriend = async () => {
@@ -31,6 +32,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
           authorization: authData.sub,
         }
       });
+      setFriendStatus(null);
     } else {
       return;
     }
@@ -53,10 +55,20 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
         Friend request pending...
       </div>
     )
-  } else if (friendStatus === 'friend') {
+  } else if (friendStatus === 'friend' && !toggleDelete) {
     return (
-      <div className="friendship-status accepted" onClick={deleteFriend}>
+      <div className="friendship-status accepted"
+        onClick={deleteFriend}
+        onMouseEnter={() => setToggleDelete(true)}>
         ✔ Friend
+      </div>
+    )
+  } else if (friendStatus === 'friend' && toggleDelete) {
+    return (
+      <div className="friendship-status delete"
+        onClick={deleteFriend}
+        onMouseLeave={() => setToggleDelete(false)}>
+        ✘ Unfriend
       </div>
     )
   } else if (friendStatus === null) {

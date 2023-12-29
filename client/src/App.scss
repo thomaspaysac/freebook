@@ -33,6 +33,18 @@ $grey-800: #49494b;
 $grey-900: #252527;
 $grey-950: #131315;
 
+$error-50: #fee5e5;
+$error-100: #fdcccc;
+$error-200: #fc9999;
+$error-300: #fb6666;
+$error-400: #fa3333;
+$error-500: #f90000;
+$error-600: #c70000;
+$error-700: #950000;
+$error-800: #630000;
+$error-900: #310000;
+$error-950: #180000;
+
 
 // GENERAL STYLING
 * {
@@ -484,6 +496,21 @@ header {
     &.accepted {
       border: 2px solid $validation-500;
       color: $validation-500;
+    }
+
+    &.delete {
+      border: 2px solid $error-500;
+      background-color: $error-300;
+      color: #ffffff;
+
+      &:hover {
+        cursor: pointer;
+      }
+      
+      &:active {
+        //cursor: pointer;
+        background-color: $error-500;
+      }
     }
 
     &.pending {

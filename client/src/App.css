@@ -322,6 +322,14 @@ header {
     .profile .friendship-status.accepted {
       border: 2px solid #429244;
       color: #429244; }
+    .profile .friendship-status.delete {
+      border: 2px solid #f90000;
+      background-color: #fb6666;
+      color: #ffffff; }
+      .profile .friendship-status.delete:hover {
+        cursor: pointer; }
+      .profile .friendship-status.delete:active {
+        background-color: #f90000; }
     .profile .friendship-status.pending {
       background-color: #8dbd8e; }
   .profile .social-container {
