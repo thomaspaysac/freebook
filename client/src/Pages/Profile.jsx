@@ -38,9 +38,8 @@ export const ProfilePage = () => {
     });
     const res = await req.json();
     if (!res.length) {
-      return
-    }
-    if (res[0].accepted === true) {
+      setFriendShip(null);
+    } else if (res[0].accepted === true) {
       setFriendShip('friend');
     } else if (res[0].accepted === false) {
       setFriendShip('pending');

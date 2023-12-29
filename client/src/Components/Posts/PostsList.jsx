@@ -14,7 +14,7 @@ export const PostsList = ({ user_ID }) => {
 
   useEffect(() => {
     fetchPosts();
-  }, [])
+  }, [user_ID])
 
   if (!posts || !user_ID) {
     return null
