@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+// Components
 import { Layout } from "../Components/Layout";
 import { LoginForm } from "../Components/Forms/LoginForm";
 import { SignupModal } from "../Components/Forms/SignupModal";
@@ -7,6 +8,7 @@ import { SignupModal } from "../Components/Forms/SignupModal";
 export const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const navigateTo = useNavigate();
 
   useEffect(() => {
     setAnimate(true);
@@ -29,7 +31,7 @@ export const HomePage = () => {
       <div className="content homepage">
         <div>
           <h1 className="logo">freebook</h1>
-          <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br /><span>Make new ones</span></h2>
+          <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br /><span>make new ones</span></h2>
         </div>
         <div className="login-container">
           <LoginForm openSignup={openModal} />

@@ -25,7 +25,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
   }
 
   const deleteFriend = async () => {
-    if (window.confirm('Delete ?')) {
+    if (window.confirm('Do you really want to unfriend this user?')) {
       await fetch(`http://localhost:3000/user/friends/${friend_ID}/delete`, {
         method: 'DELETE',
         headers : {

@@ -107,6 +107,14 @@ header {
     .homepage h2.animated {
       opacity: 1;
       top: 0; }
+  .homepage .guest-login_button {
+    padding: 6px;
+    border-radius: 6px;
+    background-color: #ededf0;
+    border: none; }
+    .homepage .guest-login_button:hover, .homepage .guest-login_button:active {
+      cursor: pointer;
+      background-color: #dadadd; }
 
 .login-form_container {
   background-color: #ffffff;
@@ -415,6 +423,7 @@ header {
       margin-bottom: 16px; }
   .timeline-page .timeline-posts_container {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center; }
 
