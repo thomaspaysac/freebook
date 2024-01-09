@@ -71,14 +71,16 @@ header {
     text-decoration: none; }
   header nav {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     align-items: center; }
     header nav img {
       height: 32px; }
     header nav .user-container_profile {
-      display: flex;
-      align-items: center;
-      gap: 8px; }
+      display: flex; }
+    header nav .button_logout img {
+      height: 24px; }
+    header nav .button_logout:hover, header nav .button_logout:active {
+      cursor: pointer; }
 
 .header_logo {
   font-weight: 700;
@@ -579,7 +581,10 @@ header {
   background-color: #ededf0;
   padding: 16px; }
   .requests .friends-requests_container {
-    margin-bottom: 24px; }
+    margin-bottom: 24px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 16px; }
   .requests .friend-request_single {
     list-style-type: none;
     display: flex;

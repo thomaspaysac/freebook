@@ -140,7 +140,7 @@ header {
 
   nav {
     display: flex;
-    gap: 16px;
+    gap: 24px;
     align-items: center;
 
 
@@ -150,8 +150,19 @@ header {
 
     .user-container_profile {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      //align-items: center;
+      //gap: 8px;
+    }
+
+    .button_logout {
+      img {
+        height: 24px;
+      }
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -880,6 +891,9 @@ header {
 
   .friends-requests_container {
     margin-bottom: 24px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 16px;
   }
 
   .friend-request_single {
