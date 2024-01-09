@@ -6,6 +6,7 @@ import { RoundPicture } from "../Images/RoundPicture";
 // Assets
 import homeIcon from "../../assets/icons/home.png";
 import friendsIcon from "../../assets/icons/friends.png";
+import feedIcon from "../../assets/icons/newspaper.png";
 
 export const UserContainer = () => {
   const [userData, setUserData] = useState(null);
@@ -42,7 +43,7 @@ export const UserContainer = () => {
       <button onClick={() => console.log(userData)}>Get authData</button>
       <button onClick={logOut}>Log out</button>
       <Link to='/timeline'>
-        <img src={homeIcon} alt='' />
+        <img src={feedIcon} alt='' />
       </Link>
       <Link to='/friends/requests'>
         <img src={friendsIcon} alt='' />
