@@ -71,7 +71,7 @@ router.get('/feed', asyncHandler(async (req, res, next) => {
   });
   const { data: posts, error: postsError } = await supabase
   .from('posts')
-  .select('*, author (id, first_name, last_name, avatar)')
+  .select('*, author (id, uuid, first_name, last_name, avatar)')
   .in('author', friends)
   .order('created_at', { ascending: false })
   .limit(30);
@@ -139,10 +139,32 @@ router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => 
 router.get('/:user', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('posts')
-  .select('*, author (id, first_name, last_name, avatar)')
+  .select('*, author (id, uuid, first_name, last_name, avatar)')
   .eq('author', req.params.user)
   .order('created_at', { ascending: false })
   res.json(data);
-}))
+}));
+
+// DELETE post
+router.delete('/:post_id', asyncHandler(async (req, res, next) => {
+  // Delete all likes from post
+  const { error: likesError } = await supabase
+  .from('likes')
+  .delete()
+  .eq('post', req.params.post_id);
+  // Delete all comments from post
+  const { error: commentsError } = await supabase
+  .from('comments')
+  .delete()
+  .eq('post', req.params.post_id);
+  // Delete post
+  const { error } = await supabase
+  .from('posts')
+  .delete()
+  .eq('id', req.params.post_id)
+  .eq('author', req.headers.authorization);
+  console.log(error);
+  res.end();
+}));
 
 module.exports = router;

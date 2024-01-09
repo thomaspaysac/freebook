@@ -3,6 +3,7 @@ import { format } from "date-fns";
 // Components
 import { PostComments } from "./Comments";
 import { RoundPicture } from "../Images/RoundPicture";
+import { DeletePostButton } from "./DeletePostButton";
 
 export const TimelinePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
@@ -94,7 +95,13 @@ export const TimelinePost = ({ post, user_ID }) => {
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
           <a href={`/user/${post.author.id}`}>{post.author.first_name} {post.author.last_name}</a>
-          <div onClick={() => console.log(post)}>{timeStamp}</div>
+          <div>{timeStamp}
+          <DeletePostButton
+            post_ID={post.id}
+            post_author={post.author.uuid}
+            user_ID={user_ID}
+          />
+        </div>
         </div>
       </div>
       <div className="post-content">

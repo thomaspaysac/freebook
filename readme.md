@@ -2,7 +2,7 @@
 - Account retrieval
 - Guest account login
 - Groups (optional)
-- DELETE actions (remove post, friend)
+- DELETE actions (remove post / comments)
 
 ## Error handling
 - Signup
@@ -17,6 +17,7 @@
 - Check identity before change profile picture
 
 ## Finitions
+- Signup et login : vérifier input et ajouter messages d'erreur
 - Redirections après:
   - login / logout
   - submissions (posts / comments)

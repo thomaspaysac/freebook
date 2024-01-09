@@ -456,6 +456,14 @@ header {
     .timeline-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
       color: #6c6c6e; }
+    .profile-post .post-info .delete-post_icon,
+    .timeline-post .post-info .delete-post_icon {
+      height: 16px;
+      margin-left: 6px; }
+      .profile-post .post-info .delete-post_icon:hover, .profile-post .post-info .delete-post_icon:active,
+      .timeline-post .post-info .delete-post_icon:hover,
+      .timeline-post .post-info .delete-post_icon:active {
+        cursor: pointer; }
   .profile-post .post-content,
   .timeline-post .post-content {
     display: flex;

@@ -710,6 +710,16 @@ header {
         color: $grey-700;
       }
     }
+
+    .delete-post_icon {
+      height: 16px;
+      margin-left: 6px;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
+    }
   }
 
   .post-content {
