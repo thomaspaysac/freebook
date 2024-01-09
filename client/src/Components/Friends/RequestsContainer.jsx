@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom"
+// Components
+import { RoundPicture } from "../Images/RoundPicture"
+
 export const FriendsRequestsContainer = ({title, type, data}) => {
   const acceptRequest = async (request) => {
     await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
@@ -21,17 +25,23 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
           data.map(el => {
             if (type === 'requests') {
               return (
-                <li key={el.id}>
-                  <div>{el.user_ID.first_name} {el.user_ID.last_name}</div>
-                  <button onClick={() => acceptRequest(el)}>V</button>
-                  <button onClick={() => deleteRequest(el)}>X</button>
+                <li key={el.id} className="friend-request_single">
+                  <Link to={`/user/${el.user_ID.id}`}>
+                    <RoundPicture source={el.user_ID.avatar} radius={'32px'} />
+                    <div>{el.user_ID.first_name} {el.user_ID.last_name}</div>
+                  </Link>
+                  <button className="action-button action-accept" onClick={() => acceptRequest(el)}>Accept</button>
+                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}>Reject</button>
                 </li>
               )
             } else {
               return (
-                <li key={el.id}>
-                  <div>{el.friend_ID.first_name} {el.friend_ID.last_name}</div>
-                  <button onClick={() => deleteRequest(el)}>X</button>
+                <li key={el.id} className="friend-request_single">
+                  <Link to={`/user/${el.friend_ID.id}`}>
+                    <RoundPicture source={el.friend_ID.avatar} radius={'32px'} />
+                    <div>{el.friend_ID.first_name} {el.friend_ID.last_name}</div>
+                  </Link>
+                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}>Cancel</button>
                 </li>
               )
             }
@@ -43,9 +53,8 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
   }
 
   return (
-    <div>
+    <div className="friends-requests_container">
       <h3>{title}</h3>
-      <button onClick={() => console.log(data)}>Log requests</button>
       <ul>
         <List />
       </ul>

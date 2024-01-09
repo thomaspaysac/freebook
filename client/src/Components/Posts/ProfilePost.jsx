@@ -32,7 +32,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   const convertTimeStamp = () => {
-    const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ', YYYY'))
+    const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
     setTimeStamp(temp);
   }
 

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { authContext } from "../App"
 import { FriendsRequestsContainer } from "../Components/Friends/RequestsContainer";
+import { Layout } from "../Components/Layout";
 
 export const FriendsRequestPage = () => {
   const [requests, setRequests] = useState([]);
@@ -44,9 +45,11 @@ export const FriendsRequestPage = () => {
   }
 
   return (
-    <>
-      <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
-      <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />
-    </>
+    <Layout>
+      <div className="content requests">
+        <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
+        <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />
+      </div>
+    </Layout>
   )
 }

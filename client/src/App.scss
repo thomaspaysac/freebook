@@ -105,6 +105,10 @@ main {
   }
 }
 
+.bolded {
+  font-weight: 700;
+}
+
 .heart-icon {
   color: $main-500;
 
@@ -867,4 +871,62 @@ header {
       }
     }
   }
+}
+
+// FRIENDS REQUEST PAGE
+.requests {
+  background-color: $grey-50;
+  padding: 16px;
+
+  .friends-requests_container {
+    margin-bottom: 24px;
+  }
+
+  .friend-request_single {
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 8px 0;
+
+    a {
+      text-decoration: none;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .action-button {
+    padding: 4px;
+    border-radius: 6px;
+    border: none;
+  }
+
+  .action-accept {
+    background-color: $validation-500;
+    color: #ffffff;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: $validation-600;
+    }
+  }
+
+  .action-reject {
+    background-color: $error-300;
+    color: #ffffff;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: $error-500;
+    }
+}
 }
