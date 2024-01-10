@@ -1,5 +1,4 @@
 ## Features
-- Account retrieval
 - Groups (optional)
 
 ## Error handling
