@@ -1063,5 +1063,41 @@ header {
       cursor: pointer;
       background-color: $error-500;
     }
+  }
 }
+
+// Users list page
+.users-list {
+  background-color: $grey-50;
+
+  h2 {
+    text-align: center;
+    padding: 24px 0;
+  }
+}
+
+.users-list_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 8px;
+  row-gap: 8px;
+
+  .users-list_user {
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 6px;
+    text-decoration: none;
+    color: #000000;
+
+    &:hover,
+    &:active {
+      background-color: $main-100;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
 }

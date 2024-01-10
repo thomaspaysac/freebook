@@ -22,6 +22,7 @@ import { ProtectedPage } from './Pages/Protected';
 import { FriendsRequestPage } from './Pages/FriendsRequests';
 import { PostCreatePage } from './Pages/PostCreate';
 import { TimeLinePage } from './Pages/TimeLine';
+import { AllUsersPage } from './Pages/AllUsersPage';
 
 // Context
 export const authContext = createContext({});
@@ -57,6 +58,7 @@ function App() {
           <Route exact path="/protected" element={<ProtectedPage />} />
           <Route exact path="/feed" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
+          <Route exact path="/users" element={<AllUsersPage />} />
           <Route path="/friends/requests" element={<FriendsRequestPage />} />
           <Route path ="/post/new" element={<PostCreatePage />} />
         </Routes>
