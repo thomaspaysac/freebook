@@ -17,6 +17,6 @@
 ## Finitions
 - Signup et login : vérifier input et ajouter messages d'erreur
 - Redirections après:
-  - login / logout
+  - sign up
   - submissions (posts / comments)
 - Header's user container

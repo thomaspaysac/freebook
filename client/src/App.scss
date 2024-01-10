@@ -371,6 +371,78 @@ header {
 }
 
 
+// Login recover page
+.recover {
+  background-color: $grey-50;
+  display: flex;
+  justify-content: center;
+
+  .recover-form_container {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: auto;
+    height: fit-content;
+    margin-top: 24px;
+    box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+  
+    a {
+      margin-top: 8px;
+      color: $main-500;
+      font-size: 0.9rem;
+      text-decoration: none;
+  
+      &:active,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 25vw;
+  
+      input {
+        font-size: 1.1rem;
+        padding: 16px 14px;
+        border-radius: 6px;
+        border: 1px solid #dddfe2;
+        transition: all 500ms;
+        outline: none;
+  
+        &:focus {
+          border: 1px solid $main-500;
+          box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
+        }
+      }
+  
+      button {
+        background-color: $main-500;
+        color: #ffffff;
+        font-size: 1.5rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        padding: 8px;
+        transition: background-color 300ms;
+  
+        &:hover,
+        &:active {
+          cursor: pointer;
+          background-color: #100f5d;
+        }
+      }
+    }
+  }
+}
+
+
 // PROFILE PAGE
 .profile {
   background-color: $grey-50;
@@ -675,6 +747,14 @@ header {
 
 
 // MAJOR COMPONENTS
+.error-container {
+  border-radius: 6px;
+  padding: 8px;
+  background-color: $error-100;
+  border: 2px solid $error-300;
+  color: $error-800;
+}
+
 .profile-post {
   width: 100%;
 }

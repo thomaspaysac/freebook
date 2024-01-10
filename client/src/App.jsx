@@ -15,6 +15,8 @@ import { Header } from './Components/Header/Header';
 import { HomePage } from './Pages/Home';
 import { LoginPage } from './Pages/Login';
 import { SignupPage } from './Pages/Signup';
+import { PasswordForgottenPage } from './Pages/PasswordForgotten';
+import { PasswordResetPage } from './Pages/PasswordReset';
 import { ProfilePage } from './Pages/Profile';
 import { ProtectedPage } from './Pages/Protected';
 import { FriendsRequestPage } from './Pages/FriendsRequests';
@@ -50,6 +52,8 @@ function App() {
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/login" element={<LoginPage />} />
           <Route exact path="/signup" element={<SignupPage />} />
+          <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
+          <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/protected" element={<ProtectedPage />} />
           <Route exact path="/timeline" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />

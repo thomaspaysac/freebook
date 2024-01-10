@@ -45,7 +45,7 @@ export const LoginForm = ({ openSignup }) => {
         <input type="password" name="password" placeholder="Password" />
         <button>Log In</button>
       </form>
-      <Link>Forgot password?</Link>
+      <Link to="/login/recover">Forgot password?</Link>
       <div className="separator"></div>
       <button className="signup-button" onClick={openSignup}>Create new account</button>
       <div>or</div>
