@@ -119,7 +119,7 @@ router.get('/:post_id/like/:user', asyncHandler(async (req, res, next) => {
 router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('comments')
-  .select('*, author (id, first_name, last_name, avatar)')
+  .select('*, author (id, uuid, first_name, last_name, avatar)')
   .eq('post', req.params.post_id);
   res.json(data);
 }));
@@ -133,6 +133,18 @@ router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => 
     post: req.params.post_id,
     text: req.body.text
    });
+}));
+
+// DELETE post comment
+router.delete('/:post_id/comments/:comment_id', asyncHandler(async (req, res, next) => {
+  const { error } = await supabase
+  .from('comments')
+  .delete()
+  .eq('id', req.params.comment_id)
+  .eq('post', req.params.post_id)
+  .eq('author', req.headers.authorization);
+  console.log(error)
+  res.end();
 }));
 
 // GET posts from one user
@@ -163,7 +175,6 @@ router.delete('/:post_id', asyncHandler(async (req, res, next) => {
   .delete()
   .eq('id', req.params.post_id)
   .eq('author', req.headers.authorization);
-  console.log(error);
   res.end();
 }));
 

@@ -441,15 +441,15 @@ header {
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   margin: 16px 0; }
-  .profile-post .delete-post_icon,
-  .timeline-post .delete-post_icon {
+  .profile-post .delete-post_button,
+  .timeline-post .delete-post_button {
     position: absolute;
     top: 5px;
     right: 6px;
     height: 24px; }
-    .profile-post .delete-post_icon:hover, .profile-post .delete-post_icon:active,
-    .timeline-post .delete-post_icon:hover,
-    .timeline-post .delete-post_icon:active {
+    .profile-post .delete-post_button:hover, .profile-post .delete-post_button:active,
+    .timeline-post .delete-post_button:hover,
+    .timeline-post .delete-post_button:active {
       cursor: pointer; }
   .profile-post .post-info,
   .timeline-post .post-info {
@@ -537,9 +537,17 @@ header {
         cursor: pointer;
         background-color: #347436; }
   .comments_container .comment-single {
+    position: relative;
     padding: 8px;
     background-color: rgba(237, 237, 240, 0.7);
     margin: 8px 0; }
+    .comments_container .comment-single .delete-comment_button {
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      height: 24px; }
+      .comments_container .comment-single .delete-comment_button:hover, .comments_container .comment-single .delete-comment_button:active {
+        cursor: pointer; }
   .comments_container .comment_author-info {
     display: flex;
     align-items: center;

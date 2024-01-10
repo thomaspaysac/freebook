@@ -692,7 +692,7 @@ header {
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   margin: 16px 0;
 
-  .delete-post_icon {
+  .delete-post_button {
     position: absolute;
     top: 5px;
     right: 6px;
@@ -813,9 +813,22 @@ header {
   }
 
   .comment-single {
+    position: relative;
     padding: 8px;
     background-color: rgba($grey-50, 0.7);
     margin: 8px 0;
+
+    .delete-comment_button {
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      height: 24px;
+  
+      &:hover,
+      &:active {
+        cursor: pointer;
+      }
+    }
   }
 
   .comment_author-info {

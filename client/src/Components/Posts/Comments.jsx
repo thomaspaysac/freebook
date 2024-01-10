@@ -42,7 +42,7 @@ export const PostComments = ({ post_ID, author, comments }) => {
         <textarea name='text' placeholder="Write a comment..." />
         <button>Send</button>
       </form>
-      <CommentsList comments={comments} />
+      <CommentsList comments={comments} user_ID={author} />
     </div>
   )
 }

@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
+import { DeleteCommentButton } from "./DeleteCommentButton";
 
-export const CommentsList = ({ comments }) => {
+export const CommentsList = ({ comments, user_ID }) => {
   if (!comments) {
     return null;
   }
@@ -14,7 +15,13 @@ export const CommentsList = ({ comments }) => {
         comments.map(el => {
           const timeStamp = format(new Date(el.created_at), 'd MMM' + (new Date(el.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
           return (
-            <div className="comment-single" key={el.id} onClick={() => console.log(el)}>
+            <div className="comment-single" key={el.id} onClick={() => console.log(el, user_ID)}>
+              <DeleteCommentButton 
+                post_ID={el.post}
+                comment_ID={el.id}
+                comment_author={el.author.uuid}
+                user_ID={user_ID}
+              />
               <div className="comment_author-info">
                 <RoundPicture source={el.author.avatar} radius={"32px"} />
                 <div>
