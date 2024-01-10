@@ -1,8 +1,7 @@
 ## Features
 - Account retrieval
-- Guest account login
 - Groups (optional)
-- DELETE actions (remove post / comments)
+- DELETE actions (comments)
 
 ## Error handling
 - Signup

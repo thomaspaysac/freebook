@@ -89,16 +89,16 @@ export const ProfilePost = ({ post, user_ID }) => {
 
   return (
     <div className="profile-post" onClick={() => console.log(post)}>
+      <DeletePostButton
+        post_ID={post.id}
+        post_author={post.author.uuid}
+        user_ID={user_ID}
+      />
       <div className="post-info">
         <RoundPicture source={post.author.avatar} radius={'40px'} />
         <div>
           <a href={`/user/${post.author.id}`}>{post.author.first_name} {post.author.last_name}</a>
           <div>{timeStamp}
-          <DeletePostButton
-            post_ID={post.id}
-            post_author={post.author.uuid}
-            user_ID={user_ID}
-          />
         </div>
         </div>
       </div>

@@ -685,11 +685,25 @@ header {
 
 .profile-post,
 .timeline-post {
+  position: relative;
   background-color: #ffffff;
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   margin: 16px 0;
+
+  .delete-post_icon {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    height: 24px;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+
 
   .post-info {
     display: flex;
@@ -708,16 +722,6 @@ header {
       div:nth-child(2) {
         font-size: 0.8rem;
         color: $grey-700;
-      }
-    }
-
-    .delete-post_icon {
-      height: 16px;
-      margin-left: 6px;
-
-      &:hover,
-      &:active {
-        cursor: pointer;
       }
     }
   }

@@ -435,11 +435,22 @@ header {
 
 .profile-post,
 .timeline-post {
+  position: relative;
   background-color: #ffffff;
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   margin: 16px 0; }
+  .profile-post .delete-post_icon,
+  .timeline-post .delete-post_icon {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    height: 24px; }
+    .profile-post .delete-post_icon:hover, .profile-post .delete-post_icon:active,
+    .timeline-post .delete-post_icon:hover,
+    .timeline-post .delete-post_icon:active {
+      cursor: pointer; }
   .profile-post .post-info,
   .timeline-post .post-info {
     display: flex;
@@ -456,14 +467,6 @@ header {
     .timeline-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
       color: #6c6c6e; }
-    .profile-post .post-info .delete-post_icon,
-    .timeline-post .post-info .delete-post_icon {
-      height: 16px;
-      margin-left: 6px; }
-      .profile-post .post-info .delete-post_icon:hover, .profile-post .post-info .delete-post_icon:active,
-      .timeline-post .post-info .delete-post_icon:hover,
-      .timeline-post .post-info .delete-post_icon:active {
-        cursor: pointer; }
   .profile-post .post-content,
   .timeline-post .post-content {
     display: flex;
