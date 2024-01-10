@@ -16,7 +16,7 @@ export const LoginForm = ({ openSignup }) => {
     });
     const res = await req.json();
     localStorage.setItem('jwt', res.session.access_token);
-    navigateTo('/timeline');
+    navigateTo('/feed');
     location.reload();
   }
 
@@ -34,7 +34,7 @@ export const LoginForm = ({ openSignup }) => {
     });
     const res = await req.json();
     localStorage.setItem('jwt', res.session.access_token);
-    navigateTo('/timeline');
+    navigateTo('/feed');
     location.reload();
   }
 

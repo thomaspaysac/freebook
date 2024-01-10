@@ -46,7 +46,7 @@ export const UserContainer = () => {
 
   return (
     <nav>
-      <Link to='/timeline'
+      <Link to='/feed'
         onMouseEnter={() => setFeedHover(true)}
         onMouseLeave={() => setFeedHover(false)}
       >

@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const SignupModal = ({open, closeSignup}) => {
+  const navigateTo = useNavigate();
+
   const signup = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -13,8 +15,10 @@ export const SignupModal = ({open, closeSignup}) => {
       body: JSON.stringify(data),
     });
     const res = await req.json();
+    console.log(res);
     localStorage.setItem('jwt', res.session.access_token);
-    //document.getElementById('close-button').click();
+    navigateTo('/feed');
+    location.reload();
   }
 
   return (

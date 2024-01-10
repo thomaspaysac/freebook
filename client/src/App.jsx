@@ -55,7 +55,7 @@ function App() {
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/protected" element={<ProtectedPage />} />
-          <Route exact path="/timeline" element={<TimeLinePage />} />
+          <Route exact path="/feed" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
           <Route path="/friends/requests" element={<FriendsRequestPage />} />
           <Route path ="/post/new" element={<PostCreatePage />} />
