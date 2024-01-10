@@ -702,6 +702,19 @@ header {
       cursor: pointer;
       background-color: #f90000; }
 
+.users-list_link {
+  background-color: #151375;
+  width: fit-content;
+  padding: 8px;
+  margin-bottom: 24px;
+  border-radius: 6px; }
+  .users-list_link a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none; }
+    .users-list_link a:hover, .users-list_link a:active {
+      text-decoration: underline; }
+
 .users-list {
   background-color: #ededf0; }
   .users-list h2 {

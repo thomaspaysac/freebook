@@ -16,6 +16,6 @@
 ## Finitions
 - Signup et login : vérifier input et ajouter messages d'erreur
 - Redirections après:
-  - sign up
   - submissions (posts / comments)
-- Header's user container
+- Header's user container : hide logout in dropdown menu (profile/logout)
+- refresh component after friend request accept/reject/cancel

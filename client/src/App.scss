@@ -1067,6 +1067,25 @@ header {
 }
 
 // Users list page
+.users-list_link {
+  background-color: $main-500;
+  width: fit-content;
+  padding: 8px;
+  margin-bottom: 24px;
+  border-radius: 6px;
+
+  a {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
+
 .users-list {
   background-color: $grey-50;
 

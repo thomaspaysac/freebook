@@ -9,6 +9,7 @@ export const FriendsList = ({ user_ID }) => {
     const req = await fetch(`http://localhost:3000/user/friends/${user_ID}`)
     const res = await req.json();
     setFriends(res);
+    console.log(res);
   }
 
   useEffect(() => {
@@ -17,6 +18,12 @@ export const FriendsList = ({ user_ID }) => {
 
   if (!friends || !user_ID) {
     return null;
+  } else if (!friends.length) {
+    return (
+      <div className="users-list_link">
+        <Link to='/users'>Find your first friend!</Link>
+      </div>
+    )
   } else {
     return (
       <div className="friends-list">
