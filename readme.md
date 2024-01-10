@@ -1,7 +1,6 @@
 ## Features
 - Account retrieval
 - Groups (optional)
-- DELETE actions (comments)
 
 ## Error handling
 - Signup
