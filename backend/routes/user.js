@@ -39,8 +39,8 @@ router.post('/signup', asyncHandler(async (req, res, next) => {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
-    avatar: null,
-    background: null,
+    avatar: "https://rwnwymmplzlurrocvwaa.supabase.co/storage/v1/object/sign/website/user.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ3ZWJzaXRlL3VzZXIucG5nIiwiaWF0IjoxNzA0OTE4MDE1LCJleHAiOjIwMjAyNzgwMTV9.93LKOmrXcX7DK2B00oM9VNhuw1Fb5LGeETEVD52bO60&t=2024-01-10T20%3A22%3A09.093Z",
+    background: "https://rwnwymmplzlurrocvwaa.supabase.co/storage/v1/object/sign/website/background.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJ3ZWJzaXRlL2JhY2tncm91bmQuanBnIiwiaWF0IjoxNzA0OTE3ODgwLCJleHAiOjIwMjAyNzc4ODB9.HdJwWIobb5Coh2Fo-IzYC78Rmayqm2kbSdEUolXZDH8&t=2024-01-10T20%3A19%3A54.526Z",
  });
  res.json(data);
 }));
