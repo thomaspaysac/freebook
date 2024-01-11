@@ -35,6 +35,7 @@ export const HomePage = () => {
         </div>
         <div className="login-container">
           <LoginForm openSignup={openModal} />
+          <Link to='/privacy' className="policy-link">Privacy policy</Link>
         </div>
       </div>
       <SignupModal open={modalOpen} closeSignup={closeModal} />

@@ -116,6 +116,19 @@ header {
       cursor: pointer;
       background-color: #dadadd; }
 
+.login-container {
+  position: relative; }
+  .login-container .policy-link {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #000000;
+    text-decoration: none;
+    font-size: 0.8rem; }
+    .login-container .policy-link:hover, .login-container .policy-link:active {
+      text-decoration: underline; }
+
 .login-form_container {
   background-color: #ffffff;
   padding: 16px;
