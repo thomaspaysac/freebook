@@ -3,6 +3,7 @@ import { authContext } from "../../App"
 import { Link, useNavigate } from "react-router-dom";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
+import { DropdownMenu } from "./DropdownMenu";
 // Assets
 import homeIcon from "../../assets/icons/home.png";
 import friendsIcon from "../../assets/icons/friends.png";
@@ -17,6 +18,7 @@ export const UserContainer = () => {
   const [feedHover, setFeedHover] = useState(false);
   const [friendsHover, setFriendsHover] = useState(false);
   const [logoutHover, setLogoutHover] = useState(false);
+  const [userHover, setUserHover] = useState(false);
   const authData = useContext(authContext);
 
   const navigateTo = useNavigate();
@@ -58,9 +60,16 @@ export const UserContainer = () => {
       >
         <img src={friendsHover ? friendsIconHover : friendsIcon} title="Friends requests" alt='' />
       </Link>
-      <Link to={`/user/${userData.id}`} className="user-container_profile">
-        <RoundPicture source={userData.avatar} radius={'40px'} />
-      </Link>
+      <div
+        className="user-dropdown_button"
+        onMouseEnter={() => setUserHover(true)}
+        onMouseLeave={() => setUserHover(false)}
+      >
+        <Link to={`/user/${userData.id}`} className="user-container_profile">
+          <RoundPicture source={userData.avatar} radius={'40px'} />
+        </Link>
+        <DropdownMenu open={userHover} user_ID={userData.id} />
+      </div>
       <div className="button_logout" 
         onClick={logOut}
         onMouseEnter={() => setLogoutHover(true)}

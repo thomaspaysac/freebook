@@ -77,6 +77,36 @@ header {
       height: 32px; }
     header nav .user-container_profile {
       display: flex; }
+    header nav .user-dropdown_button {
+      position: relative; }
+      header nav .user-dropdown_button .dropdown-menu {
+        position: absolute;
+        right: 0;
+        bottom: -110px;
+        border: 2px solid #151375;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+        header nav .user-dropdown_button .dropdown-menu .dropdown-separator {
+          height: 1px;
+          border-radius: 6px;
+          width: 100%;
+          background-color: rgba(180, 180, 183, 0.3); }
+        header nav .user-dropdown_button .dropdown-menu .dropdown-link {
+          color: #000000;
+          border-radius: 6px; }
+          header nav .user-dropdown_button .dropdown-menu .dropdown-link:first-of-type div {
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px; }
+          header nav .user-dropdown_button .dropdown-menu .dropdown-link:last-of-type div {
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px; }
+          header nav .user-dropdown_button .dropdown-menu .dropdown-link div {
+            padding: 6px 12px; }
+            header nav .user-dropdown_button .dropdown-menu .dropdown-link div:hover {
+              cursor: pointer;
+              background-color: #d0cfe3; }
     header nav .button_logout img {
       height: 24px; }
     header nav .button_logout:hover, header nav .button_logout:active {

@@ -1,6 +1,5 @@
 ## Features
 - Groups (optional)
-- privacy policy
 
 ## Error handling
 - Comment (! empty comments)
