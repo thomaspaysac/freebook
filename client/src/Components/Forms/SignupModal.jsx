@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const SignupModal = ({open, closeSignup}) => {
+  const [errors, setErrors] = useState([]);
   const navigateTo = useNavigate();
 
   const signup = async (e) => {
@@ -14,12 +16,35 @@ export const SignupModal = ({open, closeSignup}) => {
       },
       body: JSON.stringify(data),
     });
-    console.log(req);
     const res = await req.json();
-    console.log(res);
-    /*localStorage.setItem('jwt', res.session.access_token);
+    if (res.status !== 200) {
+      console.log(res.errors)
+      setErrors(res.errors);
+      return;
+    }
+    localStorage.setItem('jwt', res.data.session.access_token);
     navigateTo('/feed');
-    location.reload();*/
+    location.reload();
+  }
+
+  const ErrorContainer = () => {
+    if (!errors.length) {
+      return null;
+    } else {
+      return (
+        <div className="error-container">
+          <ul>
+            {
+              errors.map((el, i) => {
+                return (
+                  <li key={i}>{el.msg}</li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
+    }
   }
 
   return (
@@ -36,12 +61,13 @@ export const SignupModal = ({open, closeSignup}) => {
         <div className="separator"></div>
         <form onSubmit={signup}>
           <div className="personal-info">
-            <input type="text" name="first_name" id="first_name" placeholder="First name" autoFocus/>
-            <input type="text" name="last_name" id="last_name" placeholder="Last name" />
+            <input type="text" name="first_name" id="first_name" placeholder="First name" minLength={2} maxLength={20} autoFocus/>
+            <input type="text" name="last_name" id="last_name" placeholder="Last name" minLength={2} maxLength={20} />
           </div>
           <input type="email" name="email" id="email" placeholder="Email" />
-          <input type="password" name="password" id="password" placeholder="Password" />
-          <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password" />
+          <input type="password" name="password" id="password" placeholder="Password" minLength={5} />
+          <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password" minLength={5} />
+          <ErrorContainer />
           <button>Sign Up</button>
         </form>
       </div>

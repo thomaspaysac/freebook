@@ -753,6 +753,10 @@ header {
   background-color: $error-100;
   border: 2px solid $error-300;
   color: $error-800;
+
+  ul {
+    margin-left: 20px;
+  }
 }
 
 .profile-post {

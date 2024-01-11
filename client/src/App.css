@@ -484,6 +484,8 @@ header {
   background-color: #fdcccc;
   border: 2px solid #fb6666;
   color: #630000; }
+  .error-container ul {
+    margin-left: 20px; }
 
 .profile-post {
   width: 100%; }

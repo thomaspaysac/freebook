@@ -39,7 +39,7 @@ export const LoginForm = ({ openSignup }) => {
       body: JSON.stringify(data),
     });
     const res = await req.json();
-    localStorage.setItem('jwt', res.session.access_token);
+    localStorage.setItem('jwt', res.data.session.access_token);
     navigateTo('/feed');
     location.reload();
   }
