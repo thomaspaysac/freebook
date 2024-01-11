@@ -1124,3 +1124,25 @@ header {
     }
   }
 }
+
+// Privacy policy page
+.privacy-policy {
+  padding: 24px;
+  background-color: $grey-50;
+
+  h1 {
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    margin-top: 20px;
+  }
+
+  h3 {
+    margin-top: 16px;
+  }
+
+  ul {
+    margin-left: 18px;
+  }
+}

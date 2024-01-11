@@ -741,4 +741,16 @@ header {
       align-items: center;
       gap: 6px; }
 
+.privacy-policy {
+  padding: 24px;
+  background-color: #ededf0; }
+  .privacy-policy h1 {
+    margin-bottom: 24px; }
+  .privacy-policy h2 {
+    margin-top: 20px; }
+  .privacy-policy h3 {
+    margin-top: 16px; }
+  .privacy-policy ul {
+    margin-left: 18px; }
+
 /*# sourceMappingURL=App.css.map */

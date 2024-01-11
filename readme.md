@@ -3,7 +3,6 @@
 - privacy policy
 
 ## Error handling
-- Signup
 - Comment (! empty comments)
 - Post (! empty posts)
 
@@ -14,7 +13,6 @@
 - Check identity before change profile picture
 
 ## Finitions
-- Signup et login : vérifier input et ajouter messages d'erreur
 - Redirections après:
   - submissions (posts / comments)
 - Header's user container : hide logout in dropdown menu (profile/logout)
