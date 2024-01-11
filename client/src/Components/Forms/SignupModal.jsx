@@ -14,11 +14,12 @@ export const SignupModal = ({open, closeSignup}) => {
       },
       body: JSON.stringify(data),
     });
+    console.log(req);
     const res = await req.json();
     console.log(res);
-    localStorage.setItem('jwt', res.session.access_token);
+    /*localStorage.setItem('jwt', res.session.access_token);
     navigateTo('/feed');
-    location.reload();
+    location.reload();*/
   }
 
   return (
@@ -40,6 +41,7 @@ export const SignupModal = ({open, closeSignup}) => {
           </div>
           <input type="email" name="email" id="email" placeholder="Email" />
           <input type="password" name="password" id="password" placeholder="Password" />
+          <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password" />
           <button>Sign Up</button>
         </form>
       </div>

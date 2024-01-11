@@ -1,9 +1,9 @@
 ## Features
 - Groups (optional)
+- privacy policy
 
 ## Error handling
 - Signup
-- Login
 - Comment (! empty comments)
 - Post (! empty posts)
 
