@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const DropdownMenu = ({ open, user_ID }) => {
+export const DropdownMenu = ({ open, user_ID, logoutFunction }) => {
   if (!open) {
     return null;
   }
@@ -15,7 +15,7 @@ export const DropdownMenu = ({ open, user_ID }) => {
           <div>Settings</div>
         </Link>
         <div className="dropdown-separator"></div>
-        <Link className="dropdown-link">
+        <Link className="dropdown-link" onClick={logoutFunction}>
           <div>Logout</div>
         </Link>
     </div>

@@ -68,7 +68,7 @@ export const UserContainer = () => {
         <Link to={`/user/${userData.id}`} className="user-container_profile">
           <RoundPicture source={userData.avatar} radius={'40px'} />
         </Link>
-        <DropdownMenu open={userHover} user_ID={userData.id} />
+        <DropdownMenu open={userHover} user_ID={userData.id} logoutFunction={logOut} />
       </div>
       <div className="button_logout" 
         onClick={logOut}
