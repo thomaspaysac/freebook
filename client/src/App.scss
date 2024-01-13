@@ -1241,49 +1241,81 @@ header {
   padding: 16px;
   display: flex;
   flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.change-name-form_container,
+.delete-profile_container {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 6px;
+  box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+  width: 50vw;
 }
 
 .change-name-form_container {
-    background-color: #ffffff;
-    padding: 16px;
-    border-radius: 6px;
-    box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+  form {
+    display: flex;
+    gap: 16px;
+    margin: 16px 0;
   
-    form {
-      display: flex;
-      gap: 16px;
-      margin: 16px 0;
+    input {
+      font-size: 1rem;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #dddfe2;
+      transition: all 500ms;
+      outline: none;
   
-      input {
-        font-size: 1rem;
-        padding: 10px;
-        border-radius: 6px;
-        border: 1px solid #dddfe2;
-        transition: all 500ms;
-        outline: none;
-  
-        &:focus {
-          border: 1px solid $main-500;
-          box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
-        }
-      }
-  
-      button {
-        background-color: $main-500;
-        color: #ffffff;
-        font-size: 1rem;
-        font-weight: 700;
-        border: none;
-        border-radius: 6px;
-        padding: 8px;
-        transition: background-color 300ms;
-  
-        &:hover,
-        &:active {
-          cursor: pointer;
-          background-color: #100f5d;
-        }
+      &:focus {
+        border: 1px solid $main-500;
+        box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
       }
     }
   
+    button {
+      background-color: $main-500;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      padding: 8px;
+      transition: background-color 300ms;
+  
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background-color: #100f5d;
+      }
+    }
+  }
+}
+
+.delete-profile_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  
+  .warning-message {
+    color: $error-500;
+  }
+
+  button {
+    background-color: $error-50;
+    color: $error-500;
+    padding: 6px;
+    border: 3px solid $error-500;
+    border-radius: 6px;
+    font-weight: 700;
+    width: fit-content;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      background-color: #ff0000;
+      color: #ffffff;
+    }
+  }
 }
