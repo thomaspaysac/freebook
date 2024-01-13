@@ -4,6 +4,7 @@ const asyncHandler = require("express-async-handler");
 const supabase = require('../supabaseConfig');
 const fs = require('fs');
 const multer = require('multer');
+const { body, validationResult } = require("express-validator");
 
 // Multer setup
 const storage = multer.diskStorage({
@@ -125,15 +126,29 @@ router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
 }));
 
 // POST create post comments
-router.post('/:post_id/comments/create', asyncHandler(async (req, res, next) => {
-  const { error } = await supabase
-  .from('comments')
-  .insert({ 
-    author: req.body.author,
-    post: req.params.post_id,
-    text: req.body.text
-   });
-}));
+router.post('/:post_id/comments/create', [
+  body('text', 'Comment must be between 1 and 1,500 characters.')
+  .trim()
+  .isLength({ min: 1, max: 1500 })
+  .escape()
+  .unescape("&#39;", "'"),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.json({ status: 400, errors: errors.array()});
+      return;
+    }
+    const { error } = await supabase
+    .from('comments')
+    .insert({ 
+      author: req.body.author,
+      post: req.params.post_id,
+      text: req.body.text
+     });
+     res.json({status: 200});
+  })
+]);
 
 // DELETE post comment
 router.delete('/:post_id/comments/:comment_id', asyncHandler(async (req, res, next) => {

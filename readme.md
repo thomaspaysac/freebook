@@ -4,7 +4,6 @@
 ## Error handling
 - Comment (! empty comments)
 - Post (! empty posts)
-- signup: email already in use
 
 ## Security
 - Check authdata on every page

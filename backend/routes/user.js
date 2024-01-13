@@ -42,7 +42,16 @@ router.post('/signup', [
   .escape()
   .unescape("&#39;", "'"),
   body('email', 'Email must be in format name@domain.extension')
-  .isEmail(),
+  .isEmail()
+  .custom(async (value) => {
+    const { data: email, error } = await supabase
+    .from('users')
+    .select()
+    .eq('email', value)
+    if (email.length) {
+      throw new Error('This email is already in use')
+    }
+  }),
   body('password', 'Password must contain at least 5 characters')
   .trim()
   .isLength({ min: 5 })

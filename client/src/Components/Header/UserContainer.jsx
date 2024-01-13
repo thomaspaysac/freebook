@@ -70,13 +70,6 @@ export const UserContainer = () => {
         </Link>
         <DropdownMenu open={userHover} user_ID={userData.id} logoutFunction={logOut} />
       </div>
-      <div className="button_logout" 
-        onClick={logOut}
-        onMouseEnter={() => setLogoutHover(true)}
-        onMouseLeave={() => setLogoutHover(false)}
-      >
-        <img src={logoutHover ? logoutIconHover : logoutIcon} title="Logout" alt='logout' />
-      </div>
     </nav>
   )
 }
