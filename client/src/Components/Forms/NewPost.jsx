@@ -7,17 +7,23 @@ import deleteIcon from "../../assets/icons/delete.png";
 
 
 export const NewPostForm = () => {
-  const authData = useContext(authContext);
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [errors, setErrors] = useState(false);
+  const authData = useContext(authContext);
 
   const sendForm = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     formData.append('author', authData.sub);
-    await fetch('http://localhost:3000/posts/create', {
+    const req = await fetch('http://localhost:3000/posts/create', {
       method: 'POST',
       body: formData,
-    })
+    });
+    const res = await req.json();
+    if (res.status !== 200) {
+      setErrors(res.errors);
+      return;
+    }
   }
 
   const checkFile = (e) => {
@@ -46,19 +52,40 @@ export const NewPostForm = () => {
     }
   }
 
+  const ErrorContainer = () => {
+    if (!errors) {
+      return null;
+    } else {
+      return (
+        <div className="error-container">
+          <ul>
+            {
+              errors.map((el, i) => {
+                return (
+                  <li key={i}>{el.msg}</li>
+                )
+              })
+            }
+          </ul>
+        </div>
+      )
+    }
+  }
+
   return (
     <div className="new-post_form">
       <form onSubmit={sendForm}>
         <div className="input-group">
-          <textarea name="text"></textarea>
+          <textarea name="text" minLength={1} maxLength={4000}></textarea>
           <div className="upload-group">
             <label htmlFor="file">
               <img src={fileUploaded ? imageUploadColored : imageUpload} alt='upload image' title="Upload image" />
             </label>
-            <input type="file" name="file" id="file" style={{display: "none"}} onChange={checkFile} />
+            <input type="file" name="file" id="file" accept="image/*" style={{display: "none"}} onChange={checkFile} />
             <CancelFileUploadButton />
           </div>
         </div>
+        <ErrorContainer />
         <button>Publish post</button>
       </form>
     </div>

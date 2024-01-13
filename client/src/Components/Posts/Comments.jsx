@@ -24,7 +24,6 @@ export const PostComments = ({ post_ID, author, comments }) => {
     const res = await req.json();
     if (res.status !== 200) {
       setErrors(res.errors);
-      console.log(res.errors);
       return;
     }
   }
@@ -56,7 +55,6 @@ export const PostComments = ({ post_ID, author, comments }) => {
     <div className="comments_container">
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
       <form className="comment-form" onSubmit={createComment}>
-        <label htmlFor="text" style={{display:'none'}}>Comment</label> 
         <textarea name='text' placeholder="Write a comment..." minLength={1} maxLength={1500} />
         <button>Send</button>
       </form>

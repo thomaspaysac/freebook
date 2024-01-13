@@ -19,32 +19,52 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // POST create a new post
-router.post('/create', upload.single('file'), asyncHandler(async (req, res, next) => {
-  let fileUrl = null;
-  if (req.file) {
-    const fileContent = await fs.promises.readFile(req.file.path);
-    const { data, error } = await supabase
-    .storage
+router.post('/create', upload.single('file'), [
+  body('text', 'Post must be between 1 and 4,000 characters.')
+  .trim()
+  .isLength({ min: 1, max: 4000 })
+  .escape()
+  .unescape("&#39;", "'"),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.json({ status: 400, errors: errors.array()});
+      return;
+    }
+    let fileUrl = null;
+    if (req.file) {
+      const filetypeCheck = /(gif|jpe?g|tiff?|png|webp|bmp|x-icon)$/i
+      if (filetypeCheck.test(req.file.mimetype)) {
+        const fileContent = await fs.promises.readFile(req.file.path);
+        const { data, error } = await supabase
+        .storage
+        .from('posts')
+        .upload(req.file.filename, fileContent, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: req.file.mimetype,
+        });
+        const { data: imageUrl } = supabase
+        .storage
+        .from('posts')
+        .getPublicUrl(req.file.filename);
+        fileUrl = imageUrl.publicUrl;
+      } else {
+        res.json({ status: 400, errors: [{msg: 'You can only send image files.'}]});
+        return;
+      }
+    }
+    const { error } = await supabase
     .from('posts')
-    .upload(req.file.filename, fileContent, {
-      cacheControl: '3600',
-      upsert: false,
-      contentType: req.file.mimetype,
-    });
-    const { data: imageUrl } = supabase
-    .storage
-    .from('posts')
-    .getPublicUrl(req.file.filename);
-    fileUrl = imageUrl.publicUrl;
-  }
-  const { error } = await supabase
-  .from('posts')
-  .insert({ 
-    author: req.body.author,
-    text: req.body.text,
-    file: fileUrl,
-   })
-}))
+    .insert({ 
+      author: req.body.author,
+      text: req.body.text,
+      file: fileUrl,
+     });
+     res.json({status: 200});
+  })
+]);
 
 // GET own posts and friends'
 router.get('/feed', asyncHandler(async (req, res, next) => {
