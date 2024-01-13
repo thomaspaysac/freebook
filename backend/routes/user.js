@@ -56,7 +56,6 @@ router.post('/signup', [
     }),
 
   asyncHandler(async (req, res, next) => {
-    console.log('test')
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.json({status: 400, errors: errors.array()});
@@ -105,10 +104,6 @@ router.get('/session', asyncHandler(async (req, res, next) => {
     if (err) {
       res.sendStatus(403);
     } else {
-      /*res.json({
-        message: 'Authorized',
-        authData
-      });*/
       res.status(200).json(authData);
     }
   })
@@ -249,6 +244,37 @@ router.patch('/background', upload.single('background'), asyncHandler(async (req
   .update({ background: imageUrl.publicUrl })
   .eq('uuid', req.body.auth);
 }));
+
+// PATCH change user names
+router.patch('/:uuid/update', [
+  body('first_name', 'First name must contain between 2 and 20 characters')
+  .trim()
+  .isLength({ min: 2, max: 20 })
+  .escape()
+  .unescape("&#39;", "'"),
+  body('last_name', 'Last name must contain between 2 and 20 characters')
+  .trim()
+  .isLength({ min: 2, max: 20 })
+  .escape()
+  .unescape("&#39;", "'"),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.json({status: 400, errors: errors.array()});
+      return;
+    }
+    const { error } = await supabase
+    .from('users')
+    .update({ first_name: req.body.first_name, last_name: req.body.last_name })
+    .eq('uuid', req.headers.authorization)
+    if (error) {
+      res.json({ status: 500 });
+    } else {
+      res.json({ status: 200 });
+    }
+  })
+]);
 
 
 module.exports = router;

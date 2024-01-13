@@ -831,10 +831,20 @@ header {
   background-color: $error-100;
   border: 2px solid $error-300;
   color: $error-800;
+  width: fit-content;
 
   ul {
     margin-left: 20px;
   }
+}
+
+.success-container {
+  border-radius: 6px;
+  padding: 8px;
+  background-color: $validation-100;
+  border: 2px solid $validation-300;
+  color: $validation-800;
+  width: fit-content;
 }
 
 .profile-post {
@@ -1228,4 +1238,52 @@ header {
 // Settings page
 .settings-page {
   background-color: $grey-100;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.change-name-form_container {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+  
+    form {
+      display: flex;
+      gap: 16px;
+      margin: 16px 0;
+  
+      input {
+        font-size: 1rem;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #dddfe2;
+        transition: all 500ms;
+        outline: none;
+  
+        &:focus {
+          border: 1px solid $main-500;
+          box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
+        }
+      }
+  
+      button {
+        background-color: $main-500;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 6px;
+        padding: 8px;
+        transition: background-color 300ms;
+  
+        &:hover,
+        &:active {
+          cursor: pointer;
+          background-color: #100f5d;
+        }
+      }
+    }
+  
 }

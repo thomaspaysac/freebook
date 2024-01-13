@@ -49,7 +49,7 @@ export const FriendsRequestPage = () => {
     <Layout>
       <div className="content requests">
         <div className="users-list_link">
-          <Link to='/users'>Find new friends</Link>
+          <Link to='/users'>+ Find new friends</Link>
         </div>
         <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
         <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />

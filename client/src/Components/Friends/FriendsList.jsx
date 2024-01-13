@@ -9,7 +9,6 @@ export const FriendsList = ({ user_ID }) => {
     const req = await fetch(`http://localhost:3000/user/friends/${user_ID}`)
     const res = await req.json();
     setFriends(res);
-    console.log(res);
   }
 
   useEffect(() => {
