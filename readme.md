@@ -1,5 +1,8 @@
 ## Features
 - Groups (optional)
+- Settings
+  - Change name
+  - Delete profile
 
 ## Error handling
 - Comment (! empty comments)

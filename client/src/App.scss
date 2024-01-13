@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 // Variables
+$main-50: #e7e7f1;
 $main-100: #d0cfe3;
 $main-200: #a1a0c7;
 $main-300: #7271ac;
@@ -158,7 +159,7 @@ header {
       .dropdown-menu {
         position: absolute;
         right: 0;
-        border: 2px solid $main-500;
+        //border: 2px solid $main-500;
         background-color: #ffffff;
         color: #000000;
         border-radius: 6px;
@@ -175,6 +176,16 @@ header {
           color: #000000;
           border-radius: 6px;
 
+          div {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            img {
+              height: 1rem;
+            }
+          }
+
           &:first-of-type {
             div {
               border-top-left-radius: 6px;
@@ -184,6 +195,7 @@ header {
 
           &:last-of-type {
             div {
+              background-color: $error-50;
               border-bottom-left-radius: 6px;
               border-bottom-right-radius: 6px;
             }
@@ -1211,4 +1223,9 @@ header {
   ul {
     margin-left: 18px;
   }
+}
+
+// Settings page
+.settings-page {
+  background-color: $grey-100;
 }

@@ -23,6 +23,7 @@ import { FriendsRequestPage } from './Pages/FriendsRequests';
 import { PostCreatePage } from './Pages/PostCreate';
 import { TimeLinePage } from './Pages/TimeLine';
 import { AllUsersPage } from './Pages/AllUsersPage';
+import { SettingsPage } from './Pages/Settings';
 import { PrivacyPolicyPage } from './Pages/PrivacyPolicy';
 
 // Context
@@ -56,6 +57,7 @@ function App() {
           <Route exact path="/signup" element={<SignupPage />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
+          <Route exact path="/user/settings" element={<SettingsPage />} />
           <Route exact path="/protected" element={<ProtectedPage />} />
           <Route exact path="/feed" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
