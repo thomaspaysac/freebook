@@ -1,3 +1,5 @@
+import { supabase } from "../App";
+
 export const LoginPage = () => {
   const login = async (e) => {
     e.preventDefault();

@@ -4,7 +4,7 @@ import { authContext } from "../../App";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
 
-export const PostComments = ({ post_ID, author, comments }) => {
+export const PostComments = ({ post_ID, author, comments, update }) => {
   const [expanded, setExpanded] = useState(false);
   const [errors, setErrors] = useState(false);
   const authData = useContext(authContext);
@@ -25,6 +25,8 @@ export const PostComments = ({ post_ID, author, comments }) => {
     if (res.status !== 200) {
       setErrors(res.errors);
       return;
+    } else {
+      setErrors(false);
     }
   }
 
@@ -56,7 +58,7 @@ export const PostComments = ({ post_ID, author, comments }) => {
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
       <form className="comment-form" onSubmit={createComment}>
         <textarea name='text' placeholder="Write a comment..." minLength={1} maxLength={1500} />
-        <button>Send</button>
+        <button onClick={update}>Send</button>
       </form>
       <ErrorContainer />
       <CommentsList comments={comments} user_ID={author} />

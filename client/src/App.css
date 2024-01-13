@@ -657,7 +657,8 @@ header {
     position: relative;
     padding: 8px;
     background-color: rgba(237, 237, 240, 0.7);
-    margin: 8px 0; }
+    margin: 8px 0;
+    border-radius: 6px; }
     .comments_container .comment-single .delete-comment_button {
       position: absolute;
       top: 5px;

@@ -9,7 +9,12 @@ export const TimelinePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
   const [comments, setComments] = useState();
+  const [update, setUpdate] = useState(0);
   const [timeStamp, setTimeStamp] = useState();
+
+  const updateComponent = () => {
+    setUpdate(update + 1);
+  }
 
   const fetchLike = async () => {
     setLikesCount(post.likes);
@@ -63,7 +68,7 @@ export const TimelinePost = ({ post, user_ID }) => {
     convertTimeStamp();
     fetchLike();
     fetchComments();
-  }, [])
+  }, [update])
 
   const HeartIcon = () => {
     if (!liked) {
@@ -113,7 +118,7 @@ export const TimelinePost = ({ post, user_ID }) => {
         <div>{comments.length} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} comments={comments} />
+      <PostComments post_ID={post.id} author={user_ID} comments={comments} update={updateComponent} />
     </div>
   )
 }

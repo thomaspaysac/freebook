@@ -23,6 +23,8 @@ export const NewPostForm = () => {
     if (res.status !== 200) {
       setErrors(res.errors);
       return;
+    } else {
+      setErrors(false);
     }
   }
 

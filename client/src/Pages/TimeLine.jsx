@@ -7,7 +7,12 @@ import { NewPostForm } from "../Components/Forms/NewPost";
 
 export const TimeLinePage = () => {
   const [posts, setPosts] = useState();
+  const [update, setUpdate] = useState(0);
   const authData = useContext(authContext);
+
+  const updateComponent = () => {
+    setUpdate(update + 1);
+  }
 
   const fetchPosts = async () => {
     if (!authData) {
