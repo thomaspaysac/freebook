@@ -6,7 +6,7 @@ import imageUploadColored from "../../assets/icons/image_upload_colored.png";
 import deleteIcon from "../../assets/icons/delete.png";
 
 
-export const NewPostForm = () => {
+export const NewPostForm = ({ update }) => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const [errors, setErrors] = useState(false);
   const authData = useContext(authContext);
@@ -25,6 +25,9 @@ export const NewPostForm = () => {
       return;
     } else {
       setErrors(false);
+      document.getElementById('text').value = '';
+      document.getElementById('file').value = '';
+      setFileUploaded(false);
     }
   }
 
@@ -78,7 +81,7 @@ export const NewPostForm = () => {
     <div className="new-post_form">
       <form onSubmit={sendForm}>
         <div className="input-group">
-          <textarea name="text" minLength={1} maxLength={4000}></textarea>
+          <textarea name="text" id="text" minLength={1} maxLength={4000}></textarea>
           <div className="upload-group">
             <label htmlFor="file">
               <img src={fileUploaded ? imageUploadColored : imageUpload} alt='upload image' title="Upload image" />
@@ -88,7 +91,7 @@ export const NewPostForm = () => {
           </div>
         </div>
         <ErrorContainer />
-        <button>Publish post</button>
+        <button type="submit" onClick={update}>Publish post</button>
       </form>
     </div>
   )

@@ -27,6 +27,7 @@ export const PostComments = ({ post_ID, author, comments, update }) => {
       return;
     } else {
       setErrors(false);
+      document.getElementById('text').value = '';
     }
   }
 
@@ -57,7 +58,7 @@ export const PostComments = ({ post_ID, author, comments, update }) => {
     <div className="comments_container">
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
       <form className="comment-form" onSubmit={createComment}>
-        <textarea name='text' placeholder="Write a comment..." minLength={1} maxLength={1500} />
+        <textarea name='text' id="text" placeholder="Write a comment..." minLength={1} maxLength={1500} />
         <button onClick={update}>Send</button>
       </form>
       <ErrorContainer />

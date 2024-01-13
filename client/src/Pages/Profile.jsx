@@ -13,9 +13,14 @@ import { Layout } from "../Components/Layout";
 export const ProfilePage = () => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
-  const [friendShip, setFriendShip] = useState();
+  const [friendShip, setFriendShip] = useState();    
+  const [update, setUpdate] = useState(0);
   const { id } = useParams();
   const authData = useContext(authContext);
+
+  const updateComponent = () => {
+    setUpdate(update + 1);
+  }
 
   const fetchProfile = async () => {
     if (!authData) {
@@ -62,18 +67,20 @@ export const ProfilePage = () => {
     )
   }
 
-  const NewPostContainer = () => {
-    if (uuid === authData.sub) {
-      return (
-        <div className="profile_new-post">
-          <h3>What's on your mind?</h3>
-          <NewPostForm />
-        </div>
-      )
+  const NewPostContainer = ({ update }) => {
+
+
+    if (uuid !== authData.sub) {
+      return null;
     }
 
-    return null;
-  }
+    return (
+      <div className="profile_new-post">
+        <h3>What's on your mind?</h3>
+        <NewPostForm update={update} />
+      </div>
+    )
+}
   
   return (
     <Layout>
@@ -100,7 +107,7 @@ export const ProfilePage = () => {
             <FriendsList user_ID={uuid} />
           </div>
           <div className="posts_container">          
-            <NewPostContainer />
+            <NewPostContainer update={updateComponent} />
             <div className="section-header">
               <h3>Posts</h3>
             </div>

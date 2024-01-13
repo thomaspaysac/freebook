@@ -29,7 +29,7 @@ export const TimeLinePage = () => {
 
   useEffect(() => {
     fetchPosts()
-  }, [authData]);
+  }, [authData, update]);
 
   const PostsList = () => {
     if (!posts || !authData) {
@@ -58,7 +58,7 @@ export const TimeLinePage = () => {
       <div className="content timeline-page">
         <div className="new-post_container">
           <h3>What's on your mind?</h3>
-          <NewPostForm />
+          <NewPostForm update={updateComponent} />
         </div>
         <h3>Your feed</h3>
         <PostsList />
