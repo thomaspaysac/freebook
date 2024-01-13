@@ -283,40 +283,38 @@ router.delete('/:uuid/delete', asyncHandler(async (req, res, next) => {
   if (req.token !== req.headers.token && req.params.uuid === req.headers.authorization) {
     res.sendStatus(403);
   } else {
-    // DELETE likes
-    const { error: likesError } = await supabase
-    .from('likes')
-    .delete()
-    .eq('author', req.params.uuid);
-    console.log({likesError})
-    // DELETE comments
-    const { error: commentsError } = await supabase
-    .from('comments')
-    .delete()
-    .eq('author', req.params.uuid);
-    console.log({commentsError});
-    // DELETE posts
-    const { error: postsError } = await supabase
-    .from('posts')
-    .delete()
-    .eq('author', req.params.uuid);
-    console.log({postsError});
-    // DELETE friends
-    const { error: friendsError } = await supabase
-    .from('friends')
-    .delete()
-    .or(`user_ID.eq.${req.params.uuid}, friend_ID.eq.${req.params.uuid}`);
-    console.log(friendsError)
-    // DELETE user
-    const { error: userError } = await supabase
-    .from('users')
-    .delete()
-    .eq('uuid', req.params.uuid);
-    console.log(userError);
-    // DELETE auth account
-    const { data, error: adminError } = await supabaseAdmin.auth.admin.deleteUser(req.params.uuid);
-    console.log({adminError})
-    res.end();
+    try {
+      // DELETE likes
+      const { error: likesError } = await supabase
+      .from('likes')
+      .delete()
+      .eq('author', req.params.uuid);
+      // DELETE comments
+      const { error: commentsError } = await supabase
+      .from('comments')
+      .delete()
+      .eq('author', req.params.uuid);
+      // DELETE posts
+      const { error: postsError } = await supabase
+      .from('posts')
+      .delete()
+      .eq('author', req.params.uuid);
+      // DELETE friends
+      const { error: friendsError } = await supabase
+      .from('friends')
+      .delete()
+      .or(`user_ID.eq.${req.params.uuid}, friend_ID.eq.${req.params.uuid}`);
+      // DELETE user
+      const { error: userError } = await supabase
+      .from('users')
+      .delete()
+      .eq('uuid', req.params.uuid);
+      // DELETE auth account
+      const { data, error: adminError } = await supabaseAdmin.auth.admin.deleteUser(req.params.uuid);
+      res.end();
+    } catch {
+      res.sendStatus(500);
+    }
   }
 }));
 
