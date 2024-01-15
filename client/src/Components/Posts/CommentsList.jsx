@@ -15,7 +15,7 @@ export const CommentsList = ({ comments, user_ID }) => {
         comments.map(el => {
           const timeStamp = format(new Date(el.created_at), 'd MMM' + (new Date(el.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
           return (
-            <div className="comment-single" key={el.id} onClick={() => console.log(el, user_ID)}>
+            <div className="comment-single" key={el.id} onClick={() => console.log(el)}>
               <DeleteCommentButton 
                 post_ID={el.post}
                 comment_ID={el.id}

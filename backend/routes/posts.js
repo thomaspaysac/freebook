@@ -141,7 +141,8 @@ router.get('/:post_id/comments', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('comments')
   .select('*, author (id, uuid, first_name, last_name, avatar)')
-  .eq('post', req.params.post_id);
+  .eq('post', req.params.post_id)
+  .order('created_at', { ascending: false });
   res.json(data);
 }));
 

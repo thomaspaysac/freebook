@@ -8,5 +8,5 @@
 - Check identity before change profile picture
 
 ## Finitions
+- live refresh comments
 - refresh component after friend request accept/reject/cancel
-- sort comments by reverse order (most recent first)
