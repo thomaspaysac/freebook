@@ -11,7 +11,7 @@ export const TimeLinePage = () => {
   const authData = useContext(authContext);
 
   const updateComponent = () => {
-    setUpdate(update + 1);
+    setUpdate((prevCounter) => prevCounter + 1);
   }
 
   const fetchPosts = async () => {

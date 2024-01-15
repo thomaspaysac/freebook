@@ -19,7 +19,7 @@ export const ProfilePage = () => {
   const authData = useContext(authContext);
 
   const updateComponent = () => {
-    setUpdate(update + 1);
+    setUpdate((prevCounter) => prevCounter + 1);
   }
 
   const fetchProfile = async () => {
