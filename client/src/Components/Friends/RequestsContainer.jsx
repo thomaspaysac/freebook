@@ -1,28 +1,50 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
 // Components
 import { RoundPicture } from "../Images/RoundPicture"
 
 export const FriendsRequestsContainer = ({title, type, data}) => {
+  const [reqList, setReqList] = useState();
+
+  const removeRequest = (id) => {
+    const newList = reqList.filter((item) => item.id !== id);
+    setReqList(newList);
+  }
+
   const acceptRequest = async (request) => {
-    await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
       method: 'PATCH'
-    })
+    });
+    if (req.status !== 200) {
+      return;
+    } else {
+      removeRequest(request.id);
+    }
   }
 
   const deleteRequest = async (request) => {
-    await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
       method: 'DELETE'
-    })
+    });
+    if (req.status !== 200) {
+      return;
+    } else {
+      removeRequest(request.id);
+    }
   }
 
+  useEffect(() => {
+    setReqList([...data]);
+  }, [data])
+
   const List = () => {
-    if (!data) {
+    if (!reqList) {
       return null;
     }
     return (
       <ul>
         {
-          data.map(el => {
+          reqList.map(el => {
             if (type === 'requests') {
               return (
                 <li key={el.id} className="friend-request_single">
@@ -36,7 +58,7 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
               )
             } else {
               return (
-                <li key={el.id} className="friend-request_single">
+                <li key={el.id} data-key={el.id} className="friend-request_single">
                   <Link to={`/user/${el.friend_ID.id}`}>
                     <RoundPicture source={el.friend_ID.avatar} radius={'32px'} />
                     <div>{el.friend_ID.first_name} {el.friend_ID.last_name}</div>

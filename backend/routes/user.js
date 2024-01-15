@@ -156,6 +156,11 @@ router.patch('/friends/request/:id', asyncHandler(async (req, res, next) => {
   .from('friends')
   .update({ accepted: true })
   .eq('id', req.params.id);
+  if (error) {
+    res.sendStatus(500);
+  } else {
+    res.sendStatus(200);
+  }
 }));
 
 
@@ -164,7 +169,12 @@ router.delete('/friends/request/:id', asyncHandler(async (req, res, next) => {
   const { error } = await supabase
   .from('friends')
   .delete()
-  .eq('id', req.params.id)
+  .eq('id', req.params.id);
+  if (error) {
+    res.sendStatus(500);
+  } else {
+    res.sendStatus(200);
+  }
 }))
 
 

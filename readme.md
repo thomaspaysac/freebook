@@ -8,4 +8,4 @@
 - Check identity before change profile picture
 
 ## Finitions
-- refresh component after friend request accept/reject/cancel
+- limit number of displayed post on profile
