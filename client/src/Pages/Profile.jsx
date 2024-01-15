@@ -102,7 +102,7 @@ export const ProfilePage = () => {
         <div className="social-container">
           <div className="friends_container">
             <div className="section-header"><h3>Friends</h3></div>
-            <FriendsList user_ID={uuid} />
+            <FriendsList user_ID={uuid} authData={authData.sub} />
           </div>
           <div className="posts_container">          
           <div className="profile_new-post" style={{display: uuid !== authData.sub ? "none" : "block"}}>

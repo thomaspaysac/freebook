@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { SquarePicture } from "../Images/SquarePicture";
 
-export const FriendsList = ({ user_ID }) => {
+export const FriendsList = ({ user_ID, authData }) => {
   const [friends, setFriends] = useState();
 
   const fetchFriendsList = async () => {
@@ -17,7 +17,7 @@ export const FriendsList = ({ user_ID }) => {
 
   if (!friends || !user_ID) {
     return null;
-  } else if (!friends.length) {
+  } else if (!friends.length && user_ID === authData) {
     return (
       <div className="users-list_link">
         <Link to='/users'>Find your first friend!</Link>

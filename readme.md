@@ -8,4 +8,4 @@
 - Check identity before change profile picture
 
 ## Finitions
-- limit number of displayed post on profile
+- live update delete comment/post

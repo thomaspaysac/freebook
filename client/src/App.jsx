@@ -13,8 +13,6 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 // Pages import
 import { Header } from './Components/Header/Header';
 import { HomePage } from './Pages/Home';
-import { LoginPage } from './Pages/Login';
-import { SignupPage } from './Pages/Signup';
 import { PasswordForgottenPage } from './Pages/PasswordForgotten';
 import { PasswordResetPage } from './Pages/PasswordReset';
 import { ProfilePage } from './Pages/Profile';
@@ -47,23 +45,33 @@ function App() {
     fetchUserData();
   }, [])
 
+  if (!userData) {
+    return (
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route exact path="*" element={<HomePage />} />
+          <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
+          <Route exact path="/login/reset" element={<PasswordResetPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        </Routes>
+      </BrowserRouter>
+    )
+  }
+
   return (
     <authContext.Provider value={userData}>
       <BrowserRouter>
         <Header />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route exact path="/login" element={<LoginPage />} />
-          <Route exact path="/signup" element={<SignupPage />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/user/settings" element={<SettingsPage />} />
-          <Route exact path="/protected" element={<ProtectedPage />} />
           <Route exact path="/feed" element={<TimeLinePage />} />
           <Route path="/user/:id" element={<ProfilePage />} />
           <Route exact path="/users" element={<AllUsersPage />} />
           <Route path="/friends/requests" element={<FriendsRequestPage />} />
-          <Route path="/post/new" element={<PostCreatePage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
       </BrowserRouter>

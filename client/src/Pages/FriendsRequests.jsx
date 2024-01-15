@@ -10,9 +10,6 @@ export const FriendsRequestPage = () => {
   const authData = useContext(authContext);
 
   const fetchRequests = async () => {
-    if (!authData) {
-      return;
-    }
     const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/pending`);
     const res = await req.json();
     sortRequests(res);
@@ -33,6 +30,9 @@ export const FriendsRequestPage = () => {
   }
 
   useEffect(() => {
+    if (!authData) {
+      return;
+    }
     fetchRequests();
   }, [authData])
 
