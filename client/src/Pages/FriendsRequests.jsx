@@ -16,7 +16,6 @@ export const FriendsRequestPage = () => {
     const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/pending`);
     const res = await req.json();
     sortRequests(res);
-    //setRequests(res);
   }
 
   const sortRequests = (requests) => {
