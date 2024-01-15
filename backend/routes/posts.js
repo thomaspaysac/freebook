@@ -27,6 +27,10 @@ router.post('/create', upload.single('file'), [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (req.token !== req.headers.token || req.body.author !== user.id) {
+      res.sendStatus(403);
+    } 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.json({ status: 400, errors: errors.array()});
@@ -155,6 +159,10 @@ router.post('/:post_id/comments/create', [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (req.token !== req.headers.token || req.body.author !== user.id) {
+      res.sendStatus(403);
+    }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.json({ status: 400, errors: errors.array()});

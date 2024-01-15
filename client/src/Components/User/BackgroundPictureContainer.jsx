@@ -12,8 +12,12 @@ export const BackgroundPictureContainer = ({ uuid, own_uuid, image }) => {
     formData.append('auth', own_uuid);
     await fetch('http://localhost:3000/user/background', {
       method: 'PATCH',
+      headers: {
+        token: localStorage.getItem('jwt'),
+      },
       body: formData,
     });
+    location.reload();
   }
 
   if (uuid === own_uuid) {

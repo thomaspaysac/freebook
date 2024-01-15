@@ -14,8 +14,12 @@ export const ProfilePictureContainer = ({ uuid, own_uuid, avatar }) => {
     formData.append('auth', own_uuid);
     await fetch('http://localhost:3000/user/avatar', {
       method: 'PATCH',
+      headers: {
+        token: localStorage.getItem('jwt'),
+      },
       body: formData,
     });
+    location.reload();
   }
 
   if (uuid === own_uuid) {

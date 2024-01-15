@@ -17,6 +17,9 @@ export const NewPostForm = ({ update }) => {
     formData.append('author', authData.sub);
     const req = await fetch('http://localhost:3000/posts/create', {
       method: 'POST',
+      headers: {
+        token: localStorage.getItem('jwt'),
+      },
       body: formData,
     });
     const res = await req.json();

@@ -225,6 +225,10 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
 
 // PATCH change avatar
 router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (req.token !== req.headers.token || req.body.auth !== user.id) {
+    res.sendStatus(403);
+  } 
   const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
   .storage
@@ -246,6 +250,10 @@ router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, n
 
 // PATCH change background picture
 router.patch('/background', upload.single('background'), asyncHandler(async (req, res, next) => {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (req.token !== req.headers.token || req.body.auth !== user.id) {
+    res.sendStatus(403);
+  } 
   const fileContent = await fs.promises.readFile(req.file.path);
   const { data, error } = await supabase
   .storage
@@ -296,10 +304,10 @@ router.patch('/:uuid/update', [
   })
 ]);
 
-// BONNE METHODE DE VERIFICATION DE L'IDENTITE
 // DELETE user account
 router.delete('/:uuid/delete', asyncHandler(async (req, res, next) => {
-  if (req.token !== req.headers.token && req.params.uuid === req.headers.authorization) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (req.token !== req.headers.token || req.params.uuid !== user.id) {
     res.sendStatus(403);
   } else {
     try {

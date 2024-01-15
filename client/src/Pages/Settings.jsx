@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { authContext } from "../App"
 // Components
 import { Layout } from "../Components/Layout"
@@ -6,6 +7,7 @@ import { ChangeNameForm } from "../Components/Forms/ChangeNameForm"
 
 export const SettingsPage = () => {
   const authData = useContext(authContext);
+  const navigateTo = useNavigate();
 
   const deleteAccount = async () => {
     if (window.confirm('Are you sure you want to delete your account?')) {
@@ -15,7 +17,9 @@ export const SettingsPage = () => {
           authorization: authData.sub,
           token: localStorage.getItem('jwt'),
         }
-      })  
+      });
+      navigateTo("/");
+      location.reload();
     } else {
       return;
     }
