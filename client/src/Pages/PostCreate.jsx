@@ -1,9 +1,4 @@
-import { useContext } from "react";
-import { authContext } from "../App";
-
 export const PostCreatePage = () => {
-  const authData = useContext(authContext);
-
   const sendForm = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);

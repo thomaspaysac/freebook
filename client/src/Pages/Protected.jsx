@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react"
+import { useContext } from "react"
 import { authContext } from "../App";
 
 export const ProtectedPage = () => {

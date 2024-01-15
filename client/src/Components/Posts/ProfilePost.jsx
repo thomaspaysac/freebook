@@ -93,7 +93,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   }
 
   return (
-    <div className="profile-post" onClick={() => console.log(post)}>
+    <div className="profile-post">
       <DeletePostButton
         post_ID={post.id}
         post_author={post.author.uuid}

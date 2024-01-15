@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 // Components
 import { Layout } from "../Components/Layout";
@@ -8,7 +8,6 @@ import { SignupModal } from "../Components/Forms/SignupModal";
 export const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
-  const navigateTo = useNavigate();
 
   useEffect(() => {
     setAnimate(true);

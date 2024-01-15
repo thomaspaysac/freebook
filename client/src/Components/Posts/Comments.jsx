@@ -1,8 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { CommentsList } from "./CommentsList";
 import { authContext } from "../../App";
-// Components
-import { RoundPicture } from "../Images/RoundPicture";
 
 export const PostComments = ({ post_ID, author, comments, update }) => {
   const [expanded, setExpanded] = useState(false);

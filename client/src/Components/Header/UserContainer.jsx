@@ -5,19 +5,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { RoundPicture } from "../Images/RoundPicture";
 import { DropdownMenu } from "./DropdownMenu";
 // Assets
-import homeIcon from "../../assets/icons/home.png";
 import friendsIcon from "../../assets/icons/friends.png";
 import friendsIconHover from "../../assets/icons/friends_hover.png";
 import feedIcon from "../../assets/icons/newspaper.png";
 import feedIconHover from "../../assets/icons/newspaper_hover.png";
-import logoutIcon from "../../assets/icons/logout.png";
-import logoutIconHover from "../../assets/icons/logout_hover.png";
 
 export const UserContainer = () => {
   const [userData, setUserData] = useState(null);
   const [feedHover, setFeedHover] = useState(false);
   const [friendsHover, setFriendsHover] = useState(false);
-  const [logoutHover, setLogoutHover] = useState(false);
   const [userHover, setUserHover] = useState(false);
   const authData = useContext(authContext);
 

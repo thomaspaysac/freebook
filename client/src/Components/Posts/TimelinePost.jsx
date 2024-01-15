@@ -61,7 +61,6 @@ export const TimelinePost = ({ post, user_ID }) => {
       },
       body: JSON.stringify(body)
     });
-    console.log('hello');
   }
 
   useEffect(() => {

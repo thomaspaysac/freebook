@@ -16,7 +16,6 @@ export const ChangeNameForm = ({ authData }) => {
       body: JSON.stringify(data),
     });
     const res = await req.json();
-    console.log(res);
     if (res.status === 200) {
       setSuccessState("success");
     } else {
