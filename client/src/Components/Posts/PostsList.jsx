@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { authContext } from "../../App";
 import { ProfilePost } from "./ProfilePost";
 
-export const PostsList = ({ user_ID }) => {
+export const PostsList = ({ user_ID, update }) => {
   const [posts, setPosts] = useState();
   const authData = useContext(authContext);
 
@@ -14,7 +14,7 @@ export const PostsList = ({ user_ID }) => {
 
   useEffect(() => {
     fetchPosts();
-  }, [user_ID])
+  }, [user_ID, update])
 
   if (!posts || !user_ID) {
     return null

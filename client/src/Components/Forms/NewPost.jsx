@@ -28,6 +28,7 @@ export const NewPostForm = ({ update }) => {
       document.getElementById('text').value = '';
       document.getElementById('file').value = '';
       setFileUploaded(false);
+      //location.reload();
     }
   }
 
@@ -91,7 +92,7 @@ export const NewPostForm = ({ update }) => {
           </div>
         </div>
         <ErrorContainer />
-        <button type="submit" onClick={update}>Publish post</button>
+        <button onClick={() => update()}>Publish post</button>
       </form>
     </div>
   )

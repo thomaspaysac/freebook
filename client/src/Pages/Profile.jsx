@@ -53,7 +53,7 @@ export const ProfilePage = () => {
 
   useEffect(() => {
     fetchProfile();
-  }, [authData, id])
+  }, [authData, id, update])
 
   useEffect(() => {
     fetchFriendStatus();
@@ -68,8 +68,6 @@ export const ProfilePage = () => {
   }
 
   const NewPostContainer = ({ update }) => {
-
-
     if (uuid !== authData.sub) {
       return null;
     }
@@ -107,11 +105,14 @@ export const ProfilePage = () => {
             <FriendsList user_ID={uuid} />
           </div>
           <div className="posts_container">          
-            <NewPostContainer update={updateComponent} />
+          <div className="profile_new-post" style={{display: uuid !== authData.sub ? "none" : "block"}}>
+            <h3>What's on your mind?</h3>
+            <NewPostForm update={updateComponent} />
+          </div>
             <div className="section-header">
               <h3>Posts</h3>
             </div>
-            <PostsList user_ID={uuid} />
+            <PostsList user_ID={uuid} update={update} />
           </div>
         </div>
       </div>
