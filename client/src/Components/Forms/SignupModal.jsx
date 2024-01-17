@@ -18,7 +18,6 @@ export const SignupModal = ({open, closeSignup}) => {
     });
     const res = await req.json();
     if (res.status !== 200) {
-      console.log(res.errors)
       setErrors(res.errors);
       return;
     }
