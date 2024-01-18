@@ -9,6 +9,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
   const [comments, setComments] = useState();
+  const [showComments, setShowComments] = useState(false);
   const [update, setUpdate] = useState(0);
   const [timeStamp, setTimeStamp] = useState();
 
@@ -31,11 +32,11 @@ export const ProfilePost = ({ post, user_ID }) => {
     }
   }
 
-  const fetchComments = async () => {
+  /*const fetchComments = async () => {
     const req = await fetch(`http://localhost:3000/posts/${post.id}/comments`);
     const res = await req.json();
     setComments(res);
-  }
+  }*/
 
   const convertTimeStamp = () => {
     const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
@@ -65,7 +66,7 @@ export const ProfilePost = ({ post, user_ID }) => {
   useEffect(() => {
     convertTimeStamp();
     fetchLike();
-    fetchComments();
+    //fetchComments();
   }, [update])
 
   const HeartIcon = () => {
@@ -88,7 +89,9 @@ export const ProfilePost = ({ post, user_ID }) => {
     )
   }
 
-  if (!post || !comments) {
+  if (!post 
+    //|| !comments
+    ) {
     return null;
   }
 
@@ -116,7 +119,7 @@ export const ProfilePost = ({ post, user_ID }) => {
         <div>{comments.length} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} comments={comments} update={updateComponent} />
+      <PostComments post_ID={post.id} author={user_ID} update={updateComponent} />
     </div>
   )
 }

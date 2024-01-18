@@ -2,19 +2,10 @@ import { useState, useContext } from "react";
 import { CommentsList } from "./CommentsList";
 import { authContext } from "../../App";
 
-export const PostComments = ({ post_ID, author, update }) => {
+export const PostComments = ({ post_ID, author, comments, update }) => {
   const [expanded, setExpanded] = useState(false);
-  const [comments, setComments] = useState();
   const [errors, setErrors] = useState(false);
   const authData = useContext(authContext);
-
-  const fetchComments = async () => {
-    console.log('fetching comments');
-    const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments`);
-    const res = await req.json();
-    setComments(res);
-    setExpanded(true);
-  }
 
   const createComment = async (e) => {
     e.preventDefault();
@@ -49,9 +40,15 @@ export const PostComments = ({ post_ID, author, update }) => {
     )
   }
 
+  if (!comments) {
+    return (
+      <>Loading...</>
+    )
+  }
+
   if (!expanded) {
     return (
-      <div className="comments-toggle" onClick={fetchComments}>Show comments</div>
+      <div className="comments-toggle" onClick={() => setExpanded(true)}>Show comments</div>
     )
   }
 
