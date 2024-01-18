@@ -2,5 +2,5 @@
 - Groups (optional)
 
 ## Finitions
-- solve userData not found (profile page)
 - live update delete comment/post
+- charger les commentaires seulement au moment d'expand (réduit les requetes inutiles)

@@ -22,7 +22,9 @@ export const UserContainer = () => {
   const fetchData = async () => {
     const req = await fetch(`http://localhost:3000/user/uuid/${authData.sub}`);
     const res = await req.json();
-    setUserData(res[0]);
+    if (res) {
+      setUserData(res[0]);
+    }
   }
 
   const logOut = async () => {
@@ -33,7 +35,7 @@ export const UserContainer = () => {
   }
 
   useEffect(() => {
-    if (authData) {
+    if (authData && !userData) {
       fetchData();
     }
   }, [authData]);

@@ -29,7 +29,7 @@ export const authContext = createContext({});
 function App() {
   const [userData, setUserData] = useState();
   
-  const fetchUserData = async () => {
+  const fetchUserSession = async () => {
     const req = await fetch('http://localhost:3000/user/session');
     if (req.status === 200) {
       const res = await req.json();
@@ -40,7 +40,9 @@ function App() {
   }
 
   useEffect(() => {
-    fetchUserData();
+    if (!userData) {
+      fetchUserSession();
+    }
   }, [])
 
   if (!userData) {
