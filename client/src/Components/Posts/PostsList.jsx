@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { authContext } from "../../App";
-import { ProfilePost } from "./ProfilePost";
 import { PostSingle } from "./PostSingle";
 
 export const PostsList = ({ user_ID, update }) => {

@@ -1,13 +1,11 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { CommentsList } from "./CommentsList";
-import { authContext } from "../../App";
 
-export const PostComments = ({ post_ID, author, onComment }) => {
+export const PostComments = forwardRef(function PostComments({ post_ID, author, onComment }, ref) {
   const [expanded, setExpanded] = useState(false);
   const [comments, setComments] = useState();
   const [errors, setErrors] = useState(false);
   const [update, setUpdate] = useState(0);
-  const authData = useContext(authContext);
 
   const updateComponent = () => {
     setUpdate(update + 1);
@@ -40,6 +38,7 @@ export const PostComments = ({ post_ID, author, onComment }) => {
     } else {
       setErrors(false);
       document.getElementById('comment-text').value = '';
+      onComment();
     }
   }
 
@@ -71,10 +70,10 @@ export const PostComments = ({ post_ID, author, onComment }) => {
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
       <form className="comment-form" onSubmit={createComment}>
         <textarea name='text' id="comment-text" placeholder="Write a comment..." minLength={1} maxLength={1500} />
-        <button onClick={() => {updateComponent(); onComment()}}>Send</button>
+        <button onClick={() => {updateComponent()}}>Send</button>
       </form>
       <ErrorContainer />
       <CommentsList comments={comments} user_ID={author} />
     </div>
   )
-}
+})

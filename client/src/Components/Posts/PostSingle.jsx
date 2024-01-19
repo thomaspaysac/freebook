@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { format } from "date-fns";
 // Components
 import { PostComments } from "./Comments";
@@ -10,6 +10,7 @@ export const PostSingle = ({ post, user_ID, post_type }) => {
   const [likesCount, setLikesCount] = useState();
   const [commentsCount, setCommentsCount] = useState();
   const [timeStamp, setTimeStamp] = useState();
+  const childRef = useRef(null);
 
   const fetchLike = async () => {
     setLikesCount(post.likes_count);
@@ -109,7 +110,7 @@ export const PostSingle = ({ post, user_ID, post_type }) => {
         <div>{commentsCount} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} onComment={incrementComments} />
+      <PostComments post_ID={post.id} author={user_ID} ref={childRef} onComment={incrementComments} />
     </div>
   )
 }
