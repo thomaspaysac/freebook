@@ -9,11 +9,10 @@ export const TimelinePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
   const [commentsCount, setCommentsCount] = useState();
-  const [update, setUpdate] = useState(0);
   const [timeStamp, setTimeStamp] = useState();
 
-  const updateComponent = () => {
-    setUpdate(update + 1);
+  const incrementComments = () => {
+    setCommentsCount(commentsCount + 1);
   }
 
   const fetchLike = async () => {
@@ -32,7 +31,6 @@ export const TimelinePost = ({ post, user_ID }) => {
   }
 
   const convertTimeStamp = () => {
-    //const temp = format(new Date(post.created_at), 'dd MMM yyyy');
     const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
     setTimeStamp(temp);
   }
@@ -61,7 +59,7 @@ export const TimelinePost = ({ post, user_ID }) => {
     convertTimeStamp();
     setCommentsCount(post.comments_count);
     fetchLike();
-  }, [update])
+  }, [])
 
   const HeartIcon = () => {
     if (!liked) {
@@ -111,7 +109,7 @@ export const TimelinePost = ({ post, user_ID }) => {
         <div>{commentsCount} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} update={updateComponent} />
+      <PostComments post_ID={post.id} author={user_ID} onComment={incrementComments} />
     </div>
   )
 }

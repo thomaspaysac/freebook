@@ -8,15 +8,8 @@ import { DeletePostButton } from "./DeletePostButton";
 export const ProfilePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
-  const [comments, setComments] = useState();
-  const [showComments, setShowComments] = useState(false);
   const [commentsCount, setCommentsCount] = useState();
-  const [update, setUpdate] = useState(0);
   const [timeStamp, setTimeStamp] = useState();
-
-  const updateComponent = () => {
-    setUpdate(update + 1);
-  }
 
   const fetchLike = async () => {
     setLikesCount(post.likes_count);
@@ -33,11 +26,9 @@ export const ProfilePost = ({ post, user_ID }) => {
     }
   }
 
-  /*const fetchComments = async () => {
-    const req = await fetch(`http://localhost:3000/posts/${post.id}/comments`);
-    const res = await req.json();
-    setComments(res);
-  }*/
+  const incrementComments = () => {
+    setCommentsCount(commentsCount + 1);
+  }
 
   const convertTimeStamp = () => {
     const temp = format(new Date(post.created_at), 'd MMM' + (new Date(post.created_at).getFullYear() == new Date().getFullYear()? '' : ' yyyy'))
@@ -68,8 +59,7 @@ export const ProfilePost = ({ post, user_ID }) => {
     convertTimeStamp();
     setCommentsCount(post.comments_count);
     fetchLike();
-    //fetchComments();
-  }, [update])
+  }, [])
 
   const HeartIcon = () => {
     if (!liked) {
@@ -119,7 +109,7 @@ export const ProfilePost = ({ post, user_ID }) => {
         <div>{commentsCount} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} update={updateComponent} />
+      <PostComments post_ID={post.id} author={user_ID} onComment={incrementComments} />
     </div>
   )
 }

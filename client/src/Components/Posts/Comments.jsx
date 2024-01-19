@@ -1,12 +1,17 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { CommentsList } from "./CommentsList";
 import { authContext } from "../../App";
 
-export const PostComments = ({ post_ID, author, update }) => {
+export const PostComments = ({ post_ID, author, onComment }) => {
   const [expanded, setExpanded] = useState(false);
   const [comments, setComments] = useState();
   const [errors, setErrors] = useState(false);
+  const [update, setUpdate] = useState(0);
   const authData = useContext(authContext);
+
+  const updateComponent = () => {
+    setUpdate(update + 1);
+  }
 
   const fetchComments = async () => {
     const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments`);
@@ -38,6 +43,12 @@ export const PostComments = ({ post_ID, author, update }) => {
     }
   }
 
+  useEffect(() => {
+    if (expanded) {
+      fetchComments();
+    }
+  }, [update]);
+
   const ErrorContainer = () => {
     if (!errors) {
       return null;
@@ -60,7 +71,7 @@ export const PostComments = ({ post_ID, author, update }) => {
       <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
       <form className="comment-form" onSubmit={createComment}>
         <textarea name='text' id="comment-text" placeholder="Write a comment..." minLength={1} maxLength={1500} />
-        <button onClick={update}>Send</button>
+        <button onClick={() => {updateComponent(); onComment()}}>Send</button>
       </form>
       <ErrorContainer />
       <CommentsList comments={comments} user_ID={author} />
