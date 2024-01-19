@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { authContext } from "../../App";
 import { ProfilePost } from "./ProfilePost";
+import { PostSingle } from "./PostSingle";
 
 export const PostsList = ({ user_ID, update }) => {
   const [posts, setPosts] = useState();
@@ -24,7 +25,7 @@ export const PostsList = ({ user_ID, update }) => {
         {
           posts.map(el => {
             return (
-              <ProfilePost key={el.id} post={el} user_ID={null} />
+              <PostSingle key={el.id} post={el} user_ID={null} post_type={"profile-post"} />
             )
           })
         }
@@ -37,7 +38,7 @@ export const PostsList = ({ user_ID, update }) => {
       {
         posts.map(el => {
           return (
-            <ProfilePost key={el.id} post={el} user_ID={authData.sub} />
+            <PostSingle key={el.id} post={el} user_ID={authData.sub} post_type={"profile-post"} />
           )
         })
       }

@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { authContext } from "../App"
 // Components
 import { TimelinePost } from "../Components/Posts/TimelinePost";
+import { PostSingle } from "../Components/Posts/PostSingle";
 import { Layout } from "../Components/Layout";
 import { NewPostForm } from "../Components/Forms/NewPost";
 
@@ -45,7 +46,7 @@ export const TimeLinePage = () => {
         {
           posts.map(el => {
             return (
-              <TimelinePost key={el.id} post={el} user_ID={authData.sub} />
+              <PostSingle key={el.id} post={el} user_ID={authData.sub} post_type={"timeline-post"} />
             )
           })
         }
