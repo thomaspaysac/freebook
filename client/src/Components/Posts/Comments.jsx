@@ -9,7 +9,6 @@ export const PostComments = ({ post_ID, author, update }) => {
   const authData = useContext(authContext);
 
   const fetchComments = async () => {
-    console.log('fetching comments');
     const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments`);
     const res = await req.json();
     setComments(res);
@@ -24,7 +23,8 @@ export const PostComments = ({ post_ID, author, update }) => {
     const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments/create`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        token: localStorage.getItem('jwt'),
       },
       body: JSON.stringify(data)
     });

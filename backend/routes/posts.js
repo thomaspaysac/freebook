@@ -118,7 +118,7 @@ router.post('/:post_id/like', asyncHandler(async (req, res, next) => {
       post: req.params.post_id,
      })
     const { data: increment, error: incrementError } = await supabase
-    .rpc('increment', { row_id: req.params.post_id });
+    .rpc('increment_likes', { row_id: req.params.post_id });
   } else {
     const { error } = await supabase
     .from('likes')
@@ -126,7 +126,7 @@ router.post('/:post_id/like', asyncHandler(async (req, res, next) => {
     .eq('author', req.body.author)
     .eq('post', req.params.post_id);
     const { data: decrement, error: decrementError } = await supabase
-    .rpc('decrement', { row_id: req.params.post_id });
+    .rpc('decrement_likes', { row_id: req.params.post_id });
   }
 }));
 
@@ -162,6 +162,7 @@ router.post('/:post_id/comments/create', [
     const { data: { user } } = await supabase.auth.getUser();
     if (req.token !== req.headers.token || req.body.author !== user.id) {
       res.sendStatus(403);
+      return;
     }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -175,6 +176,8 @@ router.post('/:post_id/comments/create', [
       post: req.params.post_id,
       text: req.body.text
      });
+    const { data: increment, error: incrementError } = await supabase
+    .rpc('increment_comments', { row_id: req.params.post_id });
      res.json({status: 200});
   })
 ]);
@@ -187,8 +190,9 @@ router.delete('/:post_id/comments/:comment_id', asyncHandler(async (req, res, ne
   .eq('id', req.params.comment_id)
   .eq('post', req.params.post_id)
   .eq('author', req.headers.authorization);
-  console.log(error)
-  res.end();
+  const { data: decrement, error: decrementError } = await supabase
+  .rpc('decrement_comments', { row_id: req.params.post_id });
+   res.json({status: 200});  res.end();
 }));
 
 // GET posts from one user

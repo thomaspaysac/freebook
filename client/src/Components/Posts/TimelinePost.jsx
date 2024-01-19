@@ -8,7 +8,7 @@ import { DeletePostButton } from "./DeletePostButton";
 export const TimelinePost = ({ post, user_ID }) => {
   const [liked, setLiked] = useState();
   const [likesCount, setLikesCount] = useState();
-  const [comments, setComments] = useState();
+  const [commentsCount, setCommentsCount] = useState();
   const [update, setUpdate] = useState(0);
   const [timeStamp, setTimeStamp] = useState();
 
@@ -17,7 +17,7 @@ export const TimelinePost = ({ post, user_ID }) => {
   }
 
   const fetchLike = async () => {
-    setLikesCount(post.likes);
+    setLikesCount(post.likes_count);
     if (!user_ID) {
       return;
     } else {
@@ -29,12 +29,6 @@ export const TimelinePost = ({ post, user_ID }) => {
         setLiked(true);
       }  
     }
-  }
-
-  const fetchComments = async () => {
-    const req = await fetch(`http://localhost:3000/posts/${post.id}/comments`);
-    const res = await req.json();
-    setComments(res);
   }
 
   const convertTimeStamp = () => {
@@ -65,8 +59,8 @@ export const TimelinePost = ({ post, user_ID }) => {
 
   useEffect(() => {
     convertTimeStamp();
+    setCommentsCount(post.comments_count);
     fetchLike();
-    fetchComments();
   }, [update])
 
   const HeartIcon = () => {
@@ -89,7 +83,7 @@ export const TimelinePost = ({ post, user_ID }) => {
     )
   }
 
-  if (!post || !comments) {
+  if (!post) {
     return null;
   }
 
@@ -114,10 +108,10 @@ export const TimelinePost = ({ post, user_ID }) => {
       </div>
       <div className="social-actions_container">
         <div className="likes-count"><HeartIcon /> {likesCount}</div>
-        <div>{comments.length} comments</div>
+        <div>{commentsCount} comments</div>
       </div>
       <div className="separator"></div>
-      <PostComments post_ID={post.id} author={user_ID} comments={comments} update={updateComponent} />
+      <PostComments post_ID={post.id} author={user_ID} update={updateComponent} />
     </div>
   )
 }
