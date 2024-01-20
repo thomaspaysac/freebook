@@ -137,12 +137,23 @@ router.post('/friends/add', asyncHandler(async (req, res, next) => {
    })
 }));
 
-// GET pending friends requests
+
+// GET all pending friends requests
 router.get('/friends/:id/pending', asyncHandler(async (req, res, next) => {
   const { data, error } = await supabase
   .from('friends')
   .select('id, user_ID(id, uuid, first_name, last_name, avatar), friend_ID(id, uuid, first_name, last_name, avatar)')
   .or(`user_ID.eq.${req.params.id}, friend_ID.eq.${req.params.id}`)
+  .eq('accepted', false)
+  res.json(data);
+}));
+
+// GET received friends requests
+router.get('/friends/:id/received', asyncHandler(async (req, res, next) => {
+  const { data, error } = await supabase
+  .from('friends')
+  .select('id, user_ID(id, uuid, first_name, last_name, avatar), friend_ID(id, uuid, first_name, last_name, avatar)')
+  .eq('friend_ID', req.params.id)
   .eq('accepted', false)
   res.json(data);
 }));
