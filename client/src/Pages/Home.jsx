@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, redirect } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { authContext } from "../App";
 // Components
 import { Layout } from "../Components/Layout";
 import { LoginForm } from "../Components/Forms/LoginForm";
@@ -8,6 +9,7 @@ import { SignupModal } from "../Components/Forms/SignupModal";
 export const HomePage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const userData = useContext(authContext);
 
   useEffect(() => {
     setAnimate(true);

@@ -64,7 +64,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<TimeLinePage />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/user/settings" element={<SettingsPage />} />

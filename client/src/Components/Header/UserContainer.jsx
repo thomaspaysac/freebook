@@ -32,6 +32,7 @@ export const UserContainer = () => {
     setUserData(null);
     localStorage.setItem('jwt', '');
     navigateTo('/');
+    location.reload();
   }
 
   useEffect(() => {
