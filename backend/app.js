@@ -27,8 +27,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static('uploads'));
 app.use(async (req, res, next) => {
   const { data, error } = await supabase.auth.getSession()
-  req.user = data.session;
   if (data.session) {
+    req.user = data.session.user;
     req.token = data.session.access_token;
   }
   next();

@@ -27,8 +27,7 @@ router.post('/create', upload.single('file'), [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (req.token !== req.headers.token || req.body.author !== user.id) {
+    if (req.token !== req.headers.token || req.body.author !== req.user.id) {
       res.sendStatus(403);
     } 
     const errors = validationResult(req);
@@ -69,6 +68,31 @@ router.post('/create', upload.single('file'), [
      res.json({status: 200});
   })
 ]);
+
+// DELETE post
+router.delete('/:post_id', asyncHandler(async (req, res, next) => {
+  if (req.headers.authorization !== req.user.id) {
+    res.sendStatus(403);
+    return;
+  }
+  // Delete all likes from post
+  const { error: likesError } = await supabase
+  .from('likes')
+  .delete()
+  .eq('post', req.params.post_id);
+  // Delete all comments from post
+  const { error: commentsError } = await supabase
+  .from('comments')
+  .delete()
+  .eq('post', req.params.post_id);
+  // Delete post
+  const { error } = await supabase
+  .from('posts')
+  .delete()
+  .eq('id', req.params.post_id)
+  .eq('author', req.headers.authorization);
+  res.end();
+}));
 
 // GET own posts and friends'
 router.get('/feed', asyncHandler(async (req, res, next) => {
@@ -159,8 +183,7 @@ router.post('/:post_id/comments/create', [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
-    const { data: { user } } = await supabase.auth.getUser();
-    if (req.token !== req.headers.token || req.body.author !== user.id) {
+    if (req.token !== req.headers.token || req.body.author !== req.user.id) {
       res.sendStatus(403);
       return;
     }
@@ -184,6 +207,10 @@ router.post('/:post_id/comments/create', [
 
 // DELETE post comment
 router.delete('/:post_id/comments/:comment_id', asyncHandler(async (req, res, next) => {
+  if (req.headers.authorization !== req.user.id) {
+    res.sendStatus(403);
+    return;
+  }
   const { error } = await supabase
   .from('comments')
   .delete()
@@ -203,27 +230,6 @@ router.get('/:user', asyncHandler(async (req, res, next) => {
   .eq('author', req.params.user)
   .order('created_at', { ascending: false })
   res.json(data);
-}));
-
-// DELETE post
-router.delete('/:post_id', asyncHandler(async (req, res, next) => {
-  // Delete all likes from post
-  const { error: likesError } = await supabase
-  .from('likes')
-  .delete()
-  .eq('post', req.params.post_id);
-  // Delete all comments from post
-  const { error: commentsError } = await supabase
-  .from('comments')
-  .delete()
-  .eq('post', req.params.post_id);
-  // Delete post
-  const { error } = await supabase
-  .from('posts')
-  .delete()
-  .eq('id', req.params.post_id)
-  .eq('author', req.headers.authorization);
-  res.end();
 }));
 
 module.exports = router;

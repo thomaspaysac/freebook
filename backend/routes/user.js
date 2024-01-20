@@ -98,7 +98,6 @@ router.post('/login', asyncHandler(async (req, res, next) => {
     res.json({status: 400, error: error});
   }
   res.json({status : 200, data: data});
-  req.token = data.session.access_token;
 }));
 
 // GET log out
@@ -225,8 +224,7 @@ router.get('/uuid/:uuid', asyncHandler(async (req, res, next) => {
 
 // PATCH change avatar
 router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, next) => {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (req.token !== req.headers.token || req.body.auth !== user.id) {
+  if (req.token !== req.headers.token || req.body.auth !== req.user.id) {
     res.sendStatus(403);
   } 
   const fileContent = await fs.promises.readFile(req.file.path);
@@ -250,8 +248,7 @@ router.patch('/avatar', upload.single('avatar'), asyncHandler(async (req, res, n
 
 // PATCH change background picture
 router.patch('/background', upload.single('background'), asyncHandler(async (req, res, next) => {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (req.token !== req.headers.token || req.body.auth !== user.id) {
+  if (req.token !== req.headers.token || req.body.auth !== req.user.id) {
     res.sendStatus(403);
   } 
   const fileContent = await fs.promises.readFile(req.file.path);
@@ -287,6 +284,10 @@ router.patch('/:uuid/update', [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
+    if (req.headers.authorization !== req.user.id) {
+      res.sendStatus(403);
+      return;
+    }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.json({status: 400, errors: errors.array()});
@@ -306,9 +307,9 @@ router.patch('/:uuid/update', [
 
 // DELETE user account
 router.delete('/:uuid/delete', asyncHandler(async (req, res, next) => {
-  const { data: { user } } = await supabase.auth.getUser();
-  if (req.token !== req.headers.token || req.params.uuid !== user.id) {
+  if (req.token !== req.headers.token || req.params.uuid !== req.user.id) {
     res.sendStatus(403);
+    return;
   } else {
     try {
       // DELETE likes
