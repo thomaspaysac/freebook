@@ -865,11 +865,18 @@ header {
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
   width: 50vw; }
+  @media (max-width: 480px) {
+    .change-name-form_container,
+    .delete-profile_container {
+      width: 90vw; } }
 
 .change-name-form_container form {
   display: flex;
   gap: 16px;
   margin: 16px 0; }
+  @media (max-width: 480px) {
+    .change-name-form_container form {
+      flex-direction: column; } }
   .change-name-form_container form input {
     font-size: 1rem;
     padding: 10px;
