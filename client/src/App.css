@@ -384,7 +384,7 @@ header {
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
     @media (max-width: 480px) {
       .profile .user-info_container {
-        width: 100%; } }
+        width: 100vw; } }
   .profile .background_container {
     position: relative;
     height: 350px;
@@ -459,38 +459,46 @@ header {
     position: relative;
     background-color: rgba(255, 255, 255, 0);
     top: -50px;
-    left: 40px;
-    width: 66vw;
+    left: 26px;
+    width: 70%;
     padding-right: 40px; }
     @media (max-width: 480px) {
       .profile .user-info {
-        width: 100%;
-        left: 16px;
+        width: 88%;
+        left: 0;
+        top: -76px;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
         padding: 0;
         gap: 8px;
-        margin-bottom: -42px; } }
+        margin-bottom: -50px; } }
     .profile .user-info h3 {
-      font-size: 2rem; }
+      font-size: 2rem;
+      overflow: clip; }
       @media (max-width: 480px) {
         .profile .user-info h3 {
-          font-size: 1.5rem; } }
+          font-size: 1.5rem;
+          text-align: center; } }
     .profile .user-info .user-info_data {
       display: flex;
       justify-content: space-between;
       width: 88%; }
       .profile .user-info .user-info_data h3 {
-        overflow: clip;
+        text-overflow: clip;
         word-wrap: break-word; }
       @media (max-width: 480px) {
         .profile .user-info .user-info_data {
           flex-direction: column;
           gap: 8px; } }
-      @media (max-width: 480px) {
-        .profile .user-info .user-info_data .friendship-status {
-          width: fit-content;
-          padding: 8px; } }
+      .profile .user-info .user-info_data .friendship-status {
+        height: fit-content;
+        padding: 8px; }
+        @media (max-width: 480px) {
+          .profile .user-info .user-info_data .friendship-status {
+            width: fit-content;
+            margin-top: 8px;
+            padding: 8px;
+            align-self: center; } }
   .profile .add-friend-button {
     display: flex;
     align-items: center;
@@ -499,10 +507,13 @@ header {
     color: #ffffff;
     border-radius: 6px;
     font-weight: 700;
-    padding: 0 8px; }
+    padding: 0 8px;
+    height: fit-content; }
     @media (max-width: 480px) {
       .profile .add-friend-button {
-        width: fit-content; } }
+        width: fit-content;
+        align-self: center;
+        margin-top: 8px; } }
     .profile .add-friend-button:hover, .profile .add-friend-button:active {
       cursor: pointer;
       background-color: #100f5d; }
@@ -842,12 +853,18 @@ header {
     gap: 8px;
     align-items: center;
     margin: 8px 0; }
+    @media (max-width: 480px) {
+      .requests .friend-request_single {
+        justify-content: space-between; } }
     .requests .friend-request_single a {
       text-decoration: none;
       color: #000000;
       display: flex;
       align-items: center;
       gap: 4px; }
+      @media (max-width: 480px) {
+        .requests .friend-request_single a {
+          overflow: clip; } }
       .requests .friend-request_single a:hover {
         text-decoration: underline; }
   .requests .action-button {
@@ -873,6 +890,9 @@ header {
   padding: 8px;
   margin-bottom: 24px;
   border-radius: 6px; }
+  @media (max-width: 480px) {
+    .users-list_link {
+      width: 100%; } }
   .users-list_link a {
     color: #ffffff;
     font-weight: 700;

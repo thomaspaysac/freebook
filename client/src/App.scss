@@ -600,7 +600,7 @@ header {
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
     
     @media (max-width: 480px) {
-      width: 100%;
+      width: 100vw;
     }
   }
 
@@ -701,25 +701,28 @@ header {
     position: relative;
     background-color: rgba(255, 255, 255, 0);
     top: -50px;
-    left: 40px;
-    width: 66vw;
+    left: 26px;
+    width: 70%;
     padding-right: 40px;
 
     @media (max-width: 480px) {
-      width: 100%;
-      left: 16px;
+      width: 88%;
+      left: 0;
+      top: -76px;
       flex-direction: column;
-      align-items: start;
+      align-items: center;
       padding: 0;
       gap: 8px;
-      margin-bottom: -42px;
+      margin-bottom: -50px;
     }
 
     h3 {
       font-size: 2rem;
+      overflow: clip;
 
       @media (max-width: 480px) {
         font-size: 1.5rem;
+        text-align: center;
       }
     }
 
@@ -729,7 +732,7 @@ header {
       width: 88%;
 
       h3 {
-        overflow: clip;
+        text-overflow: clip;
         word-wrap:break-word;
       }
 
@@ -739,9 +742,14 @@ header {
       }
 
       .friendship-status {
+        height: fit-content;
+        padding: 8px;
+
         @media (max-width: 480px) {
           width: fit-content;
+          margin-top: 8px;
           padding: 8px;
+          align-self: center;
         }
       }
     }
@@ -756,9 +764,12 @@ header {
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
+    height: fit-content;
 
     @media (max-width: 480px) {
       width: fit-content;
+      align-self: center;
+      margin-top: 8px;
     }
 
     &:hover,
@@ -1249,12 +1260,20 @@ header {
     align-items: center;
     margin: 8px 0;
 
+    @media (max-width: 480px) {
+     justify-content: space-between;   
+    }
+
     a {
       text-decoration: none;
       color: #000000;
       display: flex;
       align-items: center;
       gap: 4px;
+
+      @media (max-width: 480px) {
+        overflow: clip; 
+      }
 
       &:hover {
         text-decoration: underline;
@@ -1298,6 +1317,10 @@ header {
   padding: 8px;
   margin-bottom: 24px;
   border-radius: 6px;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 
   a {
     color: #ffffff;
