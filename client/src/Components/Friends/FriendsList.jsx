@@ -30,7 +30,7 @@ export const FriendsList = ({ user_ID, authData }) => {
           friends.map((el) => {
             if (el.user_ID.uuid === user_ID) {
               return (
-              <div key={el.id}  className="friend">
+              <div key={el.friend_ID.id} className="friend">
                 <Link to={`/user/${el.friend_ID.id}`}>
                   <SquarePicture 
                     source={el.friend_ID.avatar}
@@ -42,7 +42,7 @@ export const FriendsList = ({ user_ID, authData }) => {
               )
             } else {
               return (
-              <div key={el.id} className='friend'>
+              <div key={el.user_ID.id} className='friend'>
                 <Link to={`/user/${el.user_ID.id}`}>
                   <SquarePicture 
                     source={el.user_ID.avatar}
