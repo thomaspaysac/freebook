@@ -822,6 +822,9 @@ header {
   grid-template-columns: repeat(4, 1fr);
   column-gap: 8px;
   row-gap: 8px; }
+  @media (max-width: 480px) {
+    .users-list_container {
+      grid-template-columns: repeat(2, 1fr); } }
   .users-list_container .users-list_user {
     background-color: #ffffff;
     border-radius: 6px;
