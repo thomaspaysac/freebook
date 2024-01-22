@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', Helvetica, sans-serif;
   padding: 0;
   box-sizing: border-box;
   margin: 0; }
@@ -20,9 +20,9 @@ main {
   margin: 0; }
 
 .content {
-  padding: 0 16px 12vh 16px;
+  padding: 0 16px 12svb 16px;
   margin-top: 64px;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100svb - 64px);
   width: 100%; }
 
 .separator {
@@ -38,8 +38,8 @@ main {
   top: 0;
   left: 0;
   z-index: -1;
-  height: 100vh;
-  width: 100vw;
+  height: 100svh;
+  width: 100svw;
   background-color: rgba(231, 231, 233, 0.5);
   transition: opacity 250ms; }
   .backdrop.open {
@@ -66,6 +66,9 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px; }
+  @media (max-width: 480px) {
+    header {
+      padding: 8px 12px; } }
   header a {
     color: #ffffff;
     text-decoration: none; }
@@ -73,6 +76,9 @@ header {
     display: flex;
     gap: 24px;
     align-items: center; }
+    @media (max-width: 480px) {
+      header nav {
+        gap: 16px; } }
     header nav img {
       height: 32px; }
     header nav .user-container_profile {
@@ -120,18 +126,27 @@ header {
 .header_logo {
   font-weight: 700;
   font-size: 2rem; }
+  @media (max-width: 480px) {
+    .header_logo {
+      font-size: 1.8rem; } }
 
 .homepage {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   background-color: #ededf0; }
+  @media (max-width: 480px) {
+    .homepage {
+      flex-direction: column; } }
   .homepage .logo {
     font-size: 3rem;
     font-weight: 700;
     color: #151375;
     margin-bottom: 24px;
     transition: 250ms; }
+    @media (max-width: 480px) {
+      .homepage .logo {
+        display: none; } }
     .homepage .logo:hover {
       text-shadow: 0px 0px 8px rgba(21, 19, 117, 0.33); }
   .homepage h2 {
@@ -139,6 +154,9 @@ header {
     top: -60px;
     opacity: 0;
     transition: all 1250ms ease-out; }
+    @media (max-width: 480px) {
+      .homepage h2 {
+        display: none; } }
     .homepage h2.animated {
       opacity: 1;
       top: 0; }
@@ -185,6 +203,9 @@ header {
     flex-direction: column;
     gap: 16px;
     width: 25vw; }
+    @media (max-width: 480px) {
+      .login-form_container form {
+        width: 100%; } }
     .login-form_container form input {
       font-size: 1.1rem;
       padding: 16px 14px;
@@ -233,6 +254,9 @@ header {
   background-color: #ffffff;
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+  @media (max-width: 480px) {
+    .signup-modal {
+      width: 90svw; } }
   .signup-modal.open {
     opacity: 1;
     z-index: 7; }
@@ -252,6 +276,9 @@ header {
     .signup-modal form .personal-info {
       display: flex;
       gap: 16px; }
+      @media (max-width: 480px) {
+        .signup-modal form .personal-info {
+          flex-direction: column; } }
     .signup-modal form input {
       font-size: 1rem;
       padding: 8px;
@@ -300,6 +327,9 @@ header {
       flex-direction: column;
       gap: 16px;
       width: 25vw; }
+      @media (max-width: 480px) {
+        .recover .recover-form_container form {
+          width: 100%; } }
       .recover .recover-form_container form input {
         font-size: 1.1rem;
         padding: 16px 14px;

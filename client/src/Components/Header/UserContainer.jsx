@@ -108,9 +108,7 @@ export const UserContainer = () => {
         onMouseEnter={() => setUserHover(true)}
         onMouseLeave={() => setUserHover(false)}
       >
-        <Link to={`/user/${userData.id}`} className="user-container_profile">
-          <RoundPicture source={userData.avatar} radius={'40px'} />
-        </Link>
+          <RoundPicture className="nav-avatar" source={userData.avatar} radius={'40px'} />
         <DropdownMenu open={userHover} user_ID={userData.id} logoutFunction={logOut} />
       </div>
     </nav>
