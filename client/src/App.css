@@ -68,7 +68,8 @@ header {
   padding: 8px 16px; }
   @media (max-width: 480px) {
     header {
-      padding: 8px 12px; } }
+      padding: 8px 12px;
+      width: 100vw; } }
   header a {
     color: #ffffff;
     text-decoration: none; }
@@ -369,10 +370,17 @@ header {
     flex-direction: column;
     align-items: center;
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+    @media (max-width: 480px) {
+      .profile .user-info_container {
+        width: 100vw; } }
   .profile .background_container {
     position: relative;
     height: 350px;
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+    @media (max-width: 480px) {
+      .profile .background_container {
+        height: 25svh;
+        width: 100%; } }
     .profile .background_container img {
       height: 100%;
       object-fit: cover; }
@@ -399,9 +407,12 @@ header {
     position: relative;
     top: 0;
     z-index: 0;
-    height: 100%;
+    height: 50px;
     border-radius: 6px;
     width: 66vw; }
+    @media (max-width: 480px) {
+      .profile .background-picture {
+        width: 100%; } }
   .profile .profile-picture_overlay {
     opacity: 0;
     display: flex;
@@ -424,6 +435,11 @@ header {
     position: relative;
     z-index: 3;
     box-shadow: 0 0 0 6px #ffffff; }
+    @media (max-width: 480px) {
+      .profile .profile-picture {
+        height: 40vw !important;
+        min-width: 40vw !important;
+        box-shadow: 0 0 0 4px #ffffff; } }
   .profile .user-info {
     display: flex;
     align-items: center;
@@ -434,12 +450,31 @@ header {
     left: 40px;
     width: 66vw;
     padding-right: 40px; }
+    @media (max-width: 480px) {
+      .profile .user-info {
+        width: 100%;
+        left: 16px;
+        flex-direction: column;
+        align-items: start;
+        padding: 0;
+        gap: 8px; } }
     .profile .user-info h3 {
       font-size: 2rem; }
+      @media (max-width: 480px) {
+        .profile .user-info h3 {
+          font-size: 1.5rem; } }
     .profile .user-info .user-info_data {
       display: flex;
       justify-content: space-between;
       width: 100%; }
+      @media (max-width: 480px) {
+        .profile .user-info .user-info_data {
+          flex-direction: column;
+          gap: 8px; } }
+      @media (max-width: 480px) {
+        .profile .user-info .user-info_data .friendship-status {
+          width: fit-content;
+          padding: 8px; } }
   .profile .add-friend-button {
     display: flex;
     align-items: center;

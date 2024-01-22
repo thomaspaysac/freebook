@@ -136,6 +136,7 @@ header {
 
   @media (max-width: 480px) {
     padding: 8px 12px;
+    width: 100vw;
   }
 
   a {
@@ -581,12 +582,21 @@ header {
     flex-direction: column;
     align-items: center;
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+    
+    @media (max-width: 480px) {
+      width: 100vw;
+    }
   }
 
   .background_container {
     position: relative;
     height: 350px;
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+
+    @media (max-width: 480px) {
+      height: 25svh;
+      width: 100%;
+    }
 
     img {
       height: 100%;
@@ -623,9 +633,13 @@ header {
     position: relative;
     top: 0;
     z-index: 0;
-    height: 100%;
+    height: 50px;
     border-radius: 6px;
     width: 66vw;
+
+    @media (max-width: 480px) {
+      width: 100%;
+    }
   }
   
   .profile-picture_overlay {
@@ -656,6 +670,12 @@ header {
     position: relative;
     z-index: 3;
     box-shadow: 0 0 0 6px #ffffff;
+    
+    @media (max-width: 480px) {
+      height: 40vw !important;
+      min-width: 40vw !important;
+      box-shadow: 0 0 0 4px #ffffff;
+    }
   }
 
   .user-info {
@@ -669,18 +689,39 @@ header {
     width: 66vw;
     padding-right: 40px;
 
+    @media (max-width: 480px) {
+      width: 100%;
+      left: 16px;
+      flex-direction: column;
+      align-items: start;
+      padding: 0;
+      gap: 8px;
+    }
+
     h3 {
       font-size: 2rem;
+
+      @media (max-width: 480px) {
+        font-size: 1.5rem;
+      }
     }
 
     .user-info_data {
       display: flex;
       justify-content: space-between;
       width: 100%;
-    }
 
-    div {
-      //width: auto;
+      @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .friendship-status {
+        @media (max-width: 480px) {
+          width: fit-content;
+          padding: 8px;
+        }
+      }
     }
   }
 
