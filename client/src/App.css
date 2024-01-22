@@ -7,9 +7,15 @@
 
 html {
   min-height: 100%; }
+  @media (max-width: 480px) {
+    html {
+      overflow-x: clip; } }
 
 body {
   height: 100%; }
+  @media (max-width: 480px) {
+    body {
+      max-width: 100svw; } }
 
 ::selection {
   background: #151375;
@@ -18,6 +24,9 @@ body {
 main {
   min-height: 100%;
   margin: 0; }
+  @media (max-width: 480px) {
+    main {
+      max-width: 100svw; } }
 
 .content {
   padding: 0 16px 12svb 16px;
@@ -361,6 +370,9 @@ header {
   align-items: center;
   gap: 16px;
   position: absolute; }
+  @media (max-width: 480px) {
+    .profile {
+      position: static; } }
   .profile div {
     border-radius: 6px; }
   .profile .user-info_container {
@@ -372,8 +384,7 @@ header {
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
     @media (max-width: 480px) {
       .profile .user-info_container {
-        width: 100vw;
-        box-shadow: none; } }
+        width: 100%; } }
   .profile .background_container {
     position: relative;
     height: 350px;
@@ -458,7 +469,8 @@ header {
         flex-direction: column;
         align-items: start;
         padding: 0;
-        gap: 8px; } }
+        gap: 8px;
+        margin-bottom: -42px; } }
     .profile .user-info h3 {
       font-size: 2rem; }
       @media (max-width: 480px) {
@@ -467,7 +479,10 @@ header {
     .profile .user-info .user-info_data {
       display: flex;
       justify-content: space-between;
-      width: 100%; }
+      width: 88%; }
+      .profile .user-info .user-info_data h3 {
+        overflow: clip;
+        word-wrap: break-word; }
       @media (max-width: 480px) {
         .profile .user-info .user-info_data {
           flex-direction: column;

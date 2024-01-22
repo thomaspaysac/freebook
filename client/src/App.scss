@@ -57,10 +57,18 @@ $error-950: #180000;
 
 html {
   min-height: 100%;
+  
+  @media (max-width: 480px) {
+    overflow-x: clip;
+  }
 }
 
 body {
   height: 100%;
+
+  @media (max-width: 480px) {
+    max-width: 100svw;
+  }
 }
 
 ::selection {
@@ -72,6 +80,10 @@ main {
   //padding: 0 16px;
   min-height: 100%;
   margin: 0;
+
+  @media (max-width: 480px) {
+    max-width: 100svw;
+  }
 }
 
 .content {
@@ -571,6 +583,10 @@ header {
   gap: 16px;
   position: absolute;
 
+  @media (max-width: 480px) {
+    position: static;    
+  }
+
   div {
     border-radius: 6px;
   }
@@ -584,8 +600,7 @@ header {
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
     
     @media (max-width: 480px) {
-      width: 100vw;
-      box-shadow: none;
+      width: 100%;
     }
   }
 
@@ -597,7 +612,6 @@ header {
     @media (max-width: 480px) {
       height: 25svh;
       width: 100%;
-      //box-shadow: none;
     }
 
     img {
@@ -698,6 +712,7 @@ header {
       align-items: start;
       padding: 0;
       gap: 8px;
+      margin-bottom: -42px;
     }
 
     h3 {
@@ -711,7 +726,12 @@ header {
     .user-info_data {
       display: flex;
       justify-content: space-between;
-      width: 100%;
+      width: 88%;
+
+      h3 {
+        overflow: clip;
+        word-wrap:break-word;
+      }
 
       @media (max-width: 480px) {
         flex-direction: column;
@@ -819,11 +839,6 @@ header {
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       padding: 16px;
       margin-bottom: 36px;
-
-      @media (max-width: 480px) {
-        //width: 95vw;
-      }
-
 
       h3 {
         margin-bottom: 16px;
