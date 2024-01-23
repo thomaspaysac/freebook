@@ -1,10 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 [data-theme='dark'] {
-  --main-500: #000000;
-  --font_default: #ffffff;
+  --main-100: #dbdbdb;
+  --main-400: #727272;
+  --main-500: #4f4f4f;
+  --main-600: #242424;
+  --font_default: #DBE0E9;
   --white: #ffffff;
-  --page_background: #5d5d5d;
-  --logo: #ffffff; }
+  --page_background: #181818;
+  --logo_homepage: #DBE0E9;
+  --logo_header: #DBE0E9; }
 
 :root {
   --main-50: #e7e7f1;
@@ -20,7 +24,8 @@
   --font_default: #000000;
   --white: #ffffff;
   --page_background: #ededf0;
-  --logo: #151375; }
+  --logo_homepage: #151375;
+  --logo_header: #ffffff; }
 
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -157,6 +162,7 @@ header {
       cursor: pointer; }
 
 .header_logo {
+  color: var(--logo_header);
   font-weight: 700;
   font-size: 2rem; }
   @media (max-width: 480px) {
@@ -174,7 +180,7 @@ header {
   .homepage .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--logo);
+    color: var(--logo_homepage);
     margin-bottom: 24px;
     transition: 250ms; }
     @media (max-width: 480px) {
@@ -261,7 +267,7 @@ header {
       transition: background-color 300ms; }
       .login-form_container form button:hover, .login-form_container form button:active {
         cursor: pointer;
-        background-color: #100f5d; }
+        background-color: var(--main-600); }
   .login-form_container .signup-button {
     background-color: #679242;
     color: var(--white);
@@ -331,7 +337,7 @@ header {
       transition: background-color 300ms; }
       .signup-modal form button:hover, .signup-modal form button:active {
         cursor: pointer;
-        background-color: #100f5d; }
+        background-color: var(--main-600); }
 
 .recover {
   background-color: var(--page_background);

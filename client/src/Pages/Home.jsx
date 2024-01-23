@@ -37,7 +37,7 @@ export const HomePage = ({theme}) => {
           <Link to='/privacy' className="policy-link">Privacy policy</Link>
         </div>
       </div>
-      <SignupModal open={modalOpen} closeSignup={closeModal} />
+      <SignupModal open={modalOpen} closeSignup={closeModal} theme={theme} />
     </Layout>
   )
 }

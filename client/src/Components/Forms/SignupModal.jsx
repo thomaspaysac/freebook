@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const SignupModal = ({open, closeSignup}) => {
+export const SignupModal = ({open, closeSignup, theme}) => {
   const [errors, setErrors] = useState([]);
   const navigateTo = useNavigate();
 
@@ -47,7 +47,7 @@ export const SignupModal = ({open, closeSignup}) => {
   }
 
   return (
-    <>
+    <div data-theme={theme}>
       <div onClick={closeSignup} className={`backdrop ${open ? 'open' : ''}`}></div>
       <div className={`signup-modal ${open ? 'open' : ''}`}>
         <div className="header">
@@ -70,7 +70,7 @@ export const SignupModal = ({open, closeSignup}) => {
           <button>Sign Up</button>
         </form>
       </div>
-    </>
+    </div>
     
   );
 }

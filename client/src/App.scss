@@ -61,7 +61,8 @@ $error-950: #180000;
   --font_default: #000000;
   --white: #ffffff;
   --page_background: #ededf0;
-  --logo: #151375;
+  --logo_homepage: #151375;
+  --logo_header: #ffffff;
 }
 
 // GENERAL STYLING
@@ -264,6 +265,7 @@ header {
 }
 
 .header_logo {
+  color: var(--logo_header);
   font-weight: 700;
   font-size: 2rem;
 
@@ -288,7 +290,7 @@ header {
   .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--logo);
+    color: var(--logo_homepage);
     margin-bottom: 24px;
     transition: 250ms;
 
@@ -410,7 +412,7 @@ header {
       &:hover,
       &:active {
         cursor: pointer;
-        background-color: #100f5d;
+        background-color: var(--main-600);
       }
     }
   }
@@ -508,7 +510,7 @@ header {
       &:hover,
       &:active {
         cursor: pointer;
-        background-color: #100f5d;
+        background-color: var(--main-600);
       }
     }
   }
