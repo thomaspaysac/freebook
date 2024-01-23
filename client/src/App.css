@@ -11,7 +11,8 @@
   --block_background: #4f4f4f;
   --comments_background: #242424b3;
   --logo_homepage: #DBE0E9;
-  --logo_header: #DBE0E9; }
+  --logo_header: #DBE0E9;
+  --hover: #727272; }
 
 :root {
   --main-50: #e7e7f1;
@@ -31,7 +32,8 @@
   --block_background: #ffffff;
   --comments_background: #ededf0b3;
   --logo_homepage: #151375;
-  --logo_header: #ffffff; }
+  --logo_header: #ffffff;
+  --hover: #d0cfe3; }
 
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -93,7 +95,7 @@ main {
   font-weight: 700; }
 
 .heart-icon {
-  color: var(--main-500); }
+  color: var(--logo_homepage); }
   .heart-icon:hover, .heart-icon:active {
     cursor: pointer; }
 
@@ -879,13 +881,14 @@ header {
       background-color: #347436; }
 
 .requests {
-  background-color: #ededf0;
+  background-color: var(--page_background);
   padding: 16px; }
   .requests .friends-requests_container {
     margin-bottom: 24px;
-    background-color: var(--white);
+    background-color: var(--block_background);
     border-radius: 6px;
-    padding: 16px; }
+    padding: 16px;
+    color: var(--font_default); }
   .requests .friend-request_single {
     list-style-type: none;
     display: flex;
@@ -940,9 +943,10 @@ header {
       text-decoration: underline; }
 
 .users-list {
-  background-color: #ededf0; }
+  background-color: var(--page_background); }
   .users-list h2 {
     text-align: center;
+    color: var(--font_default);
     padding: 24px 0; }
 
 .users-list_container {
@@ -955,13 +959,13 @@ header {
       display: flex;
       flex-direction: column; } }
   .users-list_container .users-list_user {
-    background-color: var(--white);
+    background-color: var(--block_background);
     border-radius: 6px;
     padding: 6px;
     text-decoration: none;
     color: var(--font_default); }
     .users-list_container .users-list_user:hover, .users-list_container .users-list_user:active {
-      background-color: var(--main-100); }
+      background-color: var(--hover); }
     .users-list_container .users-list_user .user-info {
       display: flex;
       align-items: center;

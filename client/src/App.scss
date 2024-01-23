@@ -66,6 +66,7 @@ $error-950: #180000;
   --comments_background: #ededf0b3;
   --logo_homepage: #151375;
   --logo_header: #ffffff;
+  --hover: #d0cfe3;
 }
 
 // GENERAL STYLING
@@ -144,7 +145,7 @@ main {
 }
 
 .heart-icon {
-  color: var(--main-500);
+  color: var(--logo_homepage);
 
   &:hover,
   &:active {
@@ -1267,14 +1268,15 @@ header {
 
 // FRIENDS REQUEST PAGE
 .requests {
-  background-color: $grey-50;
+  background-color: var(--page_background);
   padding: 16px;
 
   .friends-requests_container {
     margin-bottom: 24px;
-    background-color: var(--white);
+    background-color: var(--block_background);
     border-radius: 6px;
     padding: 16px;
+    color: var(--font_default);
   }
 
   .friend-request_single {
@@ -1359,10 +1361,11 @@ header {
 }
 
 .users-list {
-  background-color: $grey-50;
+  background-color: var(--page_background);
 
   h2 {
     text-align: center;
+    color: var(--font_default);
     padding: 24px 0;
   }
 }
@@ -1379,7 +1382,7 @@ header {
   }
 
   .users-list_user {
-    background-color: var(--white);
+    background-color: var(--block_background);
     border-radius: 6px;
     padding: 6px;
     text-decoration: none;
@@ -1387,7 +1390,7 @@ header {
 
     &:hover,
     &:active {
-      background-color: var(--main-100);
+      background-color: var(--hover);
     }
 
     .user-info {

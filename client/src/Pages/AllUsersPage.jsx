@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "../Components/Layout";
 import { RoundPicture } from "../Components/Images/RoundPicture";
 
-export const AllUsersPage = () => {
+export const AllUsersPage = ({theme}) => {
   const [users, setUsers] = useState();
 
   const fetchUsers = async () => {
@@ -43,7 +43,7 @@ export const AllUsersPage = () => {
 
   return (
     <Layout>
-      <div className="content users-list">
+      <div className="content users-list" data-theme={theme}>
         <h2>All users</h2>
         <UsersList />
       </div>

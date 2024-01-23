@@ -29,7 +29,7 @@ export const authContext = createContext({});
 // React App Router
 function App() {
   const [userData, setUserData] = useState();
-  const themes = ['light', 'dark', 'red'];
+  const themes = ['light', 'dark'];
   const [theme, setTheme] = useLocalStorage('theme', themes[0]);
 
   const switchTheme = () => {
@@ -79,13 +79,13 @@ function App() {
         <Header switchTheme={switchTheme} theme={theme} />
         <Routes>
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
-          <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
+          <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/user/settings" element={<SettingsPage />} />
           <Route exact path="/feed" element={<TimeLinePage theme={theme} />} />
           <Route path="/user/:id" element={<ProfilePage />} />
-          <Route exact path="/users" element={<AllUsersPage />} />
-          <Route path="/friends/requests" element={<FriendsRequestPage />} />
+          <Route exact path="/users" element={<AllUsersPage theme={theme} />} />
+          <Route path="/friends/requests" element={<FriendsRequestPage theme={theme} />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
         </Routes>
       </BrowserRouter>

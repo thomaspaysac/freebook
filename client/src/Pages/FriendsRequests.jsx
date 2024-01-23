@@ -4,7 +4,7 @@ import { FriendsRequestsContainer } from "../Components/Friends/RequestsContaine
 import { Layout } from "../Components/Layout";
 import { Link } from "react-router-dom";
 
-export const FriendsRequestPage = () => {
+export const FriendsRequestPage = ({theme}) => {
   const [requests, setRequests] = useState([]);
   const [invites, setInvites] = useState([]);
   const authData = useContext(authContext);
@@ -46,7 +46,7 @@ export const FriendsRequestPage = () => {
 
   return (
     <Layout>
-      <div className="content requests">
+      <div className="content requests" data-theme={theme}>
         <div className="users-list_link">
           <Link to='/users'>+ Find new friends</Link>
         </div>
