@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import useLocalStorage from 'use-local-storage';
 
 // Styles
 import './App.css'
@@ -28,6 +29,19 @@ export const authContext = createContext({});
 // React App Router
 function App() {
   const [userData, setUserData] = useState();
+  const themes = ['light', 'dark', 'red'];
+  const [theme, setTheme] = useLocalStorage('theme', themes[0]);
+
+  const switchTheme = () => {
+    const currTheme = themes.indexOf(theme);
+    let newTheme;
+    if (themes[currTheme + 1]) {
+      newTheme = themes[currTheme + 1];
+    } else {
+      newTheme = themes[0];
+    }
+    setTheme(newTheme);
+  }
   
   const fetchUserSession = async () => {
     const req = await fetch('http://localhost:3000/user/session');
@@ -48,9 +62,9 @@ function App() {
   if (!userData) {
     return (
       <BrowserRouter>
-        <Header />
+        <Header switchTheme={switchTheme} theme={theme} />
         <Routes>
-          <Route exact path="*" element={<HomePage />} />
+          <Route exact path="*" element={<HomePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage />} />
@@ -62,7 +76,7 @@ function App() {
   return (
     <authContext.Provider value={userData}>
       <BrowserRouter>
-        <Header />
+        <Header switchTheme={switchTheme} theme={theme} />
         <Routes>
           <Route exact path="/" element={<TimeLinePage />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />

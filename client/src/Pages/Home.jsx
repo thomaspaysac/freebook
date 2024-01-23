@@ -5,7 +5,7 @@ import { Layout } from "../Components/Layout";
 import { LoginForm } from "../Components/Forms/LoginForm";
 import { SignupModal } from "../Components/Forms/SignupModal";
 
-export const HomePage = () => {
+export const HomePage = ({theme}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
 
@@ -27,7 +27,7 @@ export const HomePage = () => {
 
   return (
     <Layout>
-      <div className="content homepage">
+      <div className="content homepage" data-theme={theme}>
         <div>
           <h1 className="logo">freebook</h1>
           <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br /><span>make new ones</span></h2>

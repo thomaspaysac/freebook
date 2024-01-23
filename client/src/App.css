@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+[data-theme='dark'] {
+  --main-500: #000000;
+  --page_background: #757575; }
+
+:root {
+  --main-50: #e7e7f1;
+  --main-100: #d0cfe3;
+  --main-200: #a1a0c7;
+  --main-300: #7271ac;
+  --main-400: #434290;
+  --main-500: #151375;
+  --main-600: #100f5d;
+  --main-700: #0c0b46;
+  --main-800: #08072e;
+  --main-900: #040317;
+  --white: #ffffff;
+  --page_background: #ededf0; }
+
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
   padding: 0;
@@ -18,7 +36,7 @@ body {
       max-width: 100svw; } }
 
 ::selection {
-  background: #151375;
+  background: var(--main-500);
   color: #ffffff; }
 
 main {
@@ -59,7 +77,7 @@ main {
   font-weight: 700; }
 
 .heart-icon {
-  color: #151375; }
+  color: var(--main-500); }
   .heart-icon:hover, .heart-icon:active {
     cursor: pointer; }
 
@@ -68,7 +86,7 @@ header {
   top: 0;
   z-index: 5;
   width: 100%;
-  background-color: #151375;
+  background-color: var(--main-500);
   color: #ffffff;
   height: 64px;
   display: flex;
@@ -127,7 +145,7 @@ header {
             padding: 6px 12px; }
             header nav .user-dropdown_button .dropdown-menu .dropdown-link div:hover {
               cursor: pointer;
-              background-color: #d0cfe3; }
+              background-color: var(--main-100); }
     header nav .button_logout img {
       height: 24px; }
     header nav .button_logout:hover, header nav .button_logout:active {
@@ -144,21 +162,21 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: #ededf0; }
+  background-color: var(--page_background); }
   @media (max-width: 480px) {
     .homepage {
       flex-direction: column; } }
   .homepage .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: #151375;
+    color: var(--main-500);
     margin-bottom: 24px;
     transition: 250ms; }
     @media (max-width: 480px) {
       .homepage .logo {
         display: none; } }
     .homepage .logo:hover {
-      text-shadow: 0px 0px 8px rgba(21, 19, 117, 0.33); }
+      text-shadow: 0px 0px 8px rgba(var(--main-500), 0.33); }
   .homepage h2 {
     position: relative;
     top: -60px;
@@ -203,7 +221,7 @@ header {
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
   .login-form_container a {
     margin-top: 8px;
-    color: #151375;
+    color: var(--main-500);
     font-size: 0.9rem;
     text-decoration: none; }
     .login-form_container a:active, .login-form_container a:hover {
@@ -224,10 +242,10 @@ header {
       transition: all 500ms;
       outline: none; }
       .login-form_container form input:focus {
-        border: 1px solid #151375;
-        box-shadow: 0px 0px 6px 1px rgba(21, 19, 117, 0.5); }
+        border: 1px solid var(--main-500);
+        box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
     .login-form_container form button {
-      background-color: #151375;
+      background-color: var(--main-500);
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -295,9 +313,9 @@ header {
       background-color: #ededf0;
       border-radius: 6px;
       border: 1px solid #dddfe2;
-      outline-color: #151375; }
+      outline-color: var(--main-500); }
     .signup-modal form button {
-      background-color: #151375;
+      background-color: var(--main-500);
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -327,7 +345,7 @@ header {
     box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
     .recover .recover-form_container a {
       margin-top: 8px;
-      color: #151375;
+      color: var(--main-500);
       font-size: 0.9rem;
       text-decoration: none; }
       .recover .recover-form_container a:active, .recover .recover-form_container a:hover {
@@ -348,10 +366,10 @@ header {
         transition: all 500ms;
         outline: none; }
         .recover .recover-form_container form input:focus {
-          border: 1px solid #151375;
-          box-shadow: 0px 0px 6px 1px rgba(21, 19, 117, 0.5); }
+          border: 1px solid var(--main-500);
+          box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
       .recover .recover-form_container form button {
-        background-color: #151375;
+        background-color: var(--main-500);
         color: #ffffff;
         font-size: 1.5rem;
         font-weight: 700;
@@ -503,7 +521,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #151375;
+    background-color: var(--main-500);
     color: #ffffff;
     border-radius: 6px;
     font-weight: 700;
@@ -516,7 +534,7 @@ header {
         margin-top: 8px; } }
     .profile .add-friend-button:hover, .profile .add-friend-button:active {
       cursor: pointer;
-      background-color: #100f5d; }
+      background-color: var(--main-600); }
   .profile .friendship-status {
     display: flex;
     align-items: center;
@@ -583,7 +601,7 @@ header {
         .profile .social-container .posts_container .section-header h3 {
           font-size: 1.5rem; }
         .profile .social-container .posts_container .section-header button {
-          background-color: #434290;
+          background-color: var(--main-400);
           color: #ffffff;
           border: none;
           border-radius: 6px;
@@ -591,7 +609,7 @@ header {
           font-size: 1rem; }
           .profile .social-container .posts_container .section-header button:hover, .profile .social-container .posts_container .section-header button:active {
             cursor: pointer;
-            background-color: #151375; }
+            background-color: var(--main-500); }
     .profile .social-container .friends-list {
       max-width: 100%;
       display: grid;
@@ -885,7 +903,7 @@ header {
       background-color: #f90000; }
 
 .users-list_link {
-  background-color: #151375;
+  background-color: var(--main-500);
   width: fit-content;
   padding: 8px;
   margin-bottom: 24px;
@@ -922,7 +940,7 @@ header {
     text-decoration: none;
     color: #000000; }
     .users-list_container .users-list_user:hover, .users-list_container .users-list_user:active {
-      background-color: #d0cfe3; }
+      background-color: var(--main-100); }
     .users-list_container .users-list_user .user-info {
       display: flex;
       align-items: center;
@@ -975,10 +993,10 @@ header {
     transition: all 500ms;
     outline: none; }
     .change-name-form_container form input:focus {
-      border: 1px solid #151375;
-      box-shadow: 0px 0px 6px 1px rgba(21, 19, 117, 0.5); }
+      border: 1px solid var(--main-500);
+      box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
   .change-name-form_container form button {
-    background-color: #151375;
+    background-color: var(--main-500);
     color: #ffffff;
     font-size: 1rem;
     font-weight: 700;

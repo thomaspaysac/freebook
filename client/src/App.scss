@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import './themes/dark_theme.scss';
 
 // Variables
 $main-50: #e7e7f1;
@@ -46,6 +47,20 @@ $error-800: #630000;
 $error-900: #310000;
 $error-950: #180000;
 
+:root {
+  --main-50: #e7e7f1;
+  --main-100: #d0cfe3;
+  --main-200: #a1a0c7;
+  --main-300: #7271ac;
+  --main-400: #434290;
+  --main-500: #151375;
+  --main-600: #100f5d;
+  --main-700: #0c0b46;
+  --main-800: #08072e;
+  --main-900: #040317;
+  --white: #ffffff;
+  --page_background: #ededf0;
+}
 
 // GENERAL STYLING
 * {
@@ -72,7 +87,7 @@ body {
 }
 
 ::selection {
-  background: $main-500;
+  background: var(--main-500);
   color: #ffffff;
 }
 
@@ -123,7 +138,7 @@ main {
 }
 
 .heart-icon {
-  color: $main-500;
+  color: var(--main-500);
 
   &:hover,
   &:active {
@@ -138,7 +153,7 @@ header {
   top: 0;
   z-index: 5;
   width: 100%;
-  background-color: $main-500;
+  background-color: var(--main-500);
   color: #ffffff;
   height: 64px;
   display: flex;
@@ -180,7 +195,6 @@ header {
       .dropdown-menu {
         position: absolute;
         right: 0;
-        //border: 2px solid $main-500;
         background-color: #ffffff;
         color: #000000;
         border-radius: 6px;
@@ -227,7 +241,7 @@ header {
 
             &:hover {
               cursor: pointer;
-              background-color: $main-100;
+              background-color: var(--main-100);
             }
           }
         }
@@ -263,7 +277,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  background-color: $grey-50;
+  background-color: var(--page_background);
 
   @media (max-width: 480px) {
     flex-direction: column;
@@ -272,7 +286,7 @@ header {
   .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: $main-500;
+    color: var(--main-500);
     margin-bottom: 24px;
     transition: 250ms;
 
@@ -281,7 +295,7 @@ header {
     }
 
     &:hover {
-      text-shadow: 0px 0px 8px rgba($main-500, 0.33);
+      text-shadow: 0px 0px 8px rgba(var(--main-500), 0.33);
     }
   }
 
@@ -346,7 +360,7 @@ header {
 
   a {
     margin-top: 8px;
-    color: $main-500;
+    color: var(--main-500);
     font-size: 0.9rem;
     text-decoration: none;
 
@@ -375,13 +389,13 @@ header {
       outline: none;
 
       &:focus {
-        border: 1px solid $main-500;
-        box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
+        border: 1px solid var(--main-500);
+        box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5);
       }
     }
 
     button {
-      background-color: $main-500;
+      background-color: var(--main-500);
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -475,11 +489,11 @@ header {
       background-color: $grey-50;
       border-radius: 6px;
       border: 1px solid #dddfe2;
-      outline-color: $main-500;
+      outline-color: var(--main-500);
     }
 
     button {
-      background-color: $main-500;
+      background-color: var(--main-500);
       color: #ffffff;
       font-size: 1.5rem;
       font-weight: 700;
@@ -519,7 +533,7 @@ header {
   
     a {
       margin-top: 8px;
-      color: $main-500;
+      color: var(--main-500);
       font-size: 0.9rem;
       text-decoration: none;
   
@@ -548,13 +562,13 @@ header {
         outline: none;
   
         &:focus {
-          border: 1px solid $main-500;
-          box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
+          border: 1px solid var(--main-500);
+          box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5);
         }
       }
   
       button {
-        background-color: $main-500;
+        background-color: var(--main-500);
         color: #ffffff;
         font-size: 1.5rem;
         font-weight: 700;
@@ -759,7 +773,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: $main-500;
+    background-color: var(--main-500);
     color: #ffffff;
     border-radius: 6px;
     font-weight: 700;
@@ -775,7 +789,7 @@ header {
     &:hover,
     &:active {
       cursor: pointer;
-      background-color: $main-600;
+      background-color: var(--main-600);
     }
   }
 
@@ -876,7 +890,7 @@ header {
         }
 
         button {
-          background-color: $main-400;
+          background-color: var(--main-400);
           color: #ffffff;
           border: none;
           border-radius: 6px;
@@ -886,7 +900,7 @@ header {
           &:hover,
           &:active {
             cursor: pointer;
-            background-color: $main-500;
+            background-color: var(--main-500);
           }
         }
       }
@@ -1200,7 +1214,7 @@ header {
         display: flex;
         justify-content: center;
         align-items: center;
-        //background-color: $main-200;
+        //background-color: var(--main-200);
         height: 24px;
 
         &:hover,
@@ -1312,7 +1326,7 @@ header {
 
 // Users list page
 .users-list_link {
-  background-color: $main-500;
+  background-color: var(--main-500);
   width: fit-content;
   padding: 8px;
   margin-bottom: 24px;
@@ -1363,7 +1377,7 @@ header {
 
     &:hover,
     &:active {
-      background-color: $main-100;
+      background-color: var(--main-100);
     }
 
     .user-info {
@@ -1438,13 +1452,13 @@ header {
       outline: none;
   
       &:focus {
-        border: 1px solid $main-500;
-        box-shadow: 0px 0px 6px 1px rgba($main-500, 0.5);
+        border: 1px solid var(--main-500);
+        box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5);
       }
     }
   
     button {
-      background-color: $main-500;
+      background-color: var(--main-500);
       color: #ffffff;
       font-size: 1rem;
       font-weight: 700;
