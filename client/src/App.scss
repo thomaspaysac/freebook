@@ -67,6 +67,7 @@ $error-950: #180000;
   --logo_homepage: #151375;
   --logo_header: #ffffff;
   --hover: #d0cfe3;
+  --attention: #fee5e5;
 }
 
 // GENERAL STYLING
@@ -202,7 +203,7 @@ header {
       .dropdown-menu {
         position: absolute;
         right: 0;
-        background-color: var(--white);
+        background-color: var(--block_background);
         color: var(--font_default);
         border-radius: 6px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -237,7 +238,8 @@ header {
 
           &:last-of-type {
             div {
-              background-color: $error-50;
+              background-color: var(--attention);
+              color: var(--font_default);
               border-bottom-left-radius: 6px;
               border-bottom-right-radius: 6px;
             }
@@ -248,7 +250,7 @@ header {
 
             &:hover {
               cursor: pointer;
-              background-color: var(--main-100);
+              background-color: var(--hover);
             }
           }
         }

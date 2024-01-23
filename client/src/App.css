@@ -12,7 +12,8 @@
   --comments_background: #242424b3;
   --logo_homepage: #DBE0E9;
   --logo_header: #DBE0E9;
-  --hover: #727272; }
+  --hover: #727272;
+  --attention: #8c8f94; }
 
 :root {
   --main-50: #e7e7f1;
@@ -33,7 +34,8 @@
   --comments_background: #ededf0b3;
   --logo_homepage: #151375;
   --logo_header: #ffffff;
-  --hover: #d0cfe3; }
+  --hover: #d0cfe3;
+  --attention: #fee5e5; }
 
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -134,7 +136,7 @@ header {
       header nav .user-dropdown_button .dropdown-menu {
         position: absolute;
         right: 0;
-        background-color: var(--white);
+        background-color: var(--block_background);
         color: var(--font_default);
         border-radius: 6px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
@@ -156,14 +158,15 @@ header {
             border-top-left-radius: 6px;
             border-top-right-radius: 6px; }
           header nav .user-dropdown_button .dropdown-menu .dropdown-link:last-of-type div {
-            background-color: #fee5e5;
+            background-color: var(--attention);
+            color: var(--font_default);
             border-bottom-left-radius: 6px;
             border-bottom-right-radius: 6px; }
           header nav .user-dropdown_button .dropdown-menu .dropdown-link div {
             padding: 6px 12px; }
             header nav .user-dropdown_button .dropdown-menu .dropdown-link div:hover {
               cursor: pointer;
-              background-color: var(--main-100); }
+              background-color: var(--hover); }
     header nav .button_logout img {
       height: 24px; }
     header nav .button_logout:hover, header nav .button_logout:active {
