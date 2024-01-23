@@ -1442,7 +1442,8 @@ header {
 }
 
 .change-name-form_container,
-.delete-profile_container {
+.delete-profile_container,
+.change-theme_container {
   background-color: var(--block_background);
   padding: 16px;
   border-radius: 6px;
@@ -1459,6 +1460,7 @@ header {
     display: flex;
     gap: 16px;
     margin: 16px 0;
+    width: 100%;
 
     @media (max-width: 480px) {
       flex-direction: column;
@@ -1497,6 +1499,35 @@ header {
   }
 }
 
+.change-theme_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .choices {
+    display: flex;
+    gap: 8px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+
+    button {
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--logo_homepage);
+      background-color: var(--white);
+      padding: 8px;
+
+      &:hover,
+      &:active {
+        cursor: pointer;
+        background-color: var(--hover);
+      }
+    }
+  }
+}
+
 .delete-profile_container {
   display: flex;
   flex-direction: column;
@@ -1514,6 +1545,10 @@ header {
     border-radius: 6px;
     font-weight: 700;
     width: fit-content;
+
+    @media (max-width: 480px) {
+      align-self: center;
+    }
 
     &:hover,
     &:active {

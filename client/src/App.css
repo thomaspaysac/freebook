@@ -1003,7 +1003,8 @@ header {
   align-items: center; }
 
 .change-name-form_container,
-.delete-profile_container {
+.delete-profile_container,
+.change-theme_container {
   background-color: var(--block_background);
   padding: 16px;
   border-radius: 6px;
@@ -1011,13 +1012,15 @@ header {
   width: 50vw; }
   @media (max-width: 480px) {
     .change-name-form_container,
-    .delete-profile_container {
+    .delete-profile_container,
+    .change-theme_container {
       width: 90vw; } }
 
 .change-name-form_container form {
   display: flex;
   gap: 16px;
-  margin: 16px 0; }
+  margin: 16px 0;
+  width: 100%; }
   @media (max-width: 480px) {
     .change-name-form_container form {
       flex-direction: column; } }
@@ -1044,6 +1047,26 @@ header {
       cursor: pointer;
       background-color: var(--main-600); }
 
+.change-theme_container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; }
+  .change-theme_container .choices {
+    display: flex;
+    gap: 8px; }
+    @media (max-width: 480px) {
+      .change-theme_container .choices {
+        flex-direction: column; } }
+    .change-theme_container .choices button {
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--logo_homepage);
+      background-color: var(--white);
+      padding: 8px; }
+      .change-theme_container .choices button:hover, .change-theme_container .choices button:active {
+        cursor: pointer;
+        background-color: var(--hover); }
+
 .delete-profile_container {
   display: flex;
   flex-direction: column;
@@ -1058,6 +1081,9 @@ header {
     border-radius: 6px;
     font-weight: 700;
     width: fit-content; }
+    @media (max-width: 480px) {
+      .delete-profile_container button {
+        align-self: center; } }
     .delete-profile_container button:hover, .delete-profile_container button:active {
       cursor: pointer;
       background-color: #ff0000;

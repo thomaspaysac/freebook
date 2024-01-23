@@ -5,9 +5,6 @@ export const Header = ({switchTheme, theme}) => {
   return (
     <header data-theme={theme}>
       <Link to='/' className="header_logo">freebook</Link>
-      <button onClick={switchTheme}>
-        Theme: {theme}
-      </button>
       <UserContainer />
     </header>
   )

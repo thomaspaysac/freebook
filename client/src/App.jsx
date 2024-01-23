@@ -32,15 +32,16 @@ function App() {
   const themes = ['light', 'dark'];
   const [theme, setTheme] = useLocalStorage('theme', themes[0]);
 
-  const switchTheme = () => {
-    const currTheme = themes.indexOf(theme);
+  const switchTheme = (theme) => {
+    /*const currTheme = themes.indexOf(theme);
     let newTheme;
     if (themes[currTheme + 1]) {
       newTheme = themes[currTheme + 1];
     } else {
       newTheme = themes[0];
     }
-    setTheme(newTheme);
+    setTheme(newTheme);*/
+    setTheme(theme);
   }
   
   const fetchUserSession = async () => {
@@ -62,7 +63,7 @@ function App() {
   if (!userData) {
     return (
       <BrowserRouter>
-        <Header switchTheme={switchTheme} theme={theme} />
+        <Header theme={theme} />
         <Routes>
           <Route exact path="*" element={<HomePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
@@ -76,12 +77,12 @@ function App() {
   return (
     <authContext.Provider value={userData}>
       <BrowserRouter>
-        <Header switchTheme={switchTheme} theme={theme} />
+        <Header theme={theme} />
         <Routes>
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
-          <Route exact path="/user/settings" element={<SettingsPage theme={theme} />} />
+          <Route exact path="/user/settings" element={<SettingsPage theme={theme} switchTheme={switchTheme} />} />
           <Route exact path="/feed" element={<TimeLinePage theme={theme} />} />
           <Route path="/user/:id" element={<ProfilePage theme={theme} />} />
           <Route exact path="/users" element={<AllUsersPage theme={theme} />} />
