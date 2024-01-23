@@ -65,9 +65,9 @@ function App() {
         <Header switchTheme={switchTheme} theme={theme} />
         <Routes>
           <Route exact path="*" element={<HomePage theme={theme} />} />
-          <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
+          <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} />} />
         </Routes>
       </BrowserRouter>
     )

@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 [data-theme='dark'] {
   --main-500: #000000;
-  --page_background: #757575; }
+  --font_default: #ffffff;
+  --white: #ffffff;
+  --page_background: #5d5d5d;
+  --logo: #ffffff; }
 
 :root {
   --main-50: #e7e7f1;
@@ -14,8 +17,10 @@
   --main-700: #0c0b46;
   --main-800: #08072e;
   --main-900: #040317;
+  --font_default: #000000;
   --white: #ffffff;
-  --page_background: #ededf0; }
+  --page_background: #ededf0;
+  --logo: #151375; }
 
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -37,7 +42,7 @@ body {
 
 ::selection {
   background: var(--main-500);
-  color: #ffffff; }
+  color: var(--white); }
 
 main {
   min-height: 100%;
@@ -87,7 +92,7 @@ header {
   z-index: 5;
   width: 100%;
   background-color: var(--main-500);
-  color: #ffffff;
+  color: var(--white);
   height: 64px;
   display: flex;
   align-items: center;
@@ -98,7 +103,7 @@ header {
       padding: 8px 12px;
       width: 100vw; } }
   header a {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none; }
   header nav {
     display: flex;
@@ -116,8 +121,8 @@ header {
       header nav .user-dropdown_button .dropdown-menu {
         position: absolute;
         right: 0;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: var(--white);
+        color: var(--font_default);
         border-radius: 6px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
         header nav .user-dropdown_button .dropdown-menu .dropdown-separator {
@@ -126,7 +131,7 @@ header {
           width: 100%;
           background-color: rgba(180, 180, 183, 0.3); }
         header nav .user-dropdown_button .dropdown-menu .dropdown-link {
-          color: #000000;
+          color: var(--font_default);
           border-radius: 6px; }
           header nav .user-dropdown_button .dropdown-menu .dropdown-link div {
             display: flex;
@@ -169,7 +174,7 @@ header {
   .homepage .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--main-500);
+    color: var(--logo);
     margin-bottom: 24px;
     transition: 250ms; }
     @media (max-width: 480px) {
@@ -181,7 +186,8 @@ header {
     position: relative;
     top: -60px;
     opacity: 0;
-    transition: all 1250ms ease-out; }
+    transition: all 1250ms ease-out;
+    color: var(--font_default); }
     @media (max-width: 480px) {
       .homepage h2 {
         display: none; } }
@@ -204,14 +210,14 @@ header {
     bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
-    color: #000000;
+    color: var(--font_default);
     text-decoration: none;
     font-size: 0.8rem; }
     .login-container .policy-link:hover, .login-container .policy-link:active {
       text-decoration: underline; }
 
 .login-form_container {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 16px;
   border-radius: 6px;
   display: flex;
@@ -246,7 +252,7 @@ header {
         box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
     .login-form_container form button {
       background-color: var(--main-500);
-      color: #ffffff;
+      color: var(--white);
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
@@ -258,7 +264,7 @@ header {
         background-color: #100f5d; }
   .login-form_container .signup-button {
     background-color: #679242;
-    color: #ffffff;
+    color: var(--white);
     font-size: 1rem;
     font-weight: 700;
     border-radius: 6px;
@@ -279,7 +285,7 @@ header {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 250ms;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
   @media (max-width: 480px) {
@@ -316,7 +322,7 @@ header {
       outline-color: var(--main-500); }
     .signup-modal form button {
       background-color: var(--main-500);
-      color: #ffffff;
+      color: var(--white);
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
@@ -328,11 +334,11 @@ header {
         background-color: #100f5d; }
 
 .recover {
-  background-color: #ededf0;
+  background-color: var(--page_background);
   display: flex;
   justify-content: center; }
   .recover .recover-form_container {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 16px;
     border-radius: 6px;
     display: flex;
@@ -370,7 +376,7 @@ header {
           box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
       .recover .recover-form_container form button {
         background-color: var(--main-500);
-        color: #ffffff;
+        color: var(--white);
         font-size: 1.5rem;
         font-weight: 700;
         border: none;
@@ -394,7 +400,7 @@ header {
   .profile div {
     border-radius: 6px; }
   .profile .user-info_container {
-    background-color: #ffffff;
+    background-color: var(--white);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -464,12 +470,12 @@ header {
   .profile .profile-picture {
     position: relative;
     z-index: 3;
-    box-shadow: 0 0 0 6px #ffffff; }
+    box-shadow: 0 0 0 6px var(--white); }
     @media (max-width: 480px) {
       .profile .profile-picture {
         height: 40vw !important;
         min-width: 40vw !important;
-        box-shadow: 0 0 0 4px #ffffff; } }
+        box-shadow: 0 0 0 4px var(--white); } }
   .profile .user-info {
     display: flex;
     align-items: center;
@@ -522,7 +528,7 @@ header {
     align-items: center;
     gap: 8px;
     background-color: var(--main-500);
-    color: #ffffff;
+    color: var(--white);
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
@@ -539,7 +545,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #ffffff;
+    color: var(--white);
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
@@ -550,7 +556,7 @@ header {
     .profile .friendship-status.delete {
       border: 2px solid #f90000;
       background-color: #fb6666;
-      color: #ffffff; }
+      color: var(--white); }
       .profile .friendship-status.delete:hover {
         cursor: pointer; }
       .profile .friendship-status.delete:active {
@@ -566,7 +572,7 @@ header {
         flex-direction: column;
         width: 95vw; } }
     .profile .social-container .friends_container {
-      background-color: #ffffff;
+      background-color: var(--white);
       padding: 16px;
       width: 35%;
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -580,7 +586,7 @@ header {
         .profile .social-container .friends_container .section-header h3 {
           font-size: 1.5rem; }
     .profile .social-container .profile_new-post {
-      background-color: #ffffff;
+      background-color: var(--white);
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       padding: 16px;
       margin-bottom: 36px; }
@@ -594,7 +600,7 @@ header {
       .profile .social-container .posts_container .section-header {
         display: flex;
         justify-content: space-between;
-        background-color: #ffffff;
+        background-color: var(--white);
         border-radius: 6px;
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
@@ -602,7 +608,7 @@ header {
           font-size: 1.5rem; }
         .profile .social-container .posts_container .section-header button {
           background-color: var(--main-400);
-          color: #ffffff;
+          color: var(--white);
           border: none;
           border-radius: 6px;
           padding: 6px 8px;
@@ -630,7 +636,7 @@ header {
         .profile .social-container .friends-list .friend .name {
           font-size: 0.9rem;
           font-weight: 700;
-          color: #000000;
+          color: var(--font_default);
           overflow: hidden;
           white-space: nowrap; }
 
@@ -641,7 +647,7 @@ header {
   align-items: center; }
   .timeline-page .new-post_container {
     width: 60%;
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
@@ -687,7 +693,7 @@ header {
 .profile-post,
 .timeline-post {
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -713,7 +719,7 @@ header {
     .timeline-post .post-info div a {
       font-weight: 700;
       text-decoration: none;
-      color: #000000; }
+      color: var(--font_default); }
     .profile-post .post-info div div:nth-child(2),
     .timeline-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
@@ -778,7 +784,7 @@ header {
       max-height: 300px; }
     .comments_container .comment-form button {
       background-color: #429244;
-      color: #ffffff;
+      color: var(--white);
       border-radius: 6px;
       border: none;
       font-weight: 700;
@@ -808,7 +814,7 @@ header {
     .comments_container .comment_author-info div a {
       font-weight: 700;
       text-decoration: none;
-      color: #000000; }
+      color: var(--font_default); }
     .comments_container .comment_author-info div div:nth-child(2) {
       font-size: 0.8rem;
       color: #6c6c6e; }
@@ -848,7 +854,7 @@ header {
     border-radius: 6px; }
   .new-post_form form button {
     background-color: #429244;
-    color: #ffffff;
+    color: var(--white);
     border: none;
     border-radius: 6px;
     padding: 6px 8px;
@@ -862,7 +868,7 @@ header {
   padding: 16px; }
   .requests .friends-requests_container {
     margin-bottom: 24px;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 6px;
     padding: 16px; }
   .requests .friend-request_single {
@@ -876,7 +882,7 @@ header {
         justify-content: space-between; } }
     .requests .friend-request_single a {
       text-decoration: none;
-      color: #000000;
+      color: var(--font_default);
       display: flex;
       align-items: center;
       gap: 4px; }
@@ -891,13 +897,13 @@ header {
     border: none; }
   .requests .action-accept {
     background-color: #429244;
-    color: #ffffff; }
+    color: var(--white); }
     .requests .action-accept:hover, .requests .action-accept:active {
       cursor: pointer;
       background-color: #347436; }
   .requests .action-reject {
     background-color: #fb6666;
-    color: #ffffff; }
+    color: var(--white); }
     .requests .action-reject:hover, .requests .action-reject:active {
       cursor: pointer;
       background-color: #f90000; }
@@ -912,7 +918,7 @@ header {
     .users-list_link {
       width: 100%; } }
   .users-list_link a {
-    color: #ffffff;
+    color: var(--white);
     font-weight: 700;
     text-decoration: none; }
     .users-list_link a:hover, .users-list_link a:active {
@@ -934,11 +940,11 @@ header {
       display: flex;
       flex-direction: column; } }
   .users-list_container .users-list_user {
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 6px;
     padding: 6px;
     text-decoration: none;
-    color: #000000; }
+    color: var(--font_default); }
     .users-list_container .users-list_user:hover, .users-list_container .users-list_user:active {
       background-color: var(--main-100); }
     .users-list_container .users-list_user .user-info {
@@ -948,7 +954,8 @@ header {
 
 .privacy-policy {
   padding: 24px;
-  background-color: #ededf0; }
+  background-color: var(--page_background);
+  color: var(--font_default); }
   .privacy-policy h1 {
     margin-bottom: 24px; }
   .privacy-policy h2 {
@@ -968,7 +975,7 @@ header {
 
 .change-name-form_container,
 .delete-profile_container {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 16px;
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -997,7 +1004,7 @@ header {
       box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
   .change-name-form_container form button {
     background-color: var(--main-500);
-    color: #ffffff;
+    color: var(--white);
     font-size: 1rem;
     font-weight: 700;
     border: none;
@@ -1025,6 +1032,6 @@ header {
     .delete-profile_container button:hover, .delete-profile_container button:active {
       cursor: pointer;
       background-color: #ff0000;
-      color: #ffffff; }
+      color: var(--white); }
 
 /*# sourceMappingURL=App.css.map */

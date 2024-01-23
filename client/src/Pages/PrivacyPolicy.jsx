@@ -1,9 +1,9 @@
 import { Layout } from "../Components/Layout"
 
-export const PrivacyPolicyPage = () => {
+export const PrivacyPolicyPage = ({theme}) => {
   return (
     <Layout>
-    <div className="content privacy-policy">
+    <div className="content privacy-policy" data-theme={theme}>
       <h1>Privacy Policy for Freebook</h1>
       <h3>Last Updated: january 11 2024</h3>
       <p>Thank you for using Freebook. This Privacy Policy outlines how we collect, use, disclose, and safeguard your personal information when you access or use our website and services. By using Freebook, you agree to the terms outlined in this Privacy Policy.</p>

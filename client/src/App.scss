@@ -58,8 +58,10 @@ $error-950: #180000;
   --main-700: #0c0b46;
   --main-800: #08072e;
   --main-900: #040317;
+  --font_default: #000000;
   --white: #ffffff;
   --page_background: #ededf0;
+  --logo: #151375;
 }
 
 // GENERAL STYLING
@@ -88,7 +90,7 @@ body {
 
 ::selection {
   background: var(--main-500);
-  color: #ffffff;
+  color: var(--white);
 }
 
 main {
@@ -154,7 +156,7 @@ header {
   z-index: 5;
   width: 100%;
   background-color: var(--main-500);
-  color: #ffffff;
+  color: var(--white);
   height: 64px;
   display: flex;
   align-items: center;
@@ -167,7 +169,7 @@ header {
   }
 
   a {
-    color: #ffffff;
+    color: var(--white);
     text-decoration: none;
   }
 
@@ -195,8 +197,8 @@ header {
       .dropdown-menu {
         position: absolute;
         right: 0;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: var(--white);
+        color: var(--font_default);
         border-radius: 6px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
         
@@ -208,7 +210,7 @@ header {
         }
 
         .dropdown-link {
-          color: #000000;
+          color: var(--font_default);
           border-radius: 6px;
 
           div {
@@ -286,7 +288,7 @@ header {
   .logo {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--main-500);
+    color: var(--logo);
     margin-bottom: 24px;
     transition: 250ms;
 
@@ -304,6 +306,7 @@ header {
     top: -60px;
     opacity: 0;
     transition: all 1250ms ease-out;
+    color: var(--font_default);
 
     @media (max-width: 480px) {
       display: none;
@@ -337,7 +340,7 @@ header {
     bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
-    color: #000000;
+    color: var(--font_default);
     text-decoration: none;
     font-size: 0.8rem;
 
@@ -349,7 +352,7 @@ header {
 }
 
 .login-form_container {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 16px;
   border-radius: 6px;
   display: flex;
@@ -396,7 +399,7 @@ header {
 
     button {
       background-color: var(--main-500);
-      color: #ffffff;
+      color: var(--white);
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
@@ -414,7 +417,7 @@ header {
 
   .signup-button {
     background-color: #679242;
-    color: #ffffff;
+    color: var(--white);
     font-size: 1rem;
     font-weight: 700;
     border-radius: 6px;
@@ -440,7 +443,7 @@ header {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: all 250ms;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
 
@@ -494,7 +497,7 @@ header {
 
     button {
       background-color: var(--main-500);
-      color: #ffffff;
+      color: var(--white);
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
@@ -514,12 +517,12 @@ header {
 
 // Login recover page
 .recover {
-  background-color: $grey-50;
+  background-color: var(--page_background);
   display: flex;
   justify-content: center;
 
   .recover-form_container {
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 16px;
     border-radius: 6px;
     display: flex;
@@ -569,7 +572,7 @@ header {
   
       button {
         background-color: var(--main-500);
-        color: #ffffff;
+        color: var(--white);
         font-size: 1.5rem;
         font-weight: 700;
         border: none;
@@ -606,7 +609,7 @@ header {
   }
 
   .user-info_container {
-    background-color: #ffffff;
+    background-color: var(--white);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -699,12 +702,12 @@ header {
   .profile-picture {
     position: relative;
     z-index: 3;
-    box-shadow: 0 0 0 6px #ffffff;
+    box-shadow: 0 0 0 6px var(--white);
     
     @media (max-width: 480px) {
       height: 40vw !important;
       min-width: 40vw !important;
-      box-shadow: 0 0 0 4px #ffffff;
+      box-shadow: 0 0 0 4px var(--white);
     }
   }
 
@@ -774,7 +777,7 @@ header {
     align-items: center;
     gap: 8px;
     background-color: var(--main-500);
-    color: #ffffff;
+    color: var(--white);
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
@@ -797,7 +800,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #ffffff;
+    color: var(--white);
     border-radius: 6px;
     font-weight: 700;
     padding: 0 8px;
@@ -811,7 +814,7 @@ header {
     &.delete {
       border: 2px solid $error-500;
       background-color: $error-300;
-      color: #ffffff;
+      color: var(--white);
 
       &:hover {
         cursor: pointer;
@@ -839,7 +842,7 @@ header {
     }
 
     .friends_container {
-      background-color: #ffffff;
+      background-color: var(--white);
       padding: 16px;
       width: 35%;
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -860,7 +863,7 @@ header {
     }
 
     .profile_new-post {
-      background-color: #ffffff;
+      background-color: var(--white);
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       padding: 16px;
       margin-bottom: 36px;
@@ -880,7 +883,7 @@ header {
       .section-header {
         display: flex;
         justify-content: space-between;
-        background-color: #ffffff;
+        background-color: var(--white);
         border-radius: 6px;
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -891,7 +894,7 @@ header {
 
         button {
           background-color: var(--main-400);
-          color: #ffffff;
+          color: var(--white);
           border: none;
           border-radius: 6px;
           padding: 6px 8px;
@@ -934,7 +937,7 @@ header {
         .name {
           font-size: 0.9rem;
           font-weight: 700;
-          color: #000000;
+          color: var(--font_default);
           overflow: hidden;
           white-space: nowrap;
         }
@@ -952,7 +955,7 @@ header {
 
   .new-post_container {
     width: 60%;
-    background-color: #ffffff;
+    background-color: var(--white);
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
@@ -1015,7 +1018,7 @@ header {
 .profile-post,
 .timeline-post {
   position: relative;
-  background-color: #ffffff;
+  background-color: var(--white);
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -1045,7 +1048,7 @@ header {
       a {
         font-weight: 700;
         text-decoration: none;
-        color: #000000;
+        color: var(--font_default);
       }
 
       div:nth-child(2) {
@@ -1126,7 +1129,7 @@ header {
 
     button {
       background-color: $validation-500;
-      color: #ffffff;
+      color: var(--white);
       border-radius: 6px;
       border: none;
       font-weight: 700;
@@ -1171,7 +1174,7 @@ header {
       a {
         font-weight: 700;
         text-decoration: none;
-        color: #000000;
+        color: var(--font_default);
       }
 
       div:nth-child(2) {
@@ -1240,7 +1243,7 @@ header {
 
     button {
       background-color: $validation-500;
-      color: #ffffff;
+      color: var(--white);
       border: none;
       border-radius: 6px;
       padding: 6px 8px;
@@ -1262,7 +1265,7 @@ header {
 
   .friends-requests_container {
     margin-bottom: 24px;
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 6px;
     padding: 16px;
   }
@@ -1280,7 +1283,7 @@ header {
 
     a {
       text-decoration: none;
-      color: #000000;
+      color: var(--font_default);
       display: flex;
       align-items: center;
       gap: 4px;
@@ -1303,7 +1306,7 @@ header {
 
   .action-accept {
     background-color: $validation-500;
-    color: #ffffff;
+    color: var(--white);
 
     &:hover,
     &:active {
@@ -1314,7 +1317,7 @@ header {
 
   .action-reject {
     background-color: $error-300;
-    color: #ffffff;
+    color: var(--white);
 
     &:hover,
     &:active {
@@ -1337,7 +1340,7 @@ header {
   }
 
   a {
-    color: #ffffff;
+    color: var(--white);
     font-weight: 700;
     text-decoration: none;
 
@@ -1369,11 +1372,11 @@ header {
   }
 
   .users-list_user {
-    background-color: #ffffff;
+    background-color: var(--white);
     border-radius: 6px;
     padding: 6px;
     text-decoration: none;
-    color: #000000;
+    color: var(--font_default);
 
     &:hover,
     &:active {
@@ -1391,7 +1394,8 @@ header {
 // Privacy policy page
 .privacy-policy {
   padding: 24px;
-  background-color: $grey-50;
+  background-color: var(--page_background);
+  color: var(--font_default);
 
   h1 {
     margin-bottom: 24px;
@@ -1422,7 +1426,7 @@ header {
 
 .change-name-form_container,
 .delete-profile_container {
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 16px;
   border-radius: 6px;
   box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
@@ -1459,7 +1463,7 @@ header {
   
     button {
       background-color: var(--main-500);
-      color: #ffffff;
+      color: var(--white);
       font-size: 1rem;
       font-weight: 700;
       border: none;
@@ -1498,7 +1502,7 @@ header {
     &:active {
       cursor: pointer;
       background-color: #ff0000;
-      color: #ffffff;
+      color: var(--white);
     }
   }
 }
