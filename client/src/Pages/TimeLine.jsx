@@ -5,7 +5,7 @@ import { PostSingle } from "../Components/Posts/PostSingle";
 import { Layout } from "../Components/Layout";
 import { NewPostForm } from "../Components/Forms/NewPost";
 
-export const TimeLinePage = () => {
+export const TimeLinePage = ({theme}) => {
   const [posts, setPosts] = useState();
   const [update, setUpdate] = useState(0);
   const authData = useContext(authContext);
@@ -55,7 +55,7 @@ export const TimeLinePage = () => {
 
   return (
     <Layout>
-      <div className="content timeline-page">
+      <div className="content timeline-page" data-theme={theme}>
         <div className="new-post_container">
           <h3>What's on your mind?</h3>
           <NewPostForm update={updateComponent} />

@@ -5,8 +5,11 @@
   --main-500: #4f4f4f;
   --main-600: #242424;
   --font_default: #DBE0E9;
+  --secondary-info: #afb3ba;
   --white: #ffffff;
   --page_background: #181818;
+  --block_background: #4f4f4f;
+  --comments_background: #242424b3;
   --logo_homepage: #DBE0E9;
   --logo_header: #DBE0E9; }
 
@@ -22,8 +25,11 @@
   --main-800: #08072e;
   --main-900: #040317;
   --font_default: #000000;
+  --secondary-info: #6c6c6e;
   --white: #ffffff;
   --page_background: #ededf0;
+  --block_background: #ffffff;
+  --comments_background: #ededf0b3;
   --logo_homepage: #151375;
   --logo_header: #ffffff; }
 
@@ -647,13 +653,15 @@ header {
           white-space: nowrap; }
 
 .timeline-page {
-  background-color: #ededf0;
+  background-color: var(--page_background);
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  color: var(--font_default); }
   .timeline-page .new-post_container {
     width: 60%;
-    background-color: var(--white);
+    background-color: var(--block_background);
+    color: var(--font_default);
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
@@ -699,7 +707,8 @@ header {
 .profile-post,
 .timeline-post {
   position: relative;
-  background-color: var(--white);
+  background-color: var(--block_background);
+  color: var(--font_default);
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -729,7 +738,7 @@ header {
     .profile-post .post-info div div:nth-child(2),
     .timeline-post .post-info div div:nth-child(2) {
       font-size: 0.8rem;
-      color: #6c6c6e; }
+      color: var(--secondary-info); }
   .profile-post .post-content,
   .timeline-post .post-content {
     display: flex;
@@ -765,7 +774,7 @@ header {
   .timeline-post .comments-toggle {
     text-align: end;
     font-weight: 700;
-    color: #6c6c6e; }
+    color: var(--secondary-info); }
     .profile-post .comments-toggle:hover, .profile-post .comments-toggle:active,
     .timeline-post .comments-toggle:hover,
     .timeline-post .comments-toggle:active {
@@ -802,7 +811,7 @@ header {
   .comments_container .comment-single {
     position: relative;
     padding: 8px;
-    background-color: rgba(237, 237, 240, 0.7);
+    background-color: var(--comments_background);
     margin: 8px 0;
     border-radius: 6px; }
     .comments_container .comment-single .delete-comment_button {

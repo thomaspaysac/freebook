@@ -59,8 +59,11 @@ $error-950: #180000;
   --main-800: #08072e;
   --main-900: #040317;
   --font_default: #000000;
+  --secondary-info: #6c6c6e;
   --white: #ffffff;
   --page_background: #ededf0;
+  --block_background: #ffffff;
+  --comments_background: #ededf0b3;
   --logo_homepage: #151375;
   --logo_header: #ffffff;
 }
@@ -950,14 +953,16 @@ header {
 
 // TIMELINE PAGE
 .timeline-page {
-  background-color: $grey-50;
+  background-color: var(--page_background);
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--font_default);
 
   .new-post_container {
     width: 60%;
-    background-color: var(--white);
+    background-color: var(--block_background);
+    color: var(--font_default);
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
@@ -978,7 +983,6 @@ header {
     flex-direction: column;
     align-items: center;
   }
-
 }
 
 
@@ -1020,7 +1024,8 @@ header {
 .profile-post,
 .timeline-post {
   position: relative;
-  background-color: var(--white);
+  background-color: var(--block_background);
+  color: var(--font_default);
   border-radius: 6px;
   padding: 16px;
   box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -1055,7 +1060,7 @@ header {
 
       div:nth-child(2) {
         font-size: 0.8rem;
-        color: $grey-700;
+        color: var(--secondary-info);
       }
     }
   }
@@ -1099,7 +1104,7 @@ header {
   .comments-toggle {
     text-align: end;
     font-weight: 700;
-    color: $grey-700;
+    color: var(--secondary-info);
 
     &:hover,
     &:active {
@@ -1149,7 +1154,7 @@ header {
   .comment-single {
     position: relative;
     padding: 8px;
-    background-color: rgba($grey-50, 0.7);
+    background-color: var(--comments_background);
     margin: 8px 0;
     border-radius: 6px;
 

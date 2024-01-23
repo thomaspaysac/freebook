@@ -78,11 +78,11 @@ function App() {
       <BrowserRouter>
         <Header switchTheme={switchTheme} theme={theme} />
         <Routes>
-          <Route exact path="/" element={<TimeLinePage />} />
+          <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route exact path="/user/settings" element={<SettingsPage />} />
-          <Route exact path="/feed" element={<TimeLinePage />} />
+          <Route exact path="/feed" element={<TimeLinePage theme={theme} />} />
           <Route path="/user/:id" element={<ProfilePage />} />
           <Route exact path="/users" element={<AllUsersPage />} />
           <Route path="/friends/requests" element={<FriendsRequestPage />} />
