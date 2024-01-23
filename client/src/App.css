@@ -6,7 +6,8 @@
   --main-600: #242424;
   --font_default: #DBE0E9;
   --secondary-info: #afb3ba;
-  --white: #ffffff;
+  --button: #727272;
+  --white: #dbdbdb;
   --page_background: #181818;
   --block_background: #4f4f4f;
   --comments_background: #242424b3;
@@ -28,6 +29,7 @@
   --main-900: #040317;
   --font_default: #000000;
   --secondary-info: #6c6c6e;
+  --button: #151375;
   --white: #ffffff;
   --page_background: #ededf0;
   --block_background: #ffffff;
@@ -405,19 +407,20 @@ header {
           background-color: #100f5d; }
 
 .profile {
-  background-color: #ededf0;
+  background-color: var(--page_background);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  position: absolute; }
+  position: absolute;
+  color: var(--font_default); }
   @media (max-width: 480px) {
     .profile {
       position: static; } }
   .profile div {
     border-radius: 6px; }
   .profile .user-info_container {
-    background-color: var(--white);
+    background-color: var(--block_background);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -544,7 +547,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--main-500);
+    background-color: var(--button);
     color: var(--white);
     border-radius: 6px;
     font-weight: 700;
@@ -569,7 +572,8 @@ header {
     font-size: 0.9rem; }
     .profile .friendship-status.accepted {
       border: 2px solid #429244;
-      color: #429244; }
+      color: #429244;
+      background-color: var(--white); }
     .profile .friendship-status.delete {
       border: 2px solid #f90000;
       background-color: #fb6666;
@@ -589,7 +593,7 @@ header {
         flex-direction: column;
         width: 95vw; } }
     .profile .social-container .friends_container {
-      background-color: var(--white);
+      background-color: var(--block_background);
       padding: 16px;
       width: 35%;
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -603,7 +607,7 @@ header {
         .profile .social-container .friends_container .section-header h3 {
           font-size: 1.5rem; }
     .profile .social-container .profile_new-post {
-      background-color: var(--white);
+      background-color: var(--block_background);
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       padding: 16px;
       margin-bottom: 36px; }
@@ -617,7 +621,7 @@ header {
       .profile .social-container .posts_container .section-header {
         display: flex;
         justify-content: space-between;
-        background-color: var(--white);
+        background-color: var(--block_background);
         border-radius: 6px;
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }

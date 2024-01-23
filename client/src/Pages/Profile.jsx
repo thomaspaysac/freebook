@@ -10,7 +10,7 @@ import { ProfilePictureContainer } from "../Components/User/ProfilePictureContai
 import { BackgroundPictureContainer } from "../Components/User/BackgroundPictureContainer";
 import { Layout } from "../Components/Layout";
 
-export const ProfilePage = () => {
+export const ProfilePage = ({theme}) => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
   const [friendShip, setFriendShip] = useState();    
@@ -82,7 +82,7 @@ export const ProfilePage = () => {
   
   return (
     <Layout>
-      <div className="content profile">
+      <div className="content profile" data-theme={theme}>
         <div className="user-info_container">
           <BackgroundPictureContainer 
             uuid={uuid}

@@ -60,6 +60,7 @@ $error-950: #180000;
   --main-900: #040317;
   --font_default: #000000;
   --secondary-info: #6c6c6e;
+  --button: #151375;
   --white: #ffffff;
   --page_background: #ededf0;
   --block_background: #ffffff;
@@ -601,12 +602,13 @@ header {
 
 // PROFILE PAGE
 .profile {
-  background-color: $grey-50;
+  background-color: var(--page_background);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   position: absolute;
+  color: var(--font_default);
 
   @media (max-width: 480px) {
     position: static;    
@@ -617,7 +619,7 @@ header {
   }
 
   .user-info_container {
-    background-color: var(--white);
+    background-color: var(--block_background);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -784,7 +786,7 @@ header {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: var(--main-500);
+    background-color: var(--button);
     color: var(--white);
     border-radius: 6px;
     font-weight: 700;
@@ -817,6 +819,7 @@ header {
     &.accepted {
       border: 2px solid $validation-500;
       color: $validation-500;
+      background-color: var(--white);
     }
 
     &.delete {
@@ -850,7 +853,7 @@ header {
     }
 
     .friends_container {
-      background-color: var(--white);
+      background-color: var(--block_background);
       padding: 16px;
       width: 35%;
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
@@ -871,7 +874,7 @@ header {
     }
 
     .profile_new-post {
-      background-color: var(--white);
+      background-color: var(--block_background);
       box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
       padding: 16px;
       margin-bottom: 36px;
@@ -891,7 +894,7 @@ header {
       .section-header {
         display: flex;
         justify-content: space-between;
-        background-color: var(--white);
+        background-color: var(--block_background);
         border-radius: 6px;
         padding: 16px;
         box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
