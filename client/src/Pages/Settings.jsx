@@ -5,7 +5,7 @@ import { authContext } from "../App"
 import { Layout } from "../Components/Layout"
 import { ChangeNameForm } from "../Components/Forms/ChangeNameForm"
 
-export const SettingsPage = () => {
+export const SettingsPage = ({theme}) => {
   const authData = useContext(authContext);
   const navigateTo = useNavigate();
 
@@ -27,7 +27,7 @@ export const SettingsPage = () => {
 
   return (
     <Layout>
-      <div className="content settings-page">
+      <div className="content settings-page" data-theme={theme}>
         <ChangeNameForm authData={authData} />
         <div className="delete-profile_container">
           <h3>Delete your account</h3>

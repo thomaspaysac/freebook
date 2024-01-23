@@ -81,7 +81,7 @@ function App() {
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
-          <Route exact path="/user/settings" element={<SettingsPage />} />
+          <Route exact path="/user/settings" element={<SettingsPage theme={theme} />} />
           <Route exact path="/feed" element={<TimeLinePage theme={theme} />} />
           <Route path="/user/:id" element={<ProfilePage theme={theme} />} />
           <Route exact path="/users" element={<AllUsersPage theme={theme} />} />

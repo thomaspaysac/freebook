@@ -14,7 +14,8 @@
   --logo_homepage: #DBE0E9;
   --logo_header: #DBE0E9;
   --hover: #727272;
-  --attention: #8c8f94; }
+  --attention: #8c8f94;
+  --shadow: #0000004d; }
 
 :root {
   --main-50: #e7e7f1;
@@ -37,7 +38,8 @@
   --logo_homepage: #151375;
   --logo_header: #ffffff;
   --hover: #d0cfe3;
-  --attention: #fee5e5; }
+  --attention: #fee5e5;
+  --shadow: #b4b4b74d; }
 
 * {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -141,7 +143,7 @@ header {
         background-color: var(--block_background);
         color: var(--font_default);
         border-radius: 6px;
-        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+        box-shadow: 4px 4px 6px 4px var(--shadow); }
         header nav .user-dropdown_button .dropdown-menu .dropdown-separator {
           height: 1px;
           border-radius: 6px;
@@ -425,14 +427,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+    box-shadow: 4px 4px 6px 4px var(--shadow); }
     @media (max-width: 480px) {
       .profile .user-info_container {
         width: 100vw; } }
   .profile .background_container {
     position: relative;
     height: 350px;
-    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+    box-shadow: 4px 4px 6px 4px var(--shadow); }
     @media (max-width: 480px) {
       .profile .background_container {
         height: 25svh;
@@ -596,7 +598,7 @@ header {
       background-color: var(--block_background);
       padding: 16px;
       width: 35%;
-      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      box-shadow: 4px 4px 6px 4px var(--shadow);
       height: fit-content; }
       @media (max-width: 480px) {
         .profile .social-container .friends_container {
@@ -608,7 +610,7 @@ header {
           font-size: 1.5rem; }
     .profile .social-container .profile_new-post {
       background-color: var(--block_background);
-      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      box-shadow: 4px 4px 6px 4px var(--shadow);
       padding: 16px;
       margin-bottom: 36px; }
       .profile .social-container .profile_new-post h3 {
@@ -624,7 +626,7 @@ header {
         background-color: var(--block_background);
         border-radius: 6px;
         padding: 16px;
-        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3); }
+        box-shadow: 4px 4px 6px 4px var(--shadow); }
         .profile .social-container .posts_container .section-header h3 {
           font-size: 1.5rem; }
         .profile .social-container .posts_container .section-header button {
@@ -674,7 +676,7 @@ header {
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
-    box-shadow: 2px 2px 4px 2px rgba(180, 180, 183, 0.3); }
+    box-shadow: 2px 2px 4px 2px var(--shadow); }
     @media (max-width: 480px) {
       .timeline-page .new-post_container {
         width: 90svw; } }
@@ -720,7 +722,7 @@ header {
   color: var(--font_default);
   border-radius: 6px;
   padding: 16px;
-  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  box-shadow: 4px 4px 6px 4px var(--shadow);
   margin: 16px 0; }
   .profile-post .delete-post_button,
   .timeline-post .delete-post_button {
@@ -813,7 +815,7 @@ header {
       border: none;
       font-weight: 700;
       padding: 8px;
-      box-shadow: 2px 2px 4px 2px rgba(180, 180, 183, 0.3); }
+      box-shadow: 2px 2px 4px 2px var(--shadow); }
       .comments_container .comment-form button:hover, .comments_container .comment-form button:active {
         cursor: pointer;
         background-color: #347436; }
@@ -992,7 +994,8 @@ header {
     margin-left: 18px; }
 
 .settings-page {
-  background-color: #e7e7e9;
+  background-color: var(--page_background);
+  color: var(--font_default);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1001,10 +1004,10 @@ header {
 
 .change-name-form_container,
 .delete-profile_container {
-  background-color: var(--white);
+  background-color: var(--block_background);
   padding: 16px;
   border-radius: 6px;
-  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  box-shadow: 4px 4px 6px 4px var(--shadow);
   width: 50vw; }
   @media (max-width: 480px) {
     .change-name-form_container,
@@ -1029,7 +1032,7 @@ header {
       border: 1px solid var(--main-500);
       box-shadow: 0px 0px 6px 1px rgba(var(--main-500), 0.5); }
   .change-name-form_container form button {
-    background-color: var(--main-500);
+    background-color: var(--button);
     color: var(--white);
     font-size: 1rem;
     font-weight: 700;
@@ -1039,7 +1042,7 @@ header {
     transition: background-color 300ms; }
     .change-name-form_container form button:hover, .change-name-form_container form button:active {
       cursor: pointer;
-      background-color: #100f5d; }
+      background-color: var(--main-600); }
 
 .delete-profile_container {
   display: flex;

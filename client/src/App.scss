@@ -69,6 +69,7 @@ $error-950: #180000;
   --logo_header: #ffffff;
   --hover: #d0cfe3;
   --attention: #fee5e5;
+  --shadow: #b4b4b74d;
 }
 
 // GENERAL STYLING
@@ -207,7 +208,7 @@ header {
         background-color: var(--block_background);
         color: var(--font_default);
         border-radius: 6px;
-        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+        box-shadow: 4px 4px 6px 4px var(--shadow);
         
         .dropdown-separator {
           height: 1px;
@@ -624,7 +625,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+    box-shadow: 4px 4px 6px 4px var(--shadow);
     
     @media (max-width: 480px) {
       width: 100vw;
@@ -634,7 +635,7 @@ header {
   .background_container {
     position: relative;
     height: 350px;
-    box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+    box-shadow: 4px 4px 6px 4px var(--shadow);
 
     @media (max-width: 480px) {
       height: 25svh;
@@ -856,7 +857,7 @@ header {
       background-color: var(--block_background);
       padding: 16px;
       width: 35%;
-      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      box-shadow: 4px 4px 6px 4px var(--shadow);
       height: fit-content;
 
       @media (max-width: 480px) {
@@ -875,7 +876,7 @@ header {
 
     .profile_new-post {
       background-color: var(--block_background);
-      box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+      box-shadow: 4px 4px 6px 4px var(--shadow);
       padding: 16px;
       margin-bottom: 36px;
 
@@ -897,7 +898,7 @@ header {
         background-color: var(--block_background);
         border-radius: 6px;
         padding: 16px;
-        box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+        box-shadow: 4px 4px 6px 4px var(--shadow);
 
         h3 {
           font-size: 1.5rem;
@@ -972,7 +973,7 @@ header {
     padding: 16px;
     margin: 32px 0;
     border-radius: 6px;
-    box-shadow: 2px 2px 4px 2px rgba(180, 180, 183, 0.3);
+    box-shadow: 2px 2px 4px 2px var(--shadow);
 
     @media (max-width: 480px) {
       width: 90svw;
@@ -1034,7 +1035,7 @@ header {
   color: var(--font_default);
   border-radius: 6px;
   padding: 16px;
-  box-shadow: 4px 4px 6px 4px rgba(180, 180, 183, 0.3);
+  box-shadow: 4px 4px 6px 4px var(--shadow);
   margin: 16px 0;
 
   .delete-post_button {
@@ -1147,7 +1148,7 @@ header {
       border: none;
       font-weight: 700;
       padding: 8px;
-      box-shadow: 2px 2px 4px 2px rgba(180, 180, 183, 0.3);
+      box-shadow: 2px 2px 4px 2px var(--shadow);
 
       &:hover,
       &:active {
@@ -1431,7 +1432,8 @@ header {
 
 // Settings page
 .settings-page {
-  background-color: $grey-100;
+  background-color: var(--page_background);
+  color: var(--font_default);
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -1441,10 +1443,10 @@ header {
 
 .change-name-form_container,
 .delete-profile_container {
-  background-color: var(--white);
+  background-color: var(--block_background);
   padding: 16px;
   border-radius: 6px;
-  box-shadow: 4px 4px 6px 4px rgba($grey-500, 0.3);
+  box-shadow: 4px 4px 6px 4px var(--shadow);
   width: 50vw;
 
   @media (max-width: 480px) {
@@ -1477,7 +1479,7 @@ header {
     }
   
     button {
-      background-color: var(--main-500);
+      background-color: var(--button);
       color: var(--white);
       font-size: 1rem;
       font-weight: 700;
@@ -1489,7 +1491,7 @@ header {
       &:hover,
       &:active {
         cursor: pointer;
-        background-color: #100f5d;
+        background-color: var(--main-600);
       }
     }
   }
