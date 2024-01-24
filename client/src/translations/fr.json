@@ -20,5 +20,11 @@
   "dropdown_settings": "Paramètres",
   "dropdown_logout": "Se déconnecter",
   "friends-icon_title": "Demandes d'amis",
-  "feed-icon_title" : "Actualités"
+  "feed-icon_title" : "Actualités",
+  "new-post_title" : "Quoi de neuf ?",
+  "feed_title": "Vos actualités",
+  "new-post_submit": "Publier",
+  "post_comments-count": "commentaires",
+  "post-delete_confirm": "Voulez-vous vraiment supprimer cette publication ?",
+  "post-delete_button": "Supprimer"
 }

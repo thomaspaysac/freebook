@@ -8,5 +8,7 @@
   "placeholder_last-name": "Last name",
   "signup-modal_slogan": "No strings attached",
   "friends-icon_title": "Friends requests",
-  "feed-icon_title" : "Feed"
+  "feed-icon_title" : "Feed",
+  "post-delete_confirm":  "Do you really want to delete this post?",
+  "post-delete_button": "Delete"
 }

@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { authContext } from "../../App";
+import { FormattedMessage } from 'react-intl';
 // Assets
 import imageUpload from "../../assets/icons/image_upload.png";
 import imageUploadColored from "../../assets/icons/image_upload_colored.png";
@@ -94,7 +95,7 @@ export const NewPostForm = ({ update }) => {
           </div>
         </div>
         <ErrorContainer />
-        <button onClick={update}>Publish post</button>
+        <button onClick={update}><FormattedMessage id="new-post_submit" defaultMessage="Publish post" /></button>
       </form>
     </div>
   )

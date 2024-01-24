@@ -1,9 +1,12 @@
+import { useIntl } from "react-intl";
 // Assets
 import deleteIcon from "../../assets/icons/delete.png";
 
 export const DeletePostButton = ({ post_ID, post_author, user_ID }) => {
+  const intl = useIntl();
+
   const deletePost = async () => {
-    if (window.confirm("Do you really want to delete this post?")) {
+    if (window.confirm(intl.formatMessage({ id: "post-delete_confirm" }))) {
       await fetch(`http://localhost:3000/posts/${post_ID}`, {
         method: 'DELETE',
         headers: {
@@ -20,7 +23,7 @@ export const DeletePostButton = ({ post_ID, post_author, user_ID }) => {
     return null;
   } else {
     return (
-      <img className="delete-post_button" src={deleteIcon} alt='delete post' title="Delete" onClick={deletePost} />
+      <img className="delete-post_button" src={deleteIcon} alt='delete post' title={intl.formatMessage({ id: "post-delete_button" })} onClick={deletePost} />
     )
   }
 

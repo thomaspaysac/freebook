@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { format } from "date-fns";
+import { FormattedMessage } from 'react-intl';
 // Components
 import { PostComments } from "./Comments";
 import { RoundPicture } from "../Images/RoundPicture";
@@ -107,7 +108,7 @@ export const PostSingle = ({ post, user_ID, post_type }) => {
       </div>
       <div className="social-actions_container">
         <div className="likes-count"><HeartIcon /> {likesCount}</div>
-        <div>{commentsCount} comments</div>
+        <div>{commentsCount} <FormattedMessage id="post_comments-count" defaultMessage="comments" /></div>
       </div>
       <div className="separator"></div>
       <PostComments post_ID={post.id} author={user_ID} ref={childRef} onComment={incrementComments} />

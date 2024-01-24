@@ -1,5 +1,6 @@
-import { useState, useEffect, useContext } from "react"
-import { authContext } from "../App"
+import { useState, useEffect, useContext } from "react";
+import { authContext } from "../App";
+import { FormattedMessage } from 'react-intl';
 // Components
 import { PostSingle } from "../Components/Posts/PostSingle";
 import { Layout } from "../Components/Layout";
@@ -33,11 +34,7 @@ export const TimeLinePage = ({theme}) => {
 
   const PostsList = () => {
     if (!posts || !authData) {
-      return (
-        <div>
-          Loading...
-        </div>
-      );
+      return null;
     }
 
     return (
@@ -57,10 +54,10 @@ export const TimeLinePage = ({theme}) => {
     <Layout>
       <div className="content timeline-page" data-theme={theme}>
         <div className="new-post_container">
-          <h3>What's on your mind?</h3>
+          <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
           <NewPostForm update={updateComponent} />
         </div>
-        <h3>Your feed</h3>
+        <h3><FormattedMessage id="feed_title" defaultMessage="Your feed" /></h3>
         <PostsList />
       </div>
     </Layout>
