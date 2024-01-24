@@ -23,7 +23,7 @@ export const DeletePostButton = ({ post_ID, post_author, user_ID }) => {
     return null;
   } else {
     return (
-      <img className="delete-post_button" src={deleteIcon} alt='delete post' title={intl.formatMessage({ id: "post-delete_button" })} onClick={deletePost} />
+      <img className="delete-post_button" src={deleteIcon} alt='delete post' title={intl.formatMessage({ id: "delete_button" })} onClick={deletePost} />
     )
   }
 

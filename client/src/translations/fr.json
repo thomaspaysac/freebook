@@ -25,6 +25,11 @@
   "feed_title": "Vos actualités",
   "new-post_submit": "Publier",
   "post_comments-count": "commentaires",
+  "delete_button": "Supprimer",
   "post-delete_confirm": "Voulez-vous vraiment supprimer cette publication ?",
-  "post-delete_button": "Supprimer"
+  "comment-delete_confirm": "Voulez-vous vraiment supprimer ce commentaire ?",
+  "load-comments": "Voir les commentaires",
+  "hide-comments": "Cacher les commentaires",
+  "send-comment": "Envoyer",
+  "placeholder_comment": "Votre commentaire..."
 }

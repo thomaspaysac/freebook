@@ -9,6 +9,8 @@
   "signup-modal_slogan": "No strings attached",
   "friends-icon_title": "Friends requests",
   "feed-icon_title" : "Feed",
+  "delete_button": "Delete",
   "post-delete_confirm":  "Do you really want to delete this post?",
-  "post-delete_button": "Delete"
+  "comment-delete_confirm": "Do you really want to delete this comment?",
+  "placeholder_comment": "Write a comment..."
 }

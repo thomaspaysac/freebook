@@ -1,4 +1,6 @@
 import { useState, useEffect, forwardRef } from "react";
+import { FormattedMessage, useIntl } from 'react-intl';
+// Components
 import { CommentsList } from "./CommentsList";
 
 export const PostComments = forwardRef(function PostComments({ post_ID, author, onComment }, ref) {
@@ -6,6 +8,7 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
   const [comments, setComments] = useState();
   const [errors, setErrors] = useState(false);
   const [update, setUpdate] = useState(0);
+  const intl = useIntl();
 
   const updateComponent = () => {
     setUpdate(update + 1);
@@ -61,16 +64,16 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
 
   if (!expanded) {
     return (
-      <div className="comments-toggle" onClick={fetchComments}>Show comments</div>
+      <div className="comments-toggle" onClick={fetchComments}><FormattedMessage id="load-comments" defaultMessage="Show comments" /></div>
     )
   }
 
   return (
     <div className="comments_container">
-      <div className="comments-toggle" onClick={() => setExpanded(false)}>Hide comments</div>
+      <div className="comments-toggle" onClick={() => setExpanded(false)}><FormattedMessage id="hide-comments" defaultMessage="Hide comments" /></div>
       <form className="comment-form" onSubmit={createComment}>
-        <textarea name='text' id="comment-text" placeholder="Write a comment..." minLength={1} maxLength={1500} />
-        <button onClick={() => {updateComponent()}}>Send</button>
+        <textarea name='text' id="comment-text" placeholder={intl.formatMessage({ id: "placeholder_comment" })} minLength={1} maxLength={1500} />
+        <button onClick={() => {updateComponent()}}><FormattedMessage id="send-comment" defaultMessage="Send" /></button>
       </form>
       <ErrorContainer />
       <CommentsList comments={comments} user_ID={author} />
