@@ -72,7 +72,7 @@ function App() {
           <Route exact path="*" element={<HomePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} locale={locale} />} />
         </Routes>
       </BrowserRouter>
       </IntlProvider>
