@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react"
 import { authContext } from "../../App";
+import { FormattedMessage, useIntl } from 'react-intl';
 
 export const AddFriend = ({ friend_ID, friendShip }) => {
   const [friendStatus, setFriendStatus] = useState();
   const [toggleDelete, setToggleDelete] = useState(false);
   const authData = useContext(authContext);
+  const intl = useIntl();
 
   const addFriend = async () => {
     if (friend_ID === authData.sub) {
@@ -25,7 +27,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
   }
 
   const deleteFriend = async () => {
-    if (window.confirm('Do you really want to unfriend this user?')) {
+    if (window.confirm(intl.formatMessage({ id: "friend-delete_confirm" }))) {
       await fetch(`http://localhost:3000/user/friends/${friend_ID}/delete`, {
         method: 'DELETE',
         headers : {
@@ -52,7 +54,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
   if (friendStatus === 'pending') {
     return (
       <div className="friendship-status pending">
-        Friend request pending...
+        <FormattedMessage id="profile_req-pending" defaultMessage="Friend request pending..." />
       </div>
     )
   } else if (friendStatus === 'friend' && !toggleDelete) {
@@ -60,7 +62,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
       <div className="friendship-status accepted"
         onClick={deleteFriend}
         onMouseEnter={() => setToggleDelete(true)}>
-        ✔ Friend
+        ✔ <FormattedMessage id="profile_req-friend" defaultMessage="Friend" />
       </div>
     )
   } else if (friendStatus === 'friend' && toggleDelete) {
@@ -68,12 +70,12 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
       <div className="friendship-status delete"
         onClick={deleteFriend}
         onMouseLeave={() => setToggleDelete(false)}>
-        ✘ Unfriend
+        ✘ <FormattedMessage id="profile_req-delete" defaultMessage="Unfriend" />
       </div>
     )
   } else if (friendStatus === null) {
     return (
-      <button className="add-friend-button" onClick={addFriend}><span style={{fontSize: '32px', fontWeight: 400}}>+</span> Add to your friends</button>
+      <button className="add-friend-button" onClick={addFriend}><span style={{fontSize: '32px', fontWeight: 400}}>+</span> <FormattedMessage id="profile_req-send" defaultMessage="Add to your friends" /></button>
     )
   } else {
     return null;

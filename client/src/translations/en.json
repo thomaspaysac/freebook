@@ -12,5 +12,6 @@
   "delete_button": "Delete",
   "post-delete_confirm":  "Do you really want to delete this post?",
   "comment-delete_confirm": "Do you really want to delete this comment?",
-  "placeholder_comment": "Write a comment..."
+  "placeholder_comment": "Write a comment...",
+  "friend-delete_confirm": "Do you really want to unfriend this user?"
 }

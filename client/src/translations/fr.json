@@ -31,5 +31,12 @@
   "load-comments": "Voir les commentaires",
   "hide-comments": "Cacher les commentaires",
   "send-comment": "Envoyer",
-  "placeholder_comment": "Votre commentaire..."
+  "placeholder_comment": "Votre commentaire...",
+  "profile_friends": "Amis",
+  "profile_posts": "Publications",
+  "profile_req-pending" : "En attente...",
+  "profile_req-friend": "Ami",
+  "profile_req-delete": "Supprimer des amis",
+  "profile_req-send": "Ajouter comme ami",
+  "friend-delete_confirm": "Voulez-vous supprimer cet utilisateur de vos amis ?"
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom";
 import { authContext } from "../App";
+import { FormattedMessage } from 'react-intl';
 // Components
 import { FriendsList } from "../Components/Friends/FriendsList";
 import { AddFriend } from "../Components/Friends/AddFriend";
@@ -74,7 +75,7 @@ export const ProfilePage = ({theme}) => {
 
     return (
       <div className="profile_new-post">
-        <h3>What's on your mind?</h3>
+        <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
         <NewPostForm update={update} />
       </div>
     )
@@ -101,16 +102,16 @@ export const ProfilePage = ({theme}) => {
         </div>
         <div className="social-container">
           <div className="friends_container">
-            <div className="section-header"><h3>Friends</h3></div>
+            <div className="section-header"><h3><FormattedMessage id="profile_friends" defaultMessage="Friends" /></h3></div>
             <FriendsList user_ID={uuid} authData={authData.sub} />
           </div>
           <div className="posts_container">          
           <div className="profile_new-post" style={{display: uuid !== authData.sub ? "none" : "block"}}>
-            <h3>What's on your mind?</h3>
+            <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
             <NewPostForm update={updateComponent} />
           </div>
             <div className="section-header">
-              <h3>Posts</h3>
+              <h3><FormattedMessage id="profile_posts" defaultMessage="Posts" /></h3>
             </div>
             <PostsList user_ID={uuid} update={update} />
           </div>
