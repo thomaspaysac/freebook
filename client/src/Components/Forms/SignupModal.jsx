@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const SignupModal = ({open, closeSignup, theme}) => {
   const [errors, setErrors] = useState([]);
   const navigateTo = useNavigate();
+  const intl = useIntl();
 
   const signup = async (e) => {
     e.preventDefault();
@@ -52,22 +54,22 @@ export const SignupModal = ({open, closeSignup, theme}) => {
       <div className={`signup-modal ${open ? 'open' : ''}`}>
         <div className="header">
           <div>
-            <h2>Sign Up</h2>
-            <div>No strings attached</div>
+            <h2><FormattedMessage id="signup-button" defaultMessage="Sign Up" /></h2>
+            <div><FormattedMessage id="signup-modal_slogan" defaultMessage="No strings attached" /></div>
           </div>
           <div className='close-button' id='close-button' onClick={closeSignup}>🗙</div>
         </div>
         <div className="separator"></div>
         <form onSubmit={signup}>
           <div className="personal-info">
-            <input type="text" name="first_name" id="first_name" placeholder="First name" minLength={2} maxLength={20} autoFocus/>
-            <input type="text" name="last_name" id="last_name" placeholder="Last name" minLength={2} maxLength={20} />
+            <input type="text" name="first_name" id="first_name" placeholder={intl.formatMessage({ id: "placeholder_first-name" })} minLength={2} maxLength={20} autoFocus/>
+            <input type="text" name="last_name" id="last_name" placeholder={intl.formatMessage({ id: "placeholder_last-name" })} minLength={2} maxLength={20} />
           </div>
-          <input type="email" name="email" id="email" placeholder="Email" />
-          <input type="password" name="password" id="password" placeholder="Password" minLength={5} />
-          <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirm password" minLength={5} />
+          <input type="email" name="email" id="email" placeholder={intl.formatMessage({ id: "placeholder_email" })} />
+          <input type="password" name="password" id="password" placeholder={intl.formatMessage({ id: "placeholder_password" })} minLength={5} />
+          <input type="password" name="password_confirm" id="password_confirm" placeholder={intl.formatMessage({ id: "placeholder_password-confirm" })} minLength={5} />
           <ErrorContainer />
-          <button>Sign Up</button>
+          <button><FormattedMessage id="signup-button" defaultMessage="Sign Up" /></button>
         </form>
       </div>
     </div>

@@ -1,20 +1,10 @@
 {
-  "slogan_1": {
-    "col": 12,
-    "defaultMessage": "Connect with your friends,",
-    "end": 1043,
-    "file": "src/Pages/Home.jsx",
-    "line": 35,
-    "start": 965
-  },
-  "slogan_2": {
-    "col": 24,
-    "defaultMessage": "make new ones",
-    "end": 1134,
-    "file": "src/Pages/Home.jsx",
-    "line": 36,
-    "start": 1069
-  },
+  "slogan_1": "Connect with your friends,",
+  "slogan_2": "make new ones",
   "placeholder_password": "Password",
-  "placeholder_email": "Email"
+  "placeholder_password-confirm": "Confirm password",
+  "placeholder_email": "Email",
+  "placeholder_first-name": "First name",
+  "placeholder_last-name": "Last name",
+  "signup-modal_slogan": "No strings attached"
 }
