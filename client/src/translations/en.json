@@ -6,5 +6,7 @@
   "placeholder_email": "Email",
   "placeholder_first-name": "First name",
   "placeholder_last-name": "Last name",
-  "signup-modal_slogan": "No strings attached"
+  "signup-modal_slogan": "No strings attached",
+  "friends-icon_title": "Friends requests",
+  "feed-icon_title" : "Feed"
 }

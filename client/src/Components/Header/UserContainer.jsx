@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { authContext } from "../../App"
 import { Link, useNavigate } from "react-router-dom";
+import { useIntl } from "react-intl";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
 import { DropdownMenu } from "./DropdownMenu";
@@ -19,6 +20,7 @@ export const UserContainer = () => {
   const [userHover, setUserHover] = useState(false);
   const [awaitingFriendRequest, setAwaitingFriendRequest] = useState(false);
   const authData = useContext(authContext);
+  const intl = useIntl();
 
   const navigateTo = useNavigate();
 
@@ -78,12 +80,12 @@ export const UserContainer = () => {
   const FriendsButton = () => {
     if (!awaitingFriendRequest) {
       return (
-        <img src={friendsHover ? friendsIconHover : friendsIcon} title="Friends requests" alt='' />
+        <img src={friendsHover ? friendsIconHover : friendsIcon} title={intl.formatMessage({ id: "friends-icon_title" })} alt='' />
       )
     } else {
       return (
         <div>
-          <img src={friendsHover ? friendsIconHoverNotification : friendsNotification} title="Friends requests" alt='' />
+          <img src={friendsHover ? friendsIconHoverNotification : friendsNotification} title={intl.formatMessage({ id: "friends-icon_title" })} alt='' />
         </div>
       )
     }
@@ -95,7 +97,7 @@ export const UserContainer = () => {
         onMouseEnter={() => setFeedHover(true)}
         onMouseLeave={() => setFeedHover(false)}
       >
-        <img src={feedHover ? feedIconHover : feedIcon} title="Feed" alt='' />
+        <img src={feedHover ? feedIconHover : feedIcon} title={intl.formatMessage({ id: "feed-icon_title" })} alt='' />
       </Link>
       <Link to='/friends/requests'
         onMouseEnter={() => setFriendsHover(true)}

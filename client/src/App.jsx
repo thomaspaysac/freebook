@@ -34,7 +34,7 @@ export const authContext = createContext({});
 function App() {
   const [userData, setUserData] = useState();
   const [theme, setTheme] = useLocalStorage('theme', 'light');
-  const [locale, setLocale] = useLocalStorage('language', 'fr');
+  const [locale, setLocale] = useLocalStorage('language', 'en');
   const languages = {en: en_translation, fr: fr_translation};
   const messages = languages[locale];
 
@@ -44,7 +44,6 @@ function App() {
 
   const handleLanguageChange = (selectedLocale) => {
     setLocale(selectedLocale);
-    console.log(languages);
   };
   
   const fetchUserSession = async () => {
@@ -81,8 +80,9 @@ function App() {
 
   return (
     <authContext.Provider value={userData}>
+      <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <Header theme={theme} />
+        <Header theme={theme} switchLanguage={handleLanguageChange} />
         <Routes>
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
@@ -92,9 +92,10 @@ function App() {
           <Route path="/user/:id" element={<ProfilePage theme={theme} />} />
           <Route exact path="/users" element={<AllUsersPage theme={theme} />} />
           <Route path="/friends/requests" element={<FriendsRequestPage theme={theme} />} />
-          <Route path="/privacy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} locale={locale} />} />
         </Routes>
       </BrowserRouter>
+      </IntlProvider>
     </authContext.Provider>
   )
 }

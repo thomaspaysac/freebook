@@ -15,5 +15,10 @@
   "placeholder_last-name": "Nom de famille",
   "signup-modal_slogan": "Sans obligation aucune",
   "recover_message":"Entrez votre adresse e-mail",
-  "recover_link":"Réinitialiser votre mot de passe"
+  "recover_link":"Réinitialiser mon mot de passe",
+  "dropdown_profile": "Mon profil",
+  "dropdown_settings": "Paramètres",
+  "dropdown_logout": "Se déconnecter",
+  "friends-icon_title": "Demandes d'amis",
+  "feed-icon_title" : "Actualités"
 }
