@@ -13,5 +13,7 @@
   "placeholder_email": "Adresse e-mail",
   "placeholder_first-name": "Prénom",
   "placeholder_last-name": "Nom de famille",
-  "signup-modal_slogan": "Sans obligation aucune"
+  "signup-modal_slogan": "Sans obligation aucune",
+  "recover_message":"Entrez votre adresse e-mail",
+  "recover_link":"Réinitialiser votre mot de passe"
 }
