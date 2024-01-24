@@ -33,11 +33,12 @@ export const HomePage = ({theme}) => {
           <h1 className="logo">freebook</h1>
           <h2 className={`${animate ? 'animated' : ''}`}>
             <FormattedMessage id="slogan_1" defaultMessage="Connect with your friends," />
-            <br /><span>make new ones</span></h2>
+            <br /><span><FormattedMessage id="slogan_2" defaultMessage="make new ones" /></span>
+          </h2>
         </div>
         <div className="login-container">
           <LoginForm openSignup={openModal} />
-          <Link to='/privacy' className="policy-link">Privacy policy</Link>
+          <Link to='/privacy' className="policy-link"><FormattedMessage id="policy_link" defaultMessage="Privacy policy" /></Link>
         </div>
       </div>
       <SignupModal open={modalOpen} closeSignup={closeModal} theme={theme} />

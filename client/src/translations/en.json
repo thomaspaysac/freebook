@@ -1,3 +1,20 @@
 {
-  "slogan_1": "Connect with your friends,"
+  "slogan_1": {
+    "col": 12,
+    "defaultMessage": "Connect with your friends,",
+    "end": 1043,
+    "file": "src/Pages/Home.jsx",
+    "line": 35,
+    "start": 965
+  },
+  "slogan_2": {
+    "col": 24,
+    "defaultMessage": "make new ones",
+    "end": 1134,
+    "file": "src/Pages/Home.jsx",
+    "line": 36,
+    "start": 1069
+  },
+  "placeholder_password": "Password",
+  "placeholder_email": "Email"
 }
