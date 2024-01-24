@@ -32,7 +32,7 @@ export const SettingsPage = ({theme, switchTheme}) => {
         <div className="change-theme_container">
           <h3>Change theme</h3>
           <div className="choices">
-            <button onClick={() => switchTheme('light')}>Light theme</button>
+            <button onClick={() => switchTheme('light')}>Fakebook theme</button>
             <button onClick={() => switchTheme('dark')}>Dark theme</button>
           </div>
         </div>

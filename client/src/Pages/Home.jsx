@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FormattedMessage } from 'react-intl';
 // Components
 import { Layout } from "../Components/Layout";
 import { LoginForm } from "../Components/Forms/LoginForm";
@@ -30,7 +31,9 @@ export const HomePage = ({theme}) => {
       <div className="content homepage" data-theme={theme}>
         <div>
           <h1 className="logo">freebook</h1>
-          <h2 className={`${animate ? 'animated' : ''}`}>Connect with your friends, <br /><span>make new ones</span></h2>
+          <h2 className={`${animate ? 'animated' : ''}`}>
+            <FormattedMessage id="slogan_1" defaultMessage="Connect with your friends," />
+            <br /><span>make new ones</span></h2>
         </div>
         <div className="login-container">
           <LoginForm openSignup={openModal} />

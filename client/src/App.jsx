@@ -1,6 +1,10 @@
 import { createContext, useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import useLocalStorage from 'use-local-storage';
+import { IntlProvider } from 'react-intl';
+import en_translation from './translations/en.json';
+import fr_translation from './translations/fr.json';
+
 
 // Styles
 import './App.css'
@@ -29,20 +33,19 @@ export const authContext = createContext({});
 // React App Router
 function App() {
   const [userData, setUserData] = useState();
-  const themes = ['light', 'dark'];
-  const [theme, setTheme] = useLocalStorage('theme', themes[0]);
+  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [locale, setLocale] = useLocalStorage('language', 'fr');
+  const languages = {en: en_translation, fr: fr_translation};
+  const messages = languages[locale];
 
   const switchTheme = (theme) => {
-    /*const currTheme = themes.indexOf(theme);
-    let newTheme;
-    if (themes[currTheme + 1]) {
-      newTheme = themes[currTheme + 1];
-    } else {
-      newTheme = themes[0];
-    }
-    setTheme(newTheme);*/
     setTheme(theme);
   }
+
+  const handleLanguageChange = (selectedLocale) => {
+    setLocale(selectedLocale);
+    console.log(languages);
+  };
   
   const fetchUserSession = async () => {
     const req = await fetch('http://localhost:3000/user/session');
@@ -62,8 +65,9 @@ function App() {
 
   if (!userData) {
     return (
+      <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <Header theme={theme} />
+        <Header theme={theme} switchLanguage={handleLanguageChange} />
         <Routes>
           <Route exact path="*" element={<HomePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
@@ -71,6 +75,7 @@ function App() {
           <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} />} />
         </Routes>
       </BrowserRouter>
+      </IntlProvider>
     )
   }
 
