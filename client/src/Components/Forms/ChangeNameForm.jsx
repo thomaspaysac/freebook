@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const ChangeNameForm = ({ authData }) => {
   const [successState, setSuccessState] = useState();
+  const intl = useIntl();
   
   const updateName = async (e) => {
     e.preventDefault();
@@ -29,13 +31,13 @@ export const ChangeNameForm = ({ authData }) => {
     } else if (successState === "success") {
       return (
         <div className="success-container">
-          Your name has been successfully changed.
+          <FormattedMessage id="settings_change-name_success" defaultMessage="Your name has been successfully changed." />
         </div>
       )
     } else {
       return (
         <div className="error-container">
-          There was an error, please try again.
+          <FormattedMessage id="settings_change-name_error" defaultMessage="There was an error, please try again." />
         </div>
       )
     }
@@ -43,11 +45,11 @@ export const ChangeNameForm = ({ authData }) => {
 
   return (
     <div className="change-name-form_container">
-      <h3>Change your name</h3>
+      <h3><FormattedMessage id="settings_change-name" defaultMessage="Change your name" /></h3>
       <form onSubmit={updateName}>
         <input type="text" name="first_name" id="first_name" placeholder="First name" minLength={2} maxLength={20} />
         <input type="text" name="last_name" id="last_name" placeholder="Last name" minLength={2} maxLength={20} />
-        <button>Change my name</button>
+        <button><FormattedMessage id="settings_change-name" defaultMessage="Change your name" /></button>
       </form>
       <SuccessFeedback />
     </div>

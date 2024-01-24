@@ -38,5 +38,17 @@
   "profile_req-friend": "Ami",
   "profile_req-delete": "Supprimer des amis",
   "profile_req-send": "Ajouter comme ami",
-  "friend-delete_confirm": "Voulez-vous supprimer cet utilisateur de vos amis ?"
+  "friend-delete_confirm": "Voulez-vous supprimer cet utilisateur de vos amis ?",
+  "delete-account_confirm": "Voulez-vous vraiment supprimer votre compte ?",
+  "settings_theme-change": "Changer de thème couleur",
+  "fakebook-theme": "Thème 'Fakebook'",
+  "dark-theme": "Thème sombre",
+  "settings_delete-account": "Supprimer votre compte",
+  "delete-account_warning1": "Avertissement :",
+  "delete-account_warning2": "cette action est définitive, votre compte et toutes vos données seront supprimées et irrécupérables.",
+  "account-delete_button" : "Supprimer mon compte",
+  "settings_change-name": "Changer mon nom",
+  "settings_change-name_error": "Nous avons recontré une erreur, veuillez réessayer.",
+  "settings_change-name_success": "Votre nom a été modifié."
+
 }
