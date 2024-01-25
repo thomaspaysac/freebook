@@ -17,10 +17,10 @@ export const Footer = ({ theme, switchTheme, switchLanguage }) => {
       <div className="separator"></div>
       <div>
         <div>
-          <span className="bolded"><FormattedMessage id="footer_theme" defaultMessage={"Theme:"}/></span> <button className="footer_action" onClick={() => switchTheme('light')}><FormattedMessage id="footer_theme-light" defaultMessage={"Light"} /></button> | <button className="footer_action" onClick={() => switchTheme('dark')}><FormattedMessage id="footer_theme-dark" defaultMessage={"Dark"} /></button>
+          <span className="bolded"><FormattedMessage id="footer_theme" defaultMessage={"Theme:"}/></span> <button className="footer_action" onClick={() => switchTheme('light')}><FormattedMessage id="footer_theme-light" defaultMessage={"Light"} /></button> | <button className="footer_action" onClick={() => switchTheme('dark')}><FormattedMessage id="footer_theme-dark" defaultMessage={"Dark"} /></button> | <button onClick={() => switchTheme('red')}><FormattedMessage id="footer_theme-red" defaultMessage={"Red"} /></button>
         </div>
         <div>
-          <span className="bolded"><FormattedMessage id="footer_language" defaultMessage={"Language"} /></span> <button className="footer_action" onClick={() => switchLanguage('en')}>English</button> | <button className="footer_action" onClick={() => switchLanguage('fr')}>Français</button>
+          <span className="bolded"><FormattedMessage id="footer_language" defaultMessage={"Language:"} /></span> <button className="footer_action" onClick={() => switchLanguage('en')}>English</button> | <button className="footer_action" onClick={() => switchLanguage('fr')}>Français</button>
         </div>
       </div>
     </footer>

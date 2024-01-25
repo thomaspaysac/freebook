@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 @import './themes/dark_theme.scss';
+@import './themes/red_theme.scss';
 
 // Variables
 $main-50: #e7e7f1;
@@ -665,7 +666,7 @@ footer {
         &:hover,
         &:active {
           cursor: pointer;
-          background-color: #100f5d;
+          background-color: var(--main-600);
         }
       }
     }
@@ -680,7 +681,7 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  position: absolute;
+  //position: absolute;
   color: var(--font_default);
 
   @media (max-width: 480px) {
@@ -785,12 +786,12 @@ footer {
   .profile-picture {
     position: relative;
     z-index: 3;
-    box-shadow: 0 0 0 6px var(--white);
+    box-shadow: 0 0 0 6px #ffffff;
     
     @media (max-width: 480px) {
       height: 40vw !important;
       min-width: 40vw !important;
-      box-shadow: 0 0 0 4px var(--white);
+      box-shadow: 0 0 0 4px #ffffff;
     }
   }
 
