@@ -580,6 +580,7 @@ footer {
       background-color: var(--main-600); }
   .profile .friendship-status {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     gap: 8px;
     color: var(--white);
