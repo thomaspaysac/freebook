@@ -58,5 +58,9 @@
   "friends-invites": "Demandes en attente",
   "friend-req_accept": "Accepter",
   "friend-req_reject": "Refuser",
-  "friend-req_cancel": "Annuler"
+  "friend-req_cancel": "Annuler",
+  "footer_theme": "Thème :",
+  "footer_theme-light": "Clair",
+  "footer_theme-dark": "Sombre",
+  "footer_language": "Langue :"
 }

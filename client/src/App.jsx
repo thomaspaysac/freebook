@@ -17,6 +17,7 @@ export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // Pages import
 import { Header } from './Components/Header/Header';
+import { Footer } from './Components/Footer/Footer';
 import { HomePage } from './Pages/Home';
 import { PasswordForgottenPage } from './Pages/PasswordForgotten';
 import { PasswordResetPage } from './Pages/PasswordReset';
@@ -73,6 +74,7 @@ function App() {
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
           <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} locale={locale} />} />
         </Routes>
+        <Footer theme={theme} switchTheme={switchTheme} switchLanguage={handleLanguageChange} />
       </BrowserRouter>
       </IntlProvider>
     )
@@ -94,6 +96,7 @@ function App() {
           <Route path="/friends/requests" element={<FriendsRequestPage theme={theme} />} />
           <Route path="/privacy" element={<PrivacyPolicyPage theme={theme} locale={locale} />} />
         </Routes>
+        <Footer theme={theme} switchTheme={switchTheme} switchLanguage={handleLanguageChange} />
       </BrowserRouter>
       </IntlProvider>
     </authContext.Provider>

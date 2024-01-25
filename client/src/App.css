@@ -73,7 +73,7 @@ main {
 .content {
   padding: 0 16px 12svb 16px;
   margin-top: 64px;
-  min-height: calc(100svb - 64px);
+  min-height: calc(100svb - 64px - 69px);
   width: 100%; }
 
 .separator {
@@ -175,6 +175,20 @@ header {
     header nav .button_logout img {
       height: 24px; }
     header nav .button_logout:hover, header nav .button_logout:active {
+      cursor: pointer; }
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #000000;
+  color: var(--white);
+  font-size: 0.8rem;
+  padding: 16px; }
+  footer button {
+    border: none;
+    background-color: #00000000;
+    color: var(--white); }
+    footer button:hover, footer button:active {
       cursor: pointer; }
 
 .header_logo {
