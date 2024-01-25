@@ -3,11 +3,13 @@ import { authContext } from "../App"
 import { FriendsRequestsContainer } from "../Components/Friends/RequestsContainer";
 import { Layout } from "../Components/Layout";
 import { Link } from "react-router-dom";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const FriendsRequestPage = ({theme}) => {
   const [requests, setRequests] = useState([]);
   const [invites, setInvites] = useState([]);
   const authData = useContext(authContext);
+  const intl = useIntl();
 
   const fetchRequests = async () => {
     const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/pending`);
@@ -48,10 +50,10 @@ export const FriendsRequestPage = ({theme}) => {
     <Layout>
       <div className="content requests" data-theme={theme}>
         <div className="users-list_link">
-          <Link to='/users'>+ Find new friends</Link>
+          <Link to='/users'>+ <FormattedMessage id="all-friends_button" defaultMessage={"Find new friends"} /></Link>
         </div>
-        <FriendsRequestsContainer title={'Friends requests'} type={'requests'} data={requests} />
-        <FriendsRequestsContainer title={'Pending invites'} type={'invites'} data={invites} />
+        <FriendsRequestsContainer title={intl.formatMessage({ id: "friends-requests" })} type={'requests'} data={requests} />
+        <FriendsRequestsContainer title={intl.formatMessage({ id: "friends-invites" })} type={'invites'} data={invites} />
       </div>
     </Layout>
   )

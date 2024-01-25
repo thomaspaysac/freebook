@@ -7,7 +7,7 @@ import { authContext } from "../App";
 import { Layout } from "../Components/Layout"
 import { ChangeNameForm } from "../Components/Forms/ChangeNameForm"
 
-export const SettingsPage = ({theme, switchTheme}) => {
+export const SettingsPage = ({theme, switchTheme, switchLanguage}) => {
   const authData = useContext(authContext);
   const navigateTo = useNavigate();
   const intl = useIntl();
@@ -32,6 +32,13 @@ export const SettingsPage = ({theme, switchTheme}) => {
     <Layout>
       <div className="content settings-page" data-theme={theme}>
         <ChangeNameForm authData={authData} />
+        <div className="change-theme_container">
+          <h3><FormattedMessage id="settings_language-change" defaultMessage={"Change language"} /></h3>
+          <div className="choices">
+          <button onClick={() => switchLanguage('en')}>English</button>
+          <button onClick={() => switchLanguage('fr')}>Français</button>
+          </div>
+        </div>
         <div className="change-theme_container">
           <h3><FormattedMessage id="settings_theme-change" defaultMessage="Change theme" /></h3>
           <div className="choices">

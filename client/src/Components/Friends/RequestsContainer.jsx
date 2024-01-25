@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 // Components
 import { RoundPicture } from "../Images/RoundPicture"
 
@@ -52,8 +53,8 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
                     <RoundPicture source={el.user_ID.avatar} radius={'32px'} />
                     <div>{el.user_ID.first_name} {el.user_ID.last_name}</div>
                   </Link>
-                  <button className="action-button action-accept" onClick={() => acceptRequest(el)}>Accept</button>
-                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}>Reject</button>
+                  <button className="action-button action-accept" onClick={() => acceptRequest(el)}><FormattedMessage id="friend-req_accept" defaultMessage={"Accept"} /></button>
+                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}><FormattedMessage id="friend-req_reject" defaultMessage={"Reject"} /></button>
                 </li>
               )
             } else {
@@ -63,7 +64,7 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
                     <RoundPicture source={el.friend_ID.avatar} radius={'32px'} />
                     <div>{el.friend_ID.first_name} {el.friend_ID.last_name}</div>
                   </Link>
-                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}>Cancel</button>
+                  <button className="action-button action-reject" onClick={() => deleteRequest(el)}><FormattedMessage id="friend-req_cancel" defaultMessage={"Cancel"} /></button>
                 </li>
               )
             }

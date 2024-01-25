@@ -47,8 +47,8 @@ export const ChangeNameForm = ({ authData }) => {
     <div className="change-name-form_container">
       <h3><FormattedMessage id="settings_change-name" defaultMessage="Change your name" /></h3>
       <form onSubmit={updateName}>
-        <input type="text" name="first_name" id="first_name" placeholder="First name" minLength={2} maxLength={20} />
-        <input type="text" name="last_name" id="last_name" placeholder="Last name" minLength={2} maxLength={20} />
+        <input type="text" name="first_name" id="first_name" placeholder={intl.formatMessage({ id: "placeholder_first-name" })} minLength={2} maxLength={20} />
+        <input type="text" name="last_name" id="last_name" placeholder={intl.formatMessage({ id: "placeholder_last-name" })} minLength={2} maxLength={20} />
         <button><FormattedMessage id="settings_change-name" defaultMessage="Change your name" /></button>
       </form>
       <SuccessFeedback />

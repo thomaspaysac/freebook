@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import { SquarePicture } from "../Images/SquarePicture";
+import { FormattedMessage } from "react-intl";
 
 export const FriendsList = ({ user_ID, authData }) => {
   const [friends, setFriends] = useState();
@@ -20,7 +21,7 @@ export const FriendsList = ({ user_ID, authData }) => {
   } else if (!friends.length && user_ID === authData) {
     return (
       <div className="users-list_link">
-        <Link to='/users'>Find your first friend!</Link>
+        <Link to='/users'><FormattedMessage id="empty-friends-list" defaultMessage={"Find your first friend!"} /></Link>
       </div>
     )
   } else {

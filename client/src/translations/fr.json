@@ -38,8 +38,10 @@
   "profile_req-friend": "Ami",
   "profile_req-delete": "Supprimer des amis",
   "profile_req-send": "Ajouter comme ami",
+  "empty-friends-list" : "Trouvez votre premier ami",
   "friend-delete_confirm": "Voulez-vous supprimer cet utilisateur de vos amis ?",
   "delete-account_confirm": "Voulez-vous vraiment supprimer votre compte ?",
+  "settings_language-change": "Changer de langue",
   "settings_theme-change": "Changer de thème couleur",
   "fakebook-theme": "Thème 'Fakebook'",
   "dark-theme": "Thème sombre",
@@ -50,5 +52,11 @@
   "settings_change-name": "Changer mon nom",
   "settings_change-name_error": "Nous avons recontré une erreur, veuillez réessayer.",
   "settings_change-name_success": "Votre nom a été modifié.",
-  "all-users_title": "Tous les utilisateurs"
+  "all-users_title": "Tous les utilisateurs",
+  "all-friends_button": "Trouvez de nouveaux amis",
+  "friends-requests": "Demandes reçues",
+  "friends-invites": "Demandes en attente",
+  "friend-req_accept": "Accepter",
+  "friend-req_reject": "Refuser",
+  "friend-req_cancel": "Annuler"
 }

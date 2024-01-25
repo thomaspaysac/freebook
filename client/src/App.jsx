@@ -82,12 +82,12 @@ function App() {
     <authContext.Provider value={userData}>
       <IntlProvider locale={locale} messages={messages}>
       <BrowserRouter>
-        <Header theme={theme} switchLanguage={handleLanguageChange} />
+        <Header theme={theme} />
         <Routes>
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
-          <Route exact path="/user/settings" element={<SettingsPage theme={theme} switchTheme={switchTheme} />} />
+          <Route exact path="/user/settings" element={<SettingsPage theme={theme} switchTheme={switchTheme} switchLanguage={handleLanguageChange} />} />
           <Route exact path="/feed" element={<TimeLinePage theme={theme} />} />
           <Route path="/user/:id" element={<ProfilePage theme={theme} />} />
           <Route exact path="/users" element={<AllUsersPage theme={theme} />} />
