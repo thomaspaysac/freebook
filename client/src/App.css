@@ -179,17 +179,45 @@ header {
 
 footer {
   display: flex;
-  justify-content: space-evenly;
-  background-color: #000000;
+  gap: 128px;
+  justify-content: center;
+  background-color: #333333;
   color: var(--white);
   font-size: 0.8rem;
   padding: 16px; }
+  footer .github-link {
+    display: flex;
+    align-items: center;
+    gap: 6px; }
+  footer .separator {
+    display: none; }
+  footer img {
+    height: 16px; }
+  footer a {
+    color: var(--white);
+    text-decoration: none; }
+    footer a:hover, footer a:active {
+      text-decoration: underline; }
   footer button {
     border: none;
     background-color: #00000000;
     color: var(--white); }
     footer button:hover, footer button:active {
-      cursor: pointer; }
+      cursor: pointer;
+      text-decoration: underline; }
+  @media (max-width: 480px) {
+    footer {
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      white-space: nowrap; }
+      footer .separator {
+        display: block;
+        margin: 8px 0; }
+      footer .github-link {
+        justify-content: center; }
+      footer:first-of-type {
+        text-align: center; } }
 
 .header_logo {
   color: var(--logo_header);
@@ -554,11 +582,14 @@ footer {
       @media (max-width: 480px) {
         .profile .user-info .user-info_data {
           flex-direction: column;
+          align-self: center;
+          padding-top: 0;
           gap: 8px; } }
       .profile .user-info .user-info_data .friendship-status {
         height: fit-content;
-        align-self: center;
-        padding: 8px; }
+        align-self: start;
+        padding: 8px;
+        margin-top: 8px; }
         @media (max-width: 480px) {
           .profile .user-info .user-info_data .friendship-status {
             width: fit-content;

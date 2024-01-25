@@ -276,11 +276,36 @@ header {
 
 footer {
   display: flex;
-  justify-content: space-evenly;
-  background-color: #000000;
+  gap: 128px;
+  justify-content: center;
+  background-color: #333333;
   color: var(--white);
   font-size: 0.8rem;
   padding: 16px;
+
+  .github-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  img {
+    height: 16px;
+  }
+
+  a {
+    color: var(--white);
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
 
   button {
     border: none;
@@ -290,6 +315,31 @@ footer {
     &:hover,
     &:active {
       cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    white-space: nowrap;
+
+    .separator {
+      display: block;
+      margin: 8px 0;
+    }
+
+    .github-link {
+    justify-content: center;
+    }
+
+    div {
+      //width: 100%;
+    }
+
+    &:first-of-type {
+      text-align: center;
     }
   }
 }
@@ -792,13 +842,16 @@ footer {
 
       @media (max-width: 480px) {
         flex-direction: column;
+        align-self: center;
+        padding-top: 0;
         gap: 8px;
       }
 
       .friendship-status {
         height: fit-content;
-        align-self: center;
+        align-self: start;
         padding: 8px;
+        margin-top: 8px;
 
         @media (max-width: 480px) {
           width: fit-content;
