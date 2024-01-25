@@ -750,7 +750,7 @@ footer {
     gap: 24px;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
-    top: -50px;
+    top: -45px;
     left: 26px;
     width: 70%;
     padding-right: 40px;
@@ -779,7 +779,11 @@ footer {
     .user-info_data {
       display: flex;
       justify-content: space-between;
+      align-self: start;
+      padding-top: 50px;
       width: 88%;
+      overflow: clip;
+      white-space: wrap;
 
       h3 {
         text-overflow: clip;
@@ -793,6 +797,7 @@ footer {
 
       .friendship-status {
         height: fit-content;
+        align-self: center;
         padding: 8px;
 
         @media (max-width: 480px) {

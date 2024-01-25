@@ -519,7 +519,7 @@ footer {
     gap: 24px;
     position: relative;
     background-color: rgba(255, 255, 255, 0);
-    top: -50px;
+    top: -45px;
     left: 26px;
     width: 70%;
     padding-right: 40px; }
@@ -543,7 +543,11 @@ footer {
     .profile .user-info .user-info_data {
       display: flex;
       justify-content: space-between;
-      width: 88%; }
+      align-self: start;
+      padding-top: 50px;
+      width: 88%;
+      overflow: clip;
+      white-space: wrap; }
       .profile .user-info .user-info_data h3 {
         text-overflow: clip;
         word-wrap: break-word; }
@@ -553,6 +557,7 @@ footer {
           gap: 8px; } }
       .profile .user-info .user-info_data .friendship-status {
         height: fit-content;
+        align-self: center;
         padding: 8px; }
         @media (max-width: 480px) {
           .profile .user-info .user-info_data .friendship-status {
