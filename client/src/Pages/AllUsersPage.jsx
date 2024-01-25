@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import { Form, Link } from "react-router-dom";
+import { FormattedMessage } from 'react-intl';
 // Components
 import { Layout } from "../Components/Layout";
 import { RoundPicture } from "../Components/Images/RoundPicture";
@@ -44,7 +45,7 @@ export const AllUsersPage = ({theme}) => {
   return (
     <Layout>
       <div className="content users-list" data-theme={theme}>
-        <h2>All users</h2>
+        <h2><FormattedMessage id="all-users_title" defaultMessage={"All users"} /></h2>
         <UsersList />
       </div>
     </Layout>

@@ -22,7 +22,7 @@
   "friends-icon_title": "Demandes d'amis",
   "feed-icon_title" : "Actualités",
   "new-post_title" : "Quoi de neuf ?",
-  "feed_title": "Vos actualités",
+  "feed_title": "Dernières publications",
   "new-post_submit": "Publier",
   "post_comments-count": "commentaires",
   "delete_button": "Supprimer",
@@ -49,6 +49,6 @@
   "account-delete_button" : "Supprimer mon compte",
   "settings_change-name": "Changer mon nom",
   "settings_change-name_error": "Nous avons recontré une erreur, veuillez réessayer.",
-  "settings_change-name_success": "Votre nom a été modifié."
-
+  "settings_change-name_success": "Votre nom a été modifié.",
+  "all-users_title": "Tous les utilisateurs"
 }
