@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 // Components
 import { Layout } from "../Components/Layout";
 import { RoundPicture } from "../Components/Images/RoundPicture";
+import { LoadingAnimation } from "../Components/LoadingAnimation";
 
 export const AllUsersPage = ({theme}) => {
   const [users, setUsers] = useState();
@@ -20,7 +21,7 @@ export const AllUsersPage = ({theme}) => {
 
   const UsersList = () => {
     if (!users) {
-      return null;
+      return <LoadingAnimation />;
     }
 
     return (

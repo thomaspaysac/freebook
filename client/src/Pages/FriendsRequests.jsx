@@ -4,6 +4,8 @@ import { FriendsRequestsContainer } from "../Components/Friends/RequestsContaine
 import { Layout } from "../Components/Layout";
 import { Link } from "react-router-dom";
 import { FormattedMessage, useIntl } from "react-intl";
+// Components
+import { LoadingAnimation } from "../Components/LoadingAnimation";
 
 export const FriendsRequestPage = ({theme}) => {
   const [requests, setRequests] = useState([]);
@@ -40,9 +42,11 @@ export const FriendsRequestPage = ({theme}) => {
 
   if (!authData) {
     return (
-      <>
-        Loading...
-      </>
+      <Layout>
+        <div className="content requests" data-theme={theme}>
+          <LoadingAnimation />
+        </div> 
+      </Layout>
     )
   }
 

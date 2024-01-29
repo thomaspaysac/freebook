@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { PostSingle } from "../Components/Posts/PostSingle";
 import { Layout } from "../Components/Layout";
 import { NewPostForm } from "../Components/Forms/NewPost";
+import { LoadingAnimation } from "../Components/LoadingAnimation";
 
 export const TimeLinePage = ({theme}) => {
   const [posts, setPosts] = useState();
@@ -34,7 +35,9 @@ export const TimeLinePage = ({theme}) => {
 
   const PostsList = () => {
     if (!posts || !authData) {
-      return null;
+      return (
+        <LoadingAnimation />
+      );
     }
 
     return (

@@ -10,6 +10,7 @@ import { NewPostForm } from "../Components/Forms/NewPost";
 import { ProfilePictureContainer } from "../Components/User/ProfilePictureContainer";
 import { BackgroundPictureContainer } from "../Components/User/BackgroundPictureContainer";
 import { Layout } from "../Components/Layout";
+import { LoadingAnimation } from "../Components/LoadingAnimation";
 
 export const ProfilePage = ({theme}) => {
   const [profileData, setProfileData] = useState();
@@ -62,9 +63,11 @@ export const ProfilePage = ({theme}) => {
 
   if (!profileData) {
     return (
-      <>
-        <h1>Loading...</h1>
-      </>
+      <Layout>
+        <div className="content profile" data-theme={theme}>
+          <LoadingAnimation />
+        </div>
+      </Layout>
     )
   }
 

@@ -123,6 +123,16 @@ main {
   .heart-icon:hover, .heart-icon:active {
     cursor: pointer; }
 
+.loader {
+  margin: 0 0 2em;
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top; }
+
 header {
   position: fixed;
   top: 0;
@@ -289,12 +299,13 @@ footer {
   position: relative; }
   .login-container .policy-link {
     position: absolute;
-    bottom: -40px;
+    bottom: -64px;
     left: 50%;
     transform: translateX(-50%);
     color: var(--font_default);
     text-decoration: none;
-    font-size: 0.8rem; }
+    font-size: 0.8rem;
+    text-align: center; }
     .login-container .policy-link:hover, .login-container .policy-link:active {
       text-decoration: underline; }
 
