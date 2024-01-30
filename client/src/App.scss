@@ -1654,8 +1654,8 @@ footer {
 }
 
 
-// Page not found
-.not-found {
+// Error pages
+.error-page {
   background-color: var(--page_background); 
   color: var(--font_default);
   height: 100%;
@@ -1663,7 +1663,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
   font-weight: 700;
   font-size: 1.2rem;
 

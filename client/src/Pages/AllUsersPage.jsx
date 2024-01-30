@@ -5,19 +5,31 @@ import { FormattedMessage } from 'react-intl';
 import { Layout } from "../Components/Layout";
 import { RoundPicture } from "../Components/Images/RoundPicture";
 import { LoadingAnimation } from "../Components/LoadingAnimation";
+import { NetworkErrorPage } from "./NetworkError";
 
 export const AllUsersPage = ({theme}) => {
   const [users, setUsers] = useState();
+  const [networkError, setNetworkError] = useState(false);
 
   const fetchUsers = async () => {
-    const req = await fetch("http://localhost:3000/user");
-    const res = await req.json();
-    setUsers(res);
+    try {
+      const req = await fetch("http://localhost:3000/user");
+      const res = await req.json();
+      setUsers(res);  
+    } catch {
+      setNetworkError(true);
+    }
   }
 
   useEffect(() => {
     fetchUsers();
   }, [])
+
+  if (networkError) {
+    return (
+      <NetworkErrorPage theme={theme} />
+    )
+  }
 
   const UsersList = () => {
     if (!users) {

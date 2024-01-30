@@ -11,12 +11,14 @@ import { ProfilePictureContainer } from "../Components/User/ProfilePictureContai
 import { BackgroundPictureContainer } from "../Components/User/BackgroundPictureContainer";
 import { Layout } from "../Components/Layout";
 import { LoadingAnimation } from "../Components/LoadingAnimation";
+import { NetworkErrorPage } from "./NetworkError";
 
 export const ProfilePage = ({theme}) => {
   const [profileData, setProfileData] = useState();
   const [uuid, setUuid] = useState();
-  const [friendShip, setFriendShip] = useState();    
+  const [friendShip, setFriendShip] = useState(); 
   const [update, setUpdate] = useState(0);
+  const [networkError, setNetworkError] = useState(false);
   const { id } = useParams();
   const authData = useContext(authContext);
 
@@ -28,10 +30,14 @@ export const ProfilePage = ({theme}) => {
     if (!authData) {
       return;
     }
-    const req = await fetch('http://localhost:3000/user/' + id);
-    const res = await req.json();
-    setProfileData(res[0]);
-    setUuid(res[0].uuid);
+    try {
+      const req = await fetch('http://localhost:3000/user/' + id);
+      const res = await req.json();
+      setProfileData(res[0]);
+      setUuid(res[0].uuid);  
+    } catch {
+      setNetworkError(true);
+    }
   }
 
   const fetchFriendStatus = async () => {
@@ -60,6 +66,10 @@ export const ProfilePage = ({theme}) => {
   useEffect(() => {
     fetchFriendStatus();
   }, [authData, uuid])
+
+  if (networkError) {
+    return <NetworkErrorPage theme={theme} />
+  }
 
   if (!profileData) {
     return (

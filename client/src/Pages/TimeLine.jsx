@@ -6,10 +6,12 @@ import { PostSingle } from "../Components/Posts/PostSingle";
 import { Layout } from "../Components/Layout";
 import { NewPostForm } from "../Components/Forms/NewPost";
 import { LoadingAnimation } from "../Components/LoadingAnimation";
+import { NetworkErrorPage } from "./NetworkError";
 
 export const TimeLinePage = ({theme}) => {
   const [posts, setPosts] = useState();
   const [update, setUpdate] = useState(0);
+  const [networkError, setNetworkError] = useState(false);
   const authData = useContext(authContext);
 
   const updateComponent = () => {
@@ -20,18 +22,26 @@ export const TimeLinePage = ({theme}) => {
     if (!authData) {
       return;
     }
-    const req = await fetch('http://localhost:3000/posts/feed', {
-      headers : {
-        authorization: authData.sub,
-      }
-    });
-    const res = await req.json();
-    setPosts(res);
+    try {
+      const req = await fetch('http://localhost:3000/posts/feed', {
+        headers : {
+          authorization: authData.sub,
+        }
+      });
+      const res = await req.json();
+      setPosts(res);
+    } catch {
+      setNetworkError(true);
+    }
   }
 
   useEffect(() => {
     fetchPosts()
   }, [authData, update]);
+
+  if (networkError) {
+    return <NetworkErrorPage theme={theme} />
+  }
 
   const PostsList = () => {
     if (!posts || !authData) {
