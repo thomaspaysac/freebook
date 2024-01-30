@@ -44,7 +44,7 @@ export const FriendsRequestPage = ({theme}) => {
     return (
       <Layout>
         <div className="content requests" data-theme={theme}>
-          <LoadingAnimation />
+          <LoadingAnimation theme={theme} />
         </div> 
       </Layout>
     )

@@ -65,7 +65,7 @@ export const ProfilePage = ({theme}) => {
     return (
       <Layout>
         <div className="content profile" data-theme={theme}>
-          <LoadingAnimation />
+          <LoadingAnimation theme={theme} />
         </div>
       </Layout>
     )

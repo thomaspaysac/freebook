@@ -42,8 +42,9 @@ export const SettingsPage = ({theme, switchTheme, switchLanguage}) => {
         <div className="change-theme_container">
           <h3><FormattedMessage id="settings_theme-change" defaultMessage="Change theme" /></h3>
           <div className="choices">
-            <button onClick={() => switchTheme('light')}><FormattedMessage id="fakebook-theme" defaultMessage="Fakebook theme" /></button>
-            <button onClick={() => switchTheme('dark')}><FormattedMessage id="dark-theme" defaultMessage="Dark theme" /></button>
+            <button onClick={() => switchTheme('light')}><FormattedMessage id="light-theme" defaultMessage="Light" /></button>
+            <button onClick={() => switchTheme('dark')}><FormattedMessage id="dark-theme" defaultMessage="Dark" /></button>
+            <button onClick={() => switchTheme('red')}><FormattedMessage id="red-theme" defaultMessage="Red" /></button>
           </div>
         </div>
         <div className="delete-profile_container">

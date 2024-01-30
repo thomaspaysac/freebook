@@ -1169,4 +1169,19 @@ footer {
       background-color: #ff0000;
       color: var(--white); }
 
+.not-found {
+  background-color: var(--page_background);
+  color: var(--font_default);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  font-weight: 700;
+  font-size: 1.2rem; }
+  .not-found img {
+    display: block;
+    width: clamp(100px, 10%, 300px); }
+
 /*# sourceMappingURL=App.css.map */

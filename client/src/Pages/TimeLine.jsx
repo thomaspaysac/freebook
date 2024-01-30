@@ -36,7 +36,7 @@ export const TimeLinePage = ({theme}) => {
   const PostsList = () => {
     if (!posts || !authData) {
       return (
-        <LoadingAnimation />
+        <LoadingAnimation theme={theme} />
       );
     }
 

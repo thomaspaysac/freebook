@@ -21,7 +21,7 @@ export const AllUsersPage = ({theme}) => {
 
   const UsersList = () => {
     if (!users) {
-      return <LoadingAnimation />;
+      return <LoadingAnimation theme={theme} />;
     }
 
     return (

@@ -27,6 +27,7 @@ import { TimeLinePage } from './Pages/TimeLine';
 import { AllUsersPage } from './Pages/AllUsersPage';
 import { SettingsPage } from './Pages/Settings';
 import { PrivacyPolicyPage } from './Pages/PrivacyPolicy';
+import { PageNotFound } from './Pages/PageNotFound';
 
 // Context
 export const authContext = createContext({});
@@ -86,6 +87,7 @@ function App() {
       <BrowserRouter>
         <Header theme={theme} />
         <Routes>
+          <Route exact path="*" element={<PageNotFound theme={theme} />} />
           <Route exact path="/" element={<TimeLinePage theme={theme} />} />
           <Route exact path="/login/recover" element={<PasswordForgottenPage theme={theme} />} />
           <Route exact path="/login/reset" element={<PasswordResetPage />} />
