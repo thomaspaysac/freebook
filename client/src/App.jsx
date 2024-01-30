@@ -13,7 +13,7 @@ import './App.css'
 import { createClient } from "@supabase/supabase-js";
 //import { SUPABASE_URL } from './.private';
 //import { SUPABASE_KEY } from './.private';
-export const supabase = createClient(import.meta.env.REACT_APP_SUPABASE_URL, import.meta.env.REACT_APP_SUPABASE_KEY);
+export const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_KEY);
 
 // Pages import
 import { Header } from './Components/Header/Header';
