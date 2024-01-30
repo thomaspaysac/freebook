@@ -58,7 +58,7 @@ export const TimeLinePage = ({theme}) => {
       <div className="content timeline-page" data-theme={theme}>
         <div className="new-post_container">
           <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
-          <NewPostForm update={updateComponent} />
+          <NewPostForm update={updateComponent} theme={theme} />
         </div>
         <h3><FormattedMessage id="feed_title" defaultMessage="Your feed" /></h3>
         <PostsList />

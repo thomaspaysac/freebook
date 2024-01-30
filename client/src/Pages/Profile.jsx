@@ -111,7 +111,7 @@ export const ProfilePage = ({theme}) => {
           <div className="posts_container">          
           <div className="profile_new-post" style={{display: uuid !== authData.sub ? "none" : "block"}}>
             <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
-            <NewPostForm update={updateComponent} />
+            <NewPostForm update={updateComponent} theme={theme} />
           </div>
             <div className="section-header">
               <h3><FormattedMessage id="profile_posts" defaultMessage="Posts" /></h3>

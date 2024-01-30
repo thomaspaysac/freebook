@@ -2,15 +2,18 @@ import { useContext, useState } from "react";
 import { authContext } from "../../App";
 import { FormattedMessage } from 'react-intl';
 // Assets
-import imageUpload from "../../assets/icons/image_upload.png";
-import imageUploadColored from "../../assets/icons/image_upload_colored.png";
+import imageUpload from "../../assets/icons/image-upload.png";
+import imageUploadWhite from "../../assets/icons/image-upload_white.png";
+import imageUploadColored from "../../assets/icons/image-upload_colored.png";
 import deleteIcon from "../../assets/icons/delete.png";
 
 
-export const NewPostForm = ({ update }) => {
+export const NewPostForm = ({ update, theme }) => {
   const [fileUploaded, setFileUploaded] = useState(false);
   const [errors, setErrors] = useState(false);
   const authData = useContext(authContext);
+
+  const uploadIcon = theme === 'dark' ? imageUploadWhite : imageUpload;
 
   const sendForm = async (e) => {
     e.preventDefault();
@@ -88,7 +91,7 @@ export const NewPostForm = ({ update }) => {
           <textarea name="text" id="text" minLength={1} maxLength={4000}></textarea>
           <div className="upload-group">
             <label htmlFor="file">
-              <img src={fileUploaded ? imageUploadColored : imageUpload} alt='upload image' title="Upload image" />
+              <img src={fileUploaded ? imageUploadColored : uploadIcon} alt='upload image' title="Upload image" />
             </label>
             <input type="file" name="file" id="file" accept="image/*" style={{display: "none"}} onChange={checkFile} />
             <CancelFileUploadButton />
