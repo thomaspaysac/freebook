@@ -11,9 +11,9 @@ import './App.css'
 
 // Supabase config
 import { createClient } from "@supabase/supabase-js";
-import { SUPABASE_URL } from './.private';
-import { SUPABASE_KEY } from './.private';
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+//import { SUPABASE_URL } from './.private';
+//import { SUPABASE_KEY } from './.private';
+export const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
 // Pages import
 import { Header } from './Components/Header/Header';
