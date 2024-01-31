@@ -11,7 +11,8 @@ export const LoginForm = ({ openSignup }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    const req = await fetch('http://localhost:3000/user/login', {
+    //const req = await fetch('http://localhost:3000/user/login', {
+    const req = await fetch('https://freebook.up.railway.app/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +34,8 @@ export const LoginForm = ({ openSignup }) => {
       email: 'test@gmail.com',
       password: 'Testeur'
     }
-    const req = await fetch('http://localhost:3000/user/login', {
+    //const req = await fetch('http://localhost:3000/user/login', {
+    const req = await fetch('https://freebook.up.railway.app/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

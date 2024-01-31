@@ -7,7 +7,8 @@ export const FriendsList = ({ user_ID, authData }) => {
   const [friends, setFriends] = useState();
 
   const fetchFriendsList = async () => {
-    const req = await fetch(`http://localhost:3000/user/friends/${user_ID}`)
+    //const req = await fetch(`http://localhost:3000/user/friends/${user_ID}`);
+    const req = await fetch(`https://freebook.up.railway.app/user/friends/${user_ID}`);
     const res = await req.json();
     setFriends(res);
   }

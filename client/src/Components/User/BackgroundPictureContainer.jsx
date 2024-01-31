@@ -10,7 +10,8 @@ export const BackgroundPictureContainer = ({ uuid, own_uuid, image }) => {
     const form = document.getElementById('change-background_form');
     const formData = new FormData(form);
     formData.append('auth', own_uuid);
-    await fetch('http://localhost:3000/user/background', {
+    //await fetch('http://localhost:3000/user/background', {
+    await fetch('https://freebook.up.railway.app/user/background', {
       method: 'PATCH',
       headers: {
         token: localStorage.getItem('jwt'),

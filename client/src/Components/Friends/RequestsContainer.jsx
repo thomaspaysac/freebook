@@ -14,7 +14,8 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
   }
 
   const acceptRequest = async (request) => {
-    const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    //const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    const req = await fetch(`https://freebook.up.railway.app/user/friends/request/${request.id}`, {
       method: 'PATCH'
     });
     if (req.status !== 200) {
@@ -25,7 +26,8 @@ export const FriendsRequestsContainer = ({title, type, data}) => {
   }
 
   const deleteRequest = async (request) => {
-    const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    //const req = await fetch(`http://localhost:3000/user/friends/request/${request.id}`, {
+    const req = await fetch(`https://freebook.up.railway.app/user/friends/request/${request.id}`, {
       method: 'DELETE'
     });
     if (req.status !== 200) {

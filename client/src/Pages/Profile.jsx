@@ -31,7 +31,8 @@ export const ProfilePage = ({theme}) => {
       return;
     }
     try {
-      const req = await fetch('http://localhost:3000/user/' + id);
+      //const req = await fetch('http://localhost:3000/user/' + id);
+      const req = await fetch('https://freebook.up.railway.app/user/' + id);
       const res = await req.json();
       setProfileData(res[0]);
       setUuid(res[0].uuid);  
@@ -44,7 +45,8 @@ export const ProfilePage = ({theme}) => {
     if (!authData || !uuid) {
       return;
     }
-    const req = await fetch('http://localhost:3000/user/friends/check/' + uuid, {
+    //const req = await fetch('http://localhost:3000/user/friends/check/' + uuid, {
+    const req = await fetch('https://freebook.up.railway.app/user/friends/check/' + uuid, {
       headers : {
         authorization: authData.sub,
       }

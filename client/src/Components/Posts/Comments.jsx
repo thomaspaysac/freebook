@@ -15,7 +15,8 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
   }
 
   const fetchComments = async () => {
-    const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments`);
+    //const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments`);
+    const req = await fetch(`https://freebook.up.railway.app/posts/${post_ID}/comments`);
     const res = await req.json();
     setComments(res);
     setExpanded(true);
@@ -26,7 +27,8 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
     const formData = new FormData(e.target);
     formData.append('author', author);
     const data = Object.fromEntries(formData.entries());
-    const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments/create`, {
+    //const req = await fetch(`http://localhost:3000/posts/${post_ID}/comments/create`, {
+    const req = await fetch(`https://freebook.up.railway.app/posts/${post_ID}/comments/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

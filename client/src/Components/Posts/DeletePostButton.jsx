@@ -7,7 +7,8 @@ export const DeletePostButton = ({ post_ID, post_author, user_ID }) => {
 
   const deletePost = async () => {
     if (window.confirm(intl.formatMessage({ id: "post-delete_confirm" }))) {
-      await fetch(`http://localhost:3000/posts/${post_ID}`, {
+      //await fetch(`http://localhost:3000/posts/${post_ID}`, {
+      await fetch(`https://freebook.up.railway.app/posts/${post_ID}`, {
         method: 'DELETE',
         headers: {
           authorization: user_ID,

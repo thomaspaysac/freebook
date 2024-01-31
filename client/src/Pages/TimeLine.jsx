@@ -23,7 +23,8 @@ export const TimeLinePage = ({theme}) => {
       return;
     }
     try {
-      const req = await fetch('http://localhost:3000/posts/feed', {
+      //const req = await fetch('http://localhost:3000/posts/feed', {
+      const req = await fetch('https://freebook.up.railway.app/posts/feed', {
         headers : {
           authorization: authData.sub,
         }

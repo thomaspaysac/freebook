@@ -7,7 +7,8 @@ export const PostsList = ({ user_ID, update }) => {
   const authData = useContext(authContext);
 
   const fetchPosts = async () => {
-    const req = await fetch(`http://localhost:3000/posts/${user_ID}`);
+    //const req = await fetch(`http://localhost:3000/posts/${user_ID}`);
+    const req = await fetch(`https://freebook.up.railway.app/posts/${user_ID}`);
     const res = await req.json();
     setPosts(res);
   }

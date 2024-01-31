@@ -19,7 +19,8 @@ export const NewPostForm = ({ update, theme }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     formData.append('author', authData.sub);
-    const req = await fetch('http://localhost:3000/posts/create', {
+    //const req = await fetch('http://localhost:3000/posts/create', {
+    const req = await fetch('https://freebook.up.railway.app/posts/create', {
       method: 'POST',
       headers: {
         token: localStorage.getItem('jwt'),

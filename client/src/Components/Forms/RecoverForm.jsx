@@ -9,7 +9,8 @@ export const RecoverForm = () => {
     const formData = new FormData(e.target);
     const email = Object.fromEntries(formData.entries()).email;
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: 'http://localhost:5173/login/reset',
+      //redirectTo: 'http://localhost:5173/login/reset',
+      redirectTo: 'https://freebook-app.netlify.app/login/reset',
     })    
   } 
 

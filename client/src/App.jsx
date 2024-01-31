@@ -49,7 +49,8 @@ function App() {
   };
   
   const fetchUserSession = async () => {
-    const req = await fetch('http://localhost:3000/user/session');
+    //const req = await fetch('http://localhost:3000/user/session');
+    const req = await fetch('https://freebook.up.railway.app/user/session');
     if (req.status === 200) {
       const res = await req.json();
       setUserData(res);

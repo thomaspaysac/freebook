@@ -8,7 +8,8 @@ export const DeleteCommentButton = ({ post_ID, comment_ID, comment_author, user_
   const deleteComment = async () => {
     
     if (window.confirm(intl.formatMessage({ id: "comment-delete_confirm" }))) {
-      await fetch(`http://localhost:3000/posts/${post_ID}/comments/${comment_ID}`, {
+      //await fetch(`http://localhost:3000/posts/${post_ID}/comments/${comment_ID}`, {
+      await fetch(`https://freebook.up.railway.app/posts/${post_ID}/comments/${comment_ID}`, {
         method: 'DELETE',
         headers: {
           authorization: user_ID,

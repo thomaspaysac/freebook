@@ -18,7 +18,8 @@ export const PostSingle = ({ post, user_ID, post_type }) => {
     if (!user_ID) {
       return;
     } else {
-      const req = await fetch(`http://localhost:3000/posts/${post.id}/like/${user_ID}`);
+      //const req = await fetch(`http://localhost:3000/posts/${post.id}/like/${user_ID}`);
+      const req = await fetch(`https://freebook.up.railway.app/posts/${post.id}/like/${user_ID}`);
       const res = await req.json();
       if (!res.length) {
         setLiked(false);
@@ -48,7 +49,8 @@ export const PostSingle = ({ post, user_ID, post_type }) => {
     const body = {
       author: user_ID,
     };
-    const {req, error} = await fetch(`http://localhost:3000/posts/${post.id}/like`, {
+    //const {req, error} = await fetch(`http://localhost:3000/posts/${post.id}/like`, {
+    const {req, error} = await fetch(`https://freebook.up.railway.app/posts/${post.id}/like`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
