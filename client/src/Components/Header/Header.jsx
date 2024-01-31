@@ -4,7 +4,7 @@ import { UserContainer } from "./UserContainer";
 export const Header = ({theme, switchLanguage}) => {
   return (
     <header data-theme={theme}>
-      <Link to='/' className="header_logo">freebook</Link>
+      <Link to='/' className="header_logo">talkbook</Link>
       <UserContainer />
     </header>
   )

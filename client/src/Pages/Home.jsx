@@ -30,7 +30,7 @@ export const HomePage = ({theme}) => {
     <Layout>
       <div className="content homepage" data-theme={theme}>
         <div>
-          <h1 className="logo">freebook</h1>
+          <h1 className="logo">talkbook</h1>
           <h2 className={`${animate ? 'animated' : ''}`}>
             <FormattedMessage id="slogan_1" defaultMessage="Connect with your friends," />
             <br /><span><FormattedMessage id="slogan_2" defaultMessage="make new ones" /></span>

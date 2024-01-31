@@ -12,7 +12,7 @@ export const LoginForm = ({ openSignup }) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     //const req = await fetch('http://localhost:3000/user/login', {
-    const req = await fetch('https://freebook.up.railway.app/user/login', {
+    const req = await fetch('https://talkbook.up.railway.app/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ export const LoginForm = ({ openSignup }) => {
       password: 'Testeur'
     }
     //const req = await fetch('http://localhost:3000/user/login', {
-    const req = await fetch('https://freebook.up.railway.app/user/login', {
+    const req = await fetch('https://talkbook.up.railway.app/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

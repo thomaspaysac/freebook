@@ -12,7 +12,7 @@ export const SignupModal = ({open, closeSignup, theme}) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     //const req = await fetch('http://localhost:3000/user/signup', {
-    const req = await fetch('https://freebook.up.railway.app/user/signup', {
+    const req = await fetch('https://talkbook.up.railway.app/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

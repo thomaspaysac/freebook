@@ -20,7 +20,7 @@ export const NewPostForm = ({ update, theme }) => {
     const formData = new FormData(e.target);
     formData.append('author', authData.sub);
     //const req = await fetch('http://localhost:3000/posts/create', {
-    const req = await fetch('https://freebook.up.railway.app/posts/create', {
+    const req = await fetch('https://talkbook.up.railway.app/posts/create', {
       method: 'POST',
       headers: {
         token: localStorage.getItem('jwt'),

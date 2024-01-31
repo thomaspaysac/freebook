@@ -15,7 +15,7 @@ export const SettingsPage = ({theme, switchTheme, switchLanguage}) => {
   const deleteAccount = async () => {
     if (window.confirm(intl.formatMessage({ id: "delete-account_confirm" }))) {
       //await fetch(`http://localhost:3000/user/${authData.sub}/delete`, {
-      await fetch(`https://freebook.up.railway.app/user/${authData.sub}/delete`, {
+      await fetch(`https://talkbook.up.railway.app/user/${authData.sub}/delete`, {
         method: 'DELETE',
         headers: {
           authorization: authData.sub,

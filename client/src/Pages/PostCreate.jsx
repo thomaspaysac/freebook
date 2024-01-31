@@ -3,7 +3,7 @@ export const PostCreatePage = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     //await fetch('http://localhost:3000/user/avatar', {
-    await fetch('https://freebook.up.railway.app/user/avatar', {
+    await fetch('https://talkbook.up.railway.app/user/avatar', {
       method: 'POST',
       body: formData,
     })

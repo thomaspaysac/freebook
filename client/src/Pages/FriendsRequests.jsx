@@ -18,7 +18,7 @@ export const FriendsRequestPage = ({theme}) => {
   const fetchRequests = async () => {
     try {
       //const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/pending`);
-      const req = await fetch(`https://freebook.up.railway.app/user/friends/${authData.sub}/pending`);
+      const req = await fetch(`https://talkbook.up.railway.app/user/friends/${authData.sub}/pending`);
       const res = await req.json();
       sortRequests(res);  
     } catch {

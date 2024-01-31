@@ -10,7 +10,7 @@ export const ChangeNameForm = ({ authData }) => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     //const req = await fetch(`http://localhost:3000/user/${authData.sub}/update`, {
-    const req = await fetch(`https://freebook.up.railway.app/user/${authData.sub}/update`, {
+    const req = await fetch(`https://talkbook.up.railway.app/user/${authData.sub}/update`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

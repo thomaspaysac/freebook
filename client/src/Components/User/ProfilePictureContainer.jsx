@@ -13,7 +13,7 @@ export const ProfilePictureContainer = ({ uuid, own_uuid, avatar }) => {
     const formData = new FormData(form);
     formData.append('auth', own_uuid);
     //await fetch('http://localhost:3000/user/avatar', {
-    await fetch('https://freebook.up.railway.app/user/avatar', {
+    await fetch('https://talkbook.up.railway.app/user/avatar', {
       method: 'PATCH',
       headers: {
         token: localStorage.getItem('jwt'),

@@ -26,7 +26,7 @@ export const UserContainer = () => {
 
   const fetchData = async () => {
     //const req = await fetch(`http://localhost:3000/user/uuid/${authData.sub}`);
-    const req = await fetch(`https://freebook.up.railway.app/user/uuid/${authData.sub}`);
+    const req = await fetch(`https://talkbook.up.railway.app/user/uuid/${authData.sub}`);
     const res = await req.json();
     if (res) {
       setUserData(res[0]);
@@ -38,7 +38,7 @@ export const UserContainer = () => {
       return;
     }
     //const req = await fetch(`http://localhost:3000/user/friends/${authData.sub}/received`);
-    const req = await fetch(`https://freebook.up.railway.app/user/friends/${authData.sub}/received`);
+    const req = await fetch(`https://talkbook.up.railway.app/user/friends/${authData.sub}/received`);
     const res = await req.json();
     if (!res || !res.length) {
       setAwaitingFriendRequest(false);
@@ -49,7 +49,7 @@ export const UserContainer = () => {
 
   const logOut = async () => {
     //await fetch('http://localhost:3000/user/logout');
-    await fetch('https://freebook.up.railway.app/user/logout');
+    await fetch('https://talkbook.up.railway.app/user/logout');
     setUserData(null);
     localStorage.setItem('jwt', '');
     navigateTo('/');

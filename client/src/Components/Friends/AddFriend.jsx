@@ -18,7 +18,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
       friend_ID 
     }
     //await fetch('http://localhost:3000/user/friends/add', {
-    await fetch('https://freebook.up.railway.app/user/friends/add', {
+    await fetch('https://talkbook.up.railway.app/user/friends/add', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export const AddFriend = ({ friend_ID, friendShip }) => {
   const deleteFriend = async () => {
     if (window.confirm(intl.formatMessage({ id: "friend-delete_confirm" }))) {
       //await fetch(`http://localhost:3000/user/friends/${friend_ID}/delete`, {
-      await fetch(`https://freebook.up.railway.app/user/friends/${friend_ID}/delete`, {
+      await fetch(`https://talkbook.up.railway.app/user/friends/${friend_ID}/delete`, {
         method: 'DELETE',
         headers : {
           authorization: authData.sub,

@@ -14,7 +14,7 @@ export const AllUsersPage = ({theme}) => {
   const fetchUsers = async () => {
     try {
       //const req = await fetch("http://localhost:3000/user");
-      const req = await fetch("https://freebook.up.railway.app/user");
+      const req = await fetch("https://talkbook.up.railway.app/user");
       const res = await req.json();
       setUsers(res);  
     } catch {
