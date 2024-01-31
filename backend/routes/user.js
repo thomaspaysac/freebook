@@ -318,7 +318,7 @@ router.patch('/:uuid/update', [
 
 // DELETE user account
 router.delete('/:uuid/delete', asyncHandler(async (req, res, next) => {
-  if (req.token !== req.headers.token || req.params.uuid !== req.user.id) {
+  if (req.token !== req.headers.token || req.params.uuid !== req.user.id || req.user.id === process.env.GUEST_ID) {
     res.sendStatus(403);
     return;
   } else {
