@@ -1,6 +1,6 @@
 # [Talkbook](https://talkbook-app.netlify.app/)
 
-This project was created as a part of The Odin Project curriculum.
+This project was created as a part of The Odin Project curriculum. The assignment was to create a simple social network website similar to Facebook.
 
 Hosted on Netlify: https://talkbook-app.netlify.app/
 
