@@ -34,7 +34,7 @@ export const SettingsPage = ({theme, switchTheme, switchLanguage}) => {
       <div className="content settings-page" data-theme={theme}>
         <ChangeNameForm authData={authData} />
         <div className="change-theme_container">
-          <h3 onClick={() => console.log(authData)}><FormattedMessage id="settings_language-change" defaultMessage={"Change language"} /></h3>
+          <h3><FormattedMessage id="settings_language-change" defaultMessage={"Change language"} /></h3>
           <div className="choices">
           <button onClick={() => switchLanguage('en')}>English</button>
           <button onClick={() => switchLanguage('fr')}>Français</button>
