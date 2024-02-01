@@ -51,7 +51,7 @@ export const SettingsPage = ({theme, switchTheme, switchLanguage}) => {
         <div className="delete-profile_container">
           <h3><FormattedMessage id="settings_delete-account" defaultMessage="Delete your account" /></h3>
           <div className="warning-message"><span className="bolded"><FormattedMessage id="delete-account_warning1" defaultMessage="Warning:" /></span> <FormattedMessage id="delete-account_warning2" defaultMessage="this action is permanent, your data will be completely deleted." /></div>
-          <button onClick={authData.sub !== import.meta.env.VITE_GUEST_ID ? () => deleteAccount() : alert("You can't delete the guest account")}><FormattedMessage id="account-delete_button" defaultMessage="Delete my account" /></button>
+          <button onClick={authData.sub !== import.meta.env.VITE_GUEST_ID ? () => deleteAccount() : () => alert("You can't delete the guest account")}><FormattedMessage id="account-delete_button" defaultMessage="Delete my account" /></button>
         </div>
       </div>
     </Layout>
