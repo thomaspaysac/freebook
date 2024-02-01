@@ -18,7 +18,8 @@ Hosted on Netlify: https://talkbook-app.netlify.app/
 
 ## Technologies used
 The backend is written with **Express** and hosted on Railway. Authentication, databases and files storage are handled by **Supabase**.
-The web app is built using **React** and hosted on Netlify.
+
+The frontend is built using **React** and hosted on Netlify.
 
 ## What I learned
 - Increasing security on the backend by better handling user verification in requests
