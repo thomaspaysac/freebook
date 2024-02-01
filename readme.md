@@ -1,5 +1,6 @@
-## Features
-- Groups (optional)
+# [Talkbook](https://talkbook-app.netlify.app/)
+<img src="./screenshots/talkbook.png" alt="logo" width='400'>
 
-## Finitions
-- Add loading animation ?
+This project was created as a part of The Odin Project curriculum.
+
+Hosted on Netlify: https://talkbook-app.netlify.app/
