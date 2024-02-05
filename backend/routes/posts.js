@@ -183,6 +183,7 @@ router.post('/:post_id/comments/create', [
   .unescape("&#39;", "'"),
 
   asyncHandler(async (req, res, next) => {
+    console.log({"req.token": req.token, "headers.token": req.headers.token, "body.author": req.body.author, "req.user": req.user.id})
     if (req.token !== req.headers.token || req.body.author !== req.user.id) {
       res.sendStatus(403);
       return;
