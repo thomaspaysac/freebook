@@ -5,6 +5,7 @@ import { CommentsList } from "./CommentsList";
 
 export const PostComments = forwardRef(function PostComments({ post_ID, author, onComment }, ref) {
   const [expanded, setExpanded] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [comments, setComments] = useState();
   const [errors, setErrors] = useState(false);
   const [update, setUpdate] = useState(0);
@@ -24,6 +25,7 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
 
   const createComment = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.target);
     formData.append('author', author);
     const data = Object.fromEntries(formData.entries());
@@ -39,10 +41,12 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
     const res = await req.json();
     if (res.status !== 200) {
       setErrors(res.errors);
+      setLoading(false);
       return;
     } else {
       setErrors(false);
       document.getElementById('comment-text').value = '';
+      setLoading(false);
       onComment();
     }
   }
@@ -72,6 +76,7 @@ export const PostComments = forwardRef(function PostComments({ post_ID, author, 
 
   return (
     <div className="comments_container">
+      <div className={`backdrop ${loading ? 'open' : ''}`}></div>
       <div className="comments-toggle" onClick={() => setExpanded(false)}><FormattedMessage id="hide-comments" defaultMessage="Hide comments" /></div>
       <form className="comment-form" onSubmit={createComment}>
         <textarea name='text' id="comment-text" placeholder={intl.formatMessage({ id: "placeholder_comment" })} minLength={1} maxLength={1500} />
