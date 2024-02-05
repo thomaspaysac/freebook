@@ -9,6 +9,7 @@ import deleteIcon from "../../assets/icons/delete.png";
 
 
 export const NewPostForm = ({ update, theme }) => {
+  const [loading, setLoading] = useState(false);
   const [fileUploaded, setFileUploaded] = useState(false);
   const [errors, setErrors] = useState(false);
   const authData = useContext(authContext);
@@ -17,6 +18,7 @@ export const NewPostForm = ({ update, theme }) => {
 
   const sendForm = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const formData = new FormData(e.target);
     formData.append('author', authData.sub);
     const req = await fetch('http://localhost:3000/posts/create', {
@@ -29,12 +31,14 @@ export const NewPostForm = ({ update, theme }) => {
     const res = await req.json();
     if (res.status !== 200) {
       setErrors(res.errors);
+      setLoading(false);
       return;
     } else {
       setErrors(false);
       document.getElementById('text').value = '';
       document.getElementById('file').value = '';
       setFileUploaded(false);
+      setLoading(false);
     }
   }
 
@@ -86,6 +90,7 @@ export const NewPostForm = ({ update, theme }) => {
 
   return (
     <div className="new-post_form">
+      <div className={`backdrop ${loading ? 'open' : ''}`}></div>
       <form onSubmit={sendForm}>
         <div className="input-group">
           <textarea name="text" id="text" minLength={1} maxLength={4000}></textarea>
