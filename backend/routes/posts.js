@@ -29,6 +29,8 @@ router.post('/create', upload.single('file'), [
   asyncHandler(async (req, res, next) => {
     if (req.token !== req.headers.token || req.body.author !== req.user.id) {
       res.sendStatus(403);
+      res.json({ status: 403, errors: ["Authentication error"] });
+      return;
     } 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -185,6 +187,7 @@ router.post('/:post_id/comments/create', [
   asyncHandler(async (req, res, next) => {
     if (req.token !== req.headers.token || req.body.author !== req.user.id) {
       res.sendStatus(403);
+      res.json({ status: 403, errors: ["Authentication error"] });
       return;
     }
     const errors = validationResult(req);
