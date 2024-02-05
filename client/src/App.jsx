@@ -36,7 +36,7 @@ export const authContext = createContext({});
 function App() {
   const [userData, setUserData] = useState();
   const [theme, setTheme] = useLocalStorage('theme', 'light');
-  const [locale, setLocale] = useLocalStorage('language', 'en');
+  const [locale, setLocale] = useLocalStorage('language', /^fr/i.test(navigator.language) ? 'fr' : 'en');
   const languages = {en: en_translation, fr: fr_translation};
   const messages = languages[locale];
 
