@@ -22,7 +22,7 @@ app.use(cors());
 const RateLimit = require("express-rate-limit");
 const limiter = RateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  max: 60,
+  max: 200,
 });
 
 // view engine setup
