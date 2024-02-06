@@ -55,7 +55,6 @@ export const FriendsList = ({ user_ID, authData }) => {
               </div>
               )
             }
-            
           })
         }
       </div>

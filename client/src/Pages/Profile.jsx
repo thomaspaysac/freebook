@@ -82,19 +82,6 @@ export const ProfilePage = ({theme}) => {
       </Layout>
     )
   }
-
-  const NewPostContainer = ({ update }) => {
-    if (uuid !== authData.sub) {
-      return null;
-    }
-
-    return (
-      <div className="profile_new-post">
-        <h3><FormattedMessage id="new-post_title" defaultMessage="What's on your mind?" /></h3>
-        <NewPostForm update={update} />
-      </div>
-    )
-}
   
   return (
     <Layout>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FormattedMessage } from 'react-intl';
 // Components
 import { Layout } from "../Components/Layout";

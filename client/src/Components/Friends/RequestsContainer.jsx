@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 // Components
 import { RoundPicture } from "../Images/RoundPicture";
-import { LoadingAnimation } from "../LoadingAnimation";
 
 export const FriendsRequestsContainer = ({title, type, data}) => {
   const [reqList, setReqList] = useState();

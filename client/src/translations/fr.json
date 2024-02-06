@@ -65,5 +65,7 @@
   "footer_theme-dark": "Sombre",
   "footer_theme-red": "Rouge",
   "footer_language": "Langue :",
-  "footer_privacy": "Politique de confidentialité"
+  "footer_privacy": "Politique de confidentialité",
+  "network-error": "Erreur réseau, merci de réessayer plus tard.",
+  "not-found": "Page non trouvée."
 }

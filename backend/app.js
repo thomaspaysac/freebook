@@ -39,6 +39,7 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static('uploads'));
 app.use(async (req, res, next) => {
+  // Get user session info to use in authentication
   const { data, error } = await supabase.auth.getSession()
   if (data.session) {
     req.user = data.session.user;
