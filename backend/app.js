@@ -16,7 +16,9 @@ const postsRouter = require('./routes/posts');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://talkbook-app.netlify.app'
+}));
 
 // Set up rate limiter: maximum of sixty requests per minute
 const RateLimit = require("express-rate-limit");
