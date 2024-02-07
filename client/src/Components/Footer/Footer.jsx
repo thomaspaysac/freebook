@@ -8,7 +8,7 @@ export const Footer = ({ theme, switchTheme, switchLanguage }) => {
     <footer data-theme={theme}>
       <div>
         <div>
-          <Link className="github-link" target="_blank" to="https://github.com/stagnant-sys"><img src={githubIcon} alt='' /> <div>GitHub</div></Link>
+          <Link className="github-link" target="_blank" to="https://github.com/thomaspaysac"><img src={githubIcon} alt='' /> <div>GitHub</div></Link>
         </div>
         <div>
           <Link to="/privacy"><FormattedMessage id="footer_privacy" defaultMessage={"Privacy policy"} /></Link>
